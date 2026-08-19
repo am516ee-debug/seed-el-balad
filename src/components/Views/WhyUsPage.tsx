@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from '../../hooks/useTranslation';
 
-// Landing page images only
+// Section images — named by section
 import imgHero from '../../assets/images/seed-el-balad/herosection.png';
-import imgProcess1 from '../../assets/images/seed-el-balad/section_3.jpeg';
-import imgProcess2 from '../../assets/images/seed-el-balad/img_11.jpeg';
-import imgFactory from '../../assets/images/seed-el-balad/img_22.jpeg';
-import imgFromTo from '../../assets/images/seed-el-balad/from_to.jpeg';
+import imgProcess1 from '../../assets/images/seed-el-balad/SOURCING & HARVEST pic.png';
+import imgProcess2 from '../../assets/images/seed-el-balad/BRINING & SMOKING pic.png';
+import imgFactory from '../../assets/images/seed-el-balad/OUR BELBEIS FACILITY pic.png';
 
 import '../../css/whyus.css';
 
@@ -238,9 +237,6 @@ export const WhyUsPage: React.FC<WhyUsPageProps> = ({ onViewPdf }) => {
           ))}
         </div>
 
-        <div className="qp-process-image qp-reveal">
-          <img src={imgFromTo} alt={language === 'ar' ? 'رحلة المنتج من البحر للمائدة' : 'Sea to table product journey'} />
-        </div>
       </section>
 
       {/* ─── 4. SPLIT IMAGE SECTIONS ─────────────────────────── */}
