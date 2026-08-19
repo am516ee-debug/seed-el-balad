@@ -201,11 +201,8 @@ export const WhyUsPage: React.FC<WhyUsPageProps> = ({ onViewPdf }) => {
         <div className="qp-timeline">
           {processSteps.map((step, i) => (
             <div className="qp-step qp-reveal" key={i} style={{ transitionDelay: `${i * 0.1}s` }}>
-              <div className="qp-step-top">
-                <div className="qp-step-num">{step.num}</div>
-                {i < processSteps.length - 1 && <div className="qp-step-connector" />}
-              </div>
               <div className="qp-step-card">
+                <div className="qp-step-num">{step.num}</div>
                 <div className="qp-step-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     {step.icon.split('M').filter(Boolean).map((d, di) => (
