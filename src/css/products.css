@@ -1,0 +1,269 @@
+/* Our Products Section: Competitor-Inspired Premium Styling */
+
+.collection-section {
+  padding: var(--spacing-md) 0 var(--spacing-xxl);
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Category Filter Bar */
+.catbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: var(--spacing-lg) auto var(--spacing-xl);
+  max-width: 1000px;
+  padding: 0 var(--spacing-md);
+}
+
+.catbtn {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  border: 1px solid rgba(185, 150, 83, 0.25);
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 0px !important;
+  padding: 10px 22px;
+  cursor: pointer;
+  transition: all var(--transition-fast) var(--ease-custom);
+  min-height: 38px;
+}
+
+[dir="rtl"] .catbtn {
+  letter-spacing: 0 !important;
+}
+
+.catbtn:hover {
+  border-color: var(--color-accent-gold-dark);
+  color: var(--color-text-ink);
+}
+
+.catbtn.active {
+  background: var(--color-accent-gold);
+  color: var(--color-white);
+  border-color: var(--color-accent-gold);
+  box-shadow: 0 4px 12px rgba(185, 150, 83, 0.25);
+}
+
+.catbtn.active:hover {
+  background-color: var(--color-accent-gold-dark);
+  border-color: var(--color-accent-gold-dark);
+  color: var(--color-white);
+}
+
+/* Products Grid */
+.pgrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  align-items: stretch;
+  transition: none;
+}
+
+.pgrid.animating .prod {
+  opacity: 0;
+  transform: scale(0.96) translateY(12px);
+}
+
+/* Product Card */
+.prod {
+  display: block;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0px !important;
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: none !important;
+  transition: transform 0.4s var(--ease-custom), opacity 0.4s ease;
+  will-change: transform;
+}
+
+[dir="rtl"] .prod {
+  text-align: center;
+}
+
+.prod:hover {
+  transform: translateY(-8px);
+}
+
+/* Product Image Box */
+.prod .im {
+  aspect-ratio: 1/1; /* Square aspect ratio matching homepage pedestal */
+  max-width: 380px;
+  margin: 0 auto;
+  background-color: var(--color-bg-cream);
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid rgba(32, 95, 166, 0.15);
+  border-radius: 0px !important;
+  transition: border-color 0.4s var(--ease-custom), box-shadow 0.4s var(--ease-custom);
+}
+
+.prod:hover .im {
+  box-shadow: 0 20px 45px rgba(18, 34, 46, 0.25);
+  border-color: rgba(32, 95, 166, 0.4);
+}
+
+/* Permanent Text Overlay directly on image (white bottom fade) */
+.prod-info-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px 12px 10px;
+  background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.95) 60%, var(--color-white) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  z-index: 2;
+  transition: opacity 0.35s ease;
+  text-align: center;
+}
+
+.prod:hover .prod-info-overlay {
+  opacity: 0; /* Fades out completely on hover to give full priority to the details CTA button */
+}
+
+.prod-info-overlay .ds {
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary); /* Brand blue category text */
+}
+
+[dir="rtl"] .prod-info-overlay .ds {
+  letter-spacing: 0 !important;
+}
+
+.prod-info-overlay .nm {
+  font-family: var(--font-serif);
+  font-size: 0.95rem; /* Smaller title font size for delicate premium aesthetic */
+  font-weight: 600;
+  color: var(--color-text-ink); /* Dark primary text color for readability */
+  margin: 0;
+  line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Center Hover CTA Overlay */
+.prod-cta-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(18, 34, 46, 0.35); /* Translucent dark overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.prod:hover .prod-cta-overlay {
+  opacity: 1;
+}
+
+.prod-cta-btn {
+  background-color: var(--color-accent-gold);
+  color: var(--color-white);
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  border-radius: 0px !important;
+  box-shadow: 0 6px 18px rgba(18, 34, 46, 0.2);
+  transform: translateY(12px);
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.25s ease;
+}
+
+[dir="rtl"] .prod-cta-btn {
+  letter-spacing: 0 !important;
+}
+
+.prod:hover .prod-cta-btn {
+  transform: translateY(0);
+}
+
+.prod-cta-btn:hover {
+  background-color: var(--color-accent-gold-dark);
+}
+
+/* Responsive grid layouts */
+@media (max-width: 1024px) {
+  .pgrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .pgrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .prod {
+    border-radius: 0px !important;
+  }
+  
+  .prod .im {
+    aspect-ratio: 1.1/1;
+  }
+  
+  .prod .pbody {
+    padding: var(--spacing-sm) var(--spacing-md);
+    gap: 8px;
+  }
+  
+  .prod .nm {
+    font-size: 0.94rem;
+  }
+  
+  .prod .ds {
+    font-size: 0.58rem;
+  }
+  
+  .prod .parrow {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .prod .parrow svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .catbar {
+    gap: 8px;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .catbtn {
+    padding: 8px 14px;
+    font-size: 0.65rem;
+    min-height: 32px;
+  }
+}

@@ -1,0 +1,389 @@
+/* Shared CSS for Modals and Floating components (CookieConsent, ProductModal, PrivacyModal) */
+
+/* Modals Overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(32, 36, 44, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md);
+  opacity: 0;
+  animation: fadeIn 0.3s forwards ease;
+}
+
+/* Modals Container Card */
+.modal-card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-accent-gold);
+  border-radius: 0px !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: translateY(30px);
+  opacity: 0;
+  animation: slideUp 0.4s 0.1s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-card.narrow {
+  max-width: 550px;
+}
+
+.modal-header {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid rgba(185, 150, 83, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h3 {
+  font-family: var(--font-serif);
+  color: var(--color-text-ink);
+}
+
+.modal-close-btn {
+  color: var(--color-text-muted);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  background-color: rgba(185, 150, 83, 0.08);
+  color: var(--color-text-ink);
+}
+
+.modal-body {
+  padding: var(--spacing-md);
+  overflow-y: auto;
+}
+
+/* Cookie Consent Bar */
+.cookie-consent-bar {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  z-index: 1500;
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-accent-gold);
+  box-shadow: 0 10px 30px rgba(32, 36, 44, 0.12);
+  padding: var(--spacing-md);
+  border-radius: 0px !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  transform: translateY(100px);
+  opacity: 0;
+  animation: slideUp 0.5s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+body[dir="rtl"] .cookie-consent-bar {
+  /* RTL adjustments if necessary, but flex-direction is handled by html structure */
+}
+
+.cookie-text {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  flex: 1;
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.btn-primary {
+  background-color: var(--color-accent-gold);
+  color: var(--color-white);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border-radius: 0px !important;
+  transition: all var(--transition-fast);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent-gold-dark);
+  box-shadow: 0 4px 12px rgba(185, 150, 83, 0.2);
+}
+
+.btn-secondary {
+  border: 1px solid rgba(185, 150, 83, 0.4);
+  color: var(--color-text-ink);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border-radius: 0px !important;
+  transition: all var(--transition-fast);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-accent-gold);
+  background-color: rgba(185, 150, 83, 0.04);
+}
+
+/* Product Modal specific styles */
+.product-detail-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1.3fr;
+  gap: var(--spacing-lg);
+  align-items: start;
+}
+
+.product-modal-image {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0px !important;
+  box-shadow: var(--shadow-soft);
+  mix-blend-mode: multiply;
+  background-color: var(--color-bg-cream);
+  border: 1px solid rgba(185, 150, 83, 0.1);
+}
+
+.product-detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product-detail-category {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-accent-gold);
+}
+
+.product-detail-title {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+.product-detail-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.product-detail-rating svg {
+  color: var(--color-accent-gold);
+  fill: var(--color-accent-gold);
+}
+
+.product-detail-size {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.product-detail-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.95;
+  border-bottom: 1px solid rgba(185, 150, 83, 0.1);
+  padding-bottom: 16px;
+}
+
+.product-detail-features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+
+.product-detail-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.product-detail-features svg {
+  color: var(--color-accent-gold);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.product-detail-order-btn {
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+/* Product Specifications Panel */
+.product-detail-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0;
+  border-bottom: 1px dashed rgba(185, 150, 83, 0.15);
+  padding-bottom: 12px;
+}
+
+.product-detail-spec-badge {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: rgba(185, 150, 83, 0.08);
+  color: var(--color-accent-gold-dark);
+  padding: 4px 10px;
+  border-radius: 0px !important;
+  border: 1px solid rgba(185, 150, 83, 0.12);
+}
+
+.product-detail-price {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-accent-gold-dark);
+  margin-top: 4px;
+}
+
+.product-detail-ingredients-box {
+  background-color: rgba(246, 242, 234, 0.6);
+  border: 1px solid rgba(185, 150, 83, 0.12);
+  padding: 12px 16px;
+  border-radius: 0px !important;
+  margin: 10px 0;
+}
+
+.product-detail-ingredients-box h4 {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text-ink);
+  margin-bottom: 4px;
+}
+
+.product-detail-ingredients-box p {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+/* Nutrition Table */
+.product-detail-nutrition {
+  margin: 14px 0;
+  border: 1px solid rgba(185, 150, 83, 0.15);
+  border-radius: 0px !important;
+  overflow: hidden;
+  background-color: var(--color-white);
+}
+
+.product-detail-nutrition h4 {
+  background-color: rgba(185, 150, 83, 0.08);
+  padding: 8px 12px;
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-accent-gold-dark);
+  border-bottom: 1px solid rgba(185, 150, 83, 0.15);
+  margin: 0;
+}
+
+.nutrition-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+  text-align: left;
+}
+
+[dir="rtl"] .nutrition-table {
+  text-align: right;
+}
+
+.nutrition-table th,
+.nutrition-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(185, 150, 83, 0.08);
+}
+
+.nutrition-table tr:last-child th,
+.nutrition-table tr:last-child td {
+  border-bottom: none;
+}
+
+.nutrition-table td {
+  font-family: var(--font-sans);
+  color: var(--color-text-ink);
+}
+
+.nutrition-table th {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive modal */
+@media (max-width: 760px) {
+  .product-detail-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .cookie-consent-bar {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+  }
+  
+  .cookie-actions {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .product-detail-title {
+    font-size: 1.4rem;
+  }
+}

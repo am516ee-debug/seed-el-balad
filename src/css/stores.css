@@ -1,0 +1,774 @@
+/* Store Locator Section Styles */
+
+.stores-section {
+  padding: var(--spacing-xxl) 0;
+  background-color: var(--color-bg-cream);
+  border-bottom: 1px solid rgba(185, 150, 83, 0.15);
+}
+
+.storewrap {
+  display: grid;
+  grid-template-columns: 1.2fr 1.8fr;
+  background-color: var(--color-bg-cream);
+  border: 1px solid rgba(185, 150, 83, 0.2);
+  border-radius: 0px !important;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  max-width: 1380px;
+  margin: var(--spacing-xl) auto 0;
+}
+
+[dir="rtl"] .storewrap {
+  direction: rtl;
+}
+
+/* Store Directory List Panel */
+.storelist {
+  max-height: 550px;
+  overflow-y: auto;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-right: 1px solid rgba(185, 150, 83, 0.15);
+  background-color: rgba(246, 242, 234, 0.5);
+}
+
+[dir="rtl"] .storelist {
+  border-right: none;
+  border-left: 1px solid rgba(185, 150, 83, 0.15);
+}
+
+.country-block {
+  margin-top: 10px;
+}
+
+.country-h {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-accent-gold-dark);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-text-ink);
+  margin-bottom: var(--spacing-sm);
+}
+
+.country-h .cflag {
+  font-size: 1.2rem;
+}
+
+.country-h .country-n {
+  margin-left: auto;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-transform: none;
+}
+
+[dir="rtl"] .country-h .country-n {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Accordions */
+.city-acc {
+  border-bottom: 1px solid rgba(185, 150, 83, 0.1);
+}
+
+.city-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 16px 4px;
+  text-align: left;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-text-ink);
+  transition: padding var(--transition-fast), color var(--transition-fast);
+}
+
+[dir="rtl"] .city-head {
+  text-align: right;
+}
+
+.city-head:hover {
+  color: var(--color-accent-gold);
+  padding-left: 10px;
+}
+
+[dir="rtl"] .city-head:hover {
+  padding-left: 4px;
+  padding-right: 10px;
+}
+
+.city-head .city-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.city-head .chev {
+  display: inline-block;
+  font-style: normal;
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: transform var(--transition-normal);
+  transform: rotate(90deg);
+}
+
+[dir="rtl"] .city-head .chev {
+  transform: rotate(90deg);
+}
+
+.city-acc.open .city-head {
+  color: var(--color-accent-gold-dark);
+}
+
+.city-acc.open .chev {
+  transform: rotate(270deg);
+}
+
+.city-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-slow);
+}
+
+.city-body-in {
+  padding: 4px 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Branch Item */
+.branch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(185, 150, 83, 0.06);
+  padding: 12px 8px;
+  cursor: pointer;
+  border-radius: 0px !important;
+  transition: all var(--transition-fast);
+}
+
+.branch:hover {
+  background: linear-gradient(90deg, rgba(185, 150, 83, 0.04), transparent);
+  padding-left: 14px;
+}
+
+[dir="rtl"] .branch:hover {
+  background: linear-gradient(270deg, rgba(185, 150, 83, 0.04), transparent);
+  padding-left: 8px;
+  padding-right: 14px;
+}
+
+.branch.on {
+  background: linear-gradient(90deg, rgba(185, 150, 83, 0.09), transparent);
+  border-bottom-color: rgba(185, 150, 83, 0.2);
+  padding-left: 14px;
+}
+
+[dir="rtl"] .branch.on {
+  background: linear-gradient(270deg, rgba(185, 150, 83, 0.09), transparent);
+  padding-left: 8px;
+  padding-right: 14px;
+}
+
+.branch-locate {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex: 1;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+[dir="rtl"] .branch-locate {
+  text-align: right;
+}
+
+.branch-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--color-accent-gold);
+  margin-top: 5px;
+  flex: 0 0 auto;
+  transition: all var(--transition-fast);
+}
+
+.branch:hover .branch-dot,
+.branch.on .branch-dot {
+  background-color: var(--color-accent-gold);
+  box-shadow: 0 0 0 3px rgba(185, 150, 83, 0.2);
+}
+
+.branch-details {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.branch-name {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.88rem;
+  color: var(--color-text-ink);
+  line-height: 1.2;
+}
+
+.branch-addr {
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  color: var(--color-text-muted);
+  line-height: 1.25;
+}
+
+.branch-go {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-accent-gold-dark);
+  opacity: 0.55;
+  transition: opacity var(--transition-fast), background-size var(--transition-fast);
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 4px 6px;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 0 1px;
+}
+
+[dir="rtl"] .branch-go {
+  background-position: right bottom;
+}
+
+.branch:hover .branch-go,
+.branch.on .branch-go {
+  opacity: 1;
+}
+
+.branch-go:hover {
+  opacity: 1;
+  background-size: 100% 1px;
+}
+
+/* Map Panel */
+.storemap-container {
+  height: 550px;
+  width: 100%;
+  position: relative;
+  z-index: 5;
+}
+
+#stores-map {
+  width: 100%;
+  height: 100%;
+  background-color: #f0ede6;
+}
+
+/* Custom Leaflet Pin Styling */
+.custom-map-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000 !important;
+}
+
+.custom-map-pin .pin-inner {
+  width: 14px;
+  height: 14px;
+  background-color: var(--color-accent-gold);
+  border: 2px solid var(--color-white);
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.custom-map-pin.active .pin-inner {
+  width: 18px;
+  height: 18px;
+  background-color: var(--color-accent-gold-dark);
+  border: 2px solid var(--color-white);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+  transform: scale(1.15);
+}
+
+.custom-map-pin:hover .pin-inner {
+  transform: scale(1.2);
+  background-color: var(--color-accent-gold-dark);
+}
+
+/* Popup Custom CSS */
+.map-popup {
+  font-family: var(--font-sans);
+  min-width: 180px;
+  max-width: 240px;
+  padding: 4px;
+}
+
+.map-popup.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.map-popup.ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+.map-popup .popup-title {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--color-text-ink);
+  margin-bottom: 5px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.map-popup .popup-desc {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+.map-popup .popup-type {
+  display: inline-block;
+  font-size: 0.64rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: rgba(185, 150, 83, 0.1);
+  color: var(--color-accent-gold-dark);
+  padding: 2px 6px;
+  border-radius: 0px !important;
+  margin-bottom: 8px;
+}
+
+.map-popup .popup-link {
+  display: inline-block;
+  font-size: 0.78rem;
+  color: var(--color-accent-gold);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+  border-bottom: 1px solid transparent;
+}
+
+.map-popup .popup-link:hover {
+  color: var(--color-accent-gold-dark);
+  border-bottom-color: currentColor;
+}
+
+/* Adjust leaflet default popups to blend with the aesthetic */
+.leaflet-popup-content-wrapper {
+  background-color: var(--color-bg-cream) !important;
+  border: 1px solid rgba(185, 150, 83, 0.25) !important;
+  border-radius: 0px !important;
+  box-shadow: var(--shadow-soft) !important;
+}
+
+.leaflet-popup-tip {
+  background-color: var(--color-bg-cream) !important;
+  border-left: 1px solid rgba(185, 150, 83, 0.15) !important;
+  border-bottom: 1px solid rgba(185, 150, 83, 0.15) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+  .storewrap {
+    grid-template-columns: 1fr;
+  }
+  
+  .storelist {
+    max-height: 380px;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid rgba(185, 150, 83, 0.15);
+  }
+  
+  [dir="rtl"] .storelist {
+    border-left: none;
+  }
+  
+  .storemap-container {
+    height: 400px;
+  }
+}
+
+@media (max-width: 640px) {
+  .storelist {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+  .storemap-container {
+    height: 320px;
+  }
+}
+
+/* --- DEDICATED LOCATIONS PAGE EXTRA STYLES --- */
+.locations-page-view {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxl);
+}
+
+.locations-intro-block {
+  text-align: center;
+  padding: var(--spacing-xl) var(--spacing-md) 0;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.locations-intro-block h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  color: var(--color-text-ink);
+  margin: 0;
+}
+
+.locations-intro-block p {
+  color: var(--color-text-ink);
+  opacity: 0.85;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.locations-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.loc-contact-card {
+  background-color: rgba(32, 95, 166, 0.08); /* Soft gold tinted glass */
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  border-radius: 0px !important;
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--transition-normal), background-color var(--transition-normal);
+}
+
+.loc-contact-card:hover {
+  transform: translateY(-5px);
+  background-color: rgba(32, 95, 166, 0.14);
+}
+
+.loc-contact-card svg {
+  color: var(--color-accent-gold-dark);
+}
+
+.loc-contact-card h4 {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--color-text-ink);
+  margin: 0;
+}
+
+.loc-contact-card p, .loc-contact-card a {
+  color: var(--color-text-ink);
+  opacity: 0.85;
+  font-size: 0.9rem;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.loc-contact-card a:hover {
+  color: var(--color-accent-gold-dark);
+  text-decoration: underline;
+}
+
+/* Bottom Full-Width CTA Section */
+.locations-cta-section {
+  background-color: var(--color-text-ink); /* Deep Marine Charcoal */
+  color: var(--color-white);
+  padding: clamp(48px, 8vw, 80px) var(--spacing-md);
+  text-align: center;
+  border-top: 1px solid rgba(32, 95, 166, 0.25);
+  border-bottom: 1px solid rgba(32, 95, 166, 0.25);
+  margin-top: var(--spacing-xl);
+}
+
+.locations-cta-content {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.locations-cta-content span {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent-gold);
+}
+
+[dir="rtl"] .locations-cta-content span {
+  letter-spacing: 0 !important;
+}
+
+.locations-cta-content h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  color: var(--color-white);
+  margin: 0;
+  font-weight: 500;
+}
+
+.locations-cta-content p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin: 0 0 8px;
+}
+
+.locations-cta-btn {
+  background-color: var(--color-accent-gold);
+  color: var(--color-white) !important;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border-radius: 0px !important;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+[dir="rtl"] .locations-cta-btn {
+  letter-spacing: 0 !important;
+}
+
+.locations-cta-btn:hover {
+  background-color: var(--color-accent-gold-dark);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 960px) {
+  .locations-contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .locations-contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Locations Page Cinematic Hero Section styling */
+.locations-hero-sec {
+  position: relative;
+  width: 100%;
+  height: 65vh; /* Cinematic landscape height */
+  background-color: var(--color-text-ink);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 8%;
+  color: var(--color-white);
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.6);
+  margin-bottom: var(--spacing-xl);
+}
+
+.locations-hero-sec::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg, 
+    rgba(18, 34, 46, 0.85) 0%, 
+    rgba(18, 34, 46, 0.45) 60%, 
+    rgba(18, 34, 46, 0.1) 100%
+  );
+  z-index: 1;
+}
+
+[dir="rtl"] .locations-hero-sec::before {
+  background: linear-gradient(
+    270deg, 
+    rgba(18, 34, 46, 0.85) 0%, 
+    rgba(18, 34, 46, 0.45) 60%, 
+    rgba(18, 34, 46, 0.1) 100%
+  );
+}
+
+.locations-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+[dir="rtl"] .locations-hero-content {
+  text-align: right;
+}
+
+.locations-hero-content span.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-accent-gold);
+}
+
+[dir="rtl"] .locations-hero-content span.eyebrow {
+  letter-spacing: 0 !important;
+}
+
+.locations-hero-content h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--color-white);
+  margin: 0;
+}
+
+.locations-hero-content p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+/* Adjust page container padding top and layout gaps */
+.locations-page-view {
+  padding-top: 0 !important; /* Matches header height, hero starts immediately */
+  display: flex;
+  flex-direction: column;
+  gap: 50px !important; /* Balanced gap between main page sections */
+}
+
+.locations-page-view .subpage-hero {
+  margin-bottom: 0 !important; /* Eliminate excessive bottom margin on hero */
+}
+
+/* Recalibrate stores section paddings and title margins */
+.locations-page-view .stores-section {
+  padding-top: 50px !important;
+  padding-bottom: 50px !important;
+}
+
+.locations-page-view .storewrap {
+  margin-top: 0 !important; /* Handled by title wrapper margin-bottom */
+}
+
+/* Beautiful Title Block Styling */
+.section-title-wrapper {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px; /* Breathe comfortably before the map grid */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-kick {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.34em;
+  color: var(--color-accent-gold);
+  text-transform: uppercase;
+}
+
+[dir="rtl"] .section-kick {
+  letter-spacing: 0 !important;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+  color: var(--color-text-ink);
+  margin: 0;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+/* Premium Gold Accent Title Divider */
+.title-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 180px;
+  margin: 6px auto;
+}
+
+.title-divider::before,
+.title-divider::after {
+  content: '';
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, var(--color-accent-gold) 60%, var(--color-accent-gold));
+}
+
+.title-divider::after {
+  transform: scaleX(-1);
+}
+
+.title-divider .dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-accent-gold);
+  transform: rotate(45deg);
+  flex: 0 0 auto;
+}
+
+.section-desc {
+  font-size: 0.98rem;
+  color: var(--color-text-ink);
+  opacity: 0.85;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+}

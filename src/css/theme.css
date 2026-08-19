@@ -1,0 +1,45 @@
+/* Centralized Design System & Theme CSS Variables */
+:root {
+  /* Colors */
+  --color-bg-cream: #FAF8F5;
+  --color-text-ink: #102A43; /* PRIMARY TEXT */
+  --color-text-muted: #607D94; /* SECONDARY TEXT */
+  --color-primary: #205FA6; /* PRIMARY BLUE */
+  --color-primary-dark: #123E70; /* DARK BLUE */
+  --color-primary-light: #EAF4FB; /* VERY LIGHT BLUE */
+  --color-logo-cyan: #4B8DC4; /* LIGHT BLUE */
+  --color-border-divider: #DCEAF3; /* BORDER / UI DIVIDER */
+  --color-red-accent: #D84A2B; /* RED ACCENT */
+  --color-white: #ffffff;
+  --color-card-bg: #FCFAF7;
+  
+  /* Fallback references mapping for old codebase compatibility */
+  --color-accent-gold: var(--color-primary);
+  --color-accent-gold-dark: var(--color-primary-dark);
+  --color-accent-gold-light: var(--color-primary-light);
+  
+  /* Fonts */
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Cairo', sans-serif;
+  --font-arabic: 'Cairo', sans-serif;
+  
+  /* Spacing (Fluid & Centralized) */
+  --spacing-xs: clamp(4px, 1vw, 8px);
+  --spacing-sm: clamp(8px, 2vw, 16px);
+  --spacing-md: clamp(16px, 3vw, 24px);
+  --spacing-lg: clamp(24px, 5vw, 48px);
+  --spacing-xl: clamp(48px, 8vw, 80px);
+  --spacing-xxl: clamp(80px, 12vw, 140px);
+
+  /* Transitions */
+  --transition-fast: 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  --transition-normal: 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  --transition-slow: 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+  
+  /* Shadows & Borders */
+  --border-radius-sm: 0px;
+  --border-radius-md: 0px;
+  --border-radius-lg: 0px;
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.03);
+  --shadow-hover: 0 10px 30px rgba(32, 95, 166, 0.08);
+}
