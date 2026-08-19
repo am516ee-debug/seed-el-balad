@@ -9,6 +9,7 @@ import Home from '../Views/Home';
 import CollectionPage from '../Views/CollectionPage';
 import OurStoryPage from '../Views/OurStoryPage';
 import LocationsPage from '../Views/LocationsPage';
+import WhyUsPage from '../Views/WhyUsPage';
 import ContactPage from '../Views/ContactPage';
 import WholesaleCta from '../Sections/WholesaleCta';
 
@@ -22,7 +23,7 @@ export const Layout: React.FC = () => {
   const [selectedPdfTitle, setSelectedPdfTitle] = useState<string | null>(null);
   const [isPdfModalOpen, setIsPdfModalOpen] = useState(false);
 
-  const [currentView, setCurrentView] = useState<'home' | 'collection' | 'story' | 'locations' | 'contact'>('home');
+  const [currentView, setCurrentView] = useState<'home' | 'collection' | 'story' | 'locations' | 'why-us' | 'contact'>('home');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
@@ -55,7 +56,7 @@ export const Layout: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleNavigate = (view: 'home' | 'collection' | 'story' | 'locations' | 'contact', sectionId?: string) => {
+  const handleNavigate = (view: 'home' | 'collection' | 'story' | 'locations' | 'why-us' | 'contact', sectionId?: string) => {
     setCurrentView(view);
     setSearchQuery(''); // Clear search on direct page navigation
     if (view === 'home') {
@@ -115,6 +116,9 @@ export const Layout: React.FC = () => {
         )}
         {currentView === 'story' && (
           <OurStoryPage onViewPdf={handleViewPdf} />
+        )}
+        {currentView === 'why-us' && (
+          <WhyUsPage onViewPdf={handleViewPdf} />
         )}
         {currentView === 'locations' && (
           <LocationsPage />

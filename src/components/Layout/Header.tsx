@@ -5,8 +5,8 @@ import logoPng from '../../assets/images/seed-el-balad/logo.png';
 import '../../css/header.css';
 
 interface HeaderProps {
-  currentView: 'home' | 'collection' | 'story' | 'locations' | 'contact';
-  onNavigate: (view: 'home' | 'collection' | 'story' | 'locations' | 'contact', sectionId?: string) => void;
+  currentView: 'home' | 'collection' | 'story' | 'locations' | 'why-us' | 'contact';
+  onNavigate: (view: 'home' | 'collection' | 'story' | 'locations' | 'why-us' | 'contact', sectionId?: string) => void;
   onSearch?: (query: string) => void;
 }
 
@@ -46,6 +46,8 @@ export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate, onSearc
       
       if (currentView === 'home') {
         threshold = window.innerHeight - 80;
+      } else if (currentView === 'why-us') {
+        threshold = window.innerHeight * 0.90 - 80; // Why Us page hero height
       } else if (currentView === 'locations') {
         threshold = window.innerHeight * 0.65 - 80; // Locations page hero height is 65vh
       } else if (currentView === 'story') {
@@ -65,7 +67,9 @@ export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate, onSearc
     setIsMenuOpen(false);
     if (sectionId === 'products-section') {
       onNavigate('collection');
-    } else if (sectionId === 'story-page' || sectionId === 'about-section') {
+    } else if (sectionId === 'about-section' || sectionId === 'why-us') {
+      onNavigate('why-us');
+    } else if (sectionId === 'story-page') {
       onNavigate('story');
     } else if (sectionId === 'stores-section') {
       onNavigate('locations');
@@ -183,6 +187,9 @@ export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate, onSearc
         </a>
         <a href="#products" onClick={(e) => { e.preventDefault(); handleNavClick('products-section'); }}>
           {t('nav.products')}
+        </a>
+        <a href="#why-us" onClick={(e) => { e.preventDefault(); handleNavClick('why-us'); }}>
+          {t('nav.about')}
         </a>
         <a href="#story" onClick={(e) => { e.preventDefault(); handleNavClick('story-page'); }}>
           {t('nav.story')}

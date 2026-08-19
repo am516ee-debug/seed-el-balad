@@ -12,7 +12,7 @@ import '../../css/story.css'; // Share the gorgeous timeline classes
 interface HomeProps {
   onViewPdf: (url: string, title: string) => void;
   onSelectCategory: (categoryId: string) => void;
-  onNavigate: (view: 'home' | 'collection' | 'story' | 'locations' | 'contact', sectionId?: string) => void;
+  onNavigate: (view: 'home' | 'collection' | 'story' | 'locations' | 'why-us' | 'contact', sectionId?: string) => void;
 }
 
 export const Home: React.FC<HomeProps> = ({ onViewPdf, onSelectCategory, onNavigate }) => {

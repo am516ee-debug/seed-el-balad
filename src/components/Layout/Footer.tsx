@@ -5,7 +5,7 @@ import '../../css/footer.css';
 
 interface FooterProps {
   onOpenPrivacy: () => void;
-  onNavigate: (view: 'home' | 'collection' | 'story' | 'locations' | 'contact', sectionId?: string) => void;
+  onNavigate: (view: 'home' | 'collection' | 'story' | 'locations' | 'why-us' | 'contact', sectionId?: string) => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onNavigate }) => {
@@ -14,7 +14,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onNavigate }) => 
   const handleScrollToSection = (id: string) => {
     if (id === 'products-section') {
       onNavigate('collection');
-    } else if (id === 'story-page' || id === 'about-section') {
+    } else if (id === 'why-us' || id === 'about-section') {
+      onNavigate('why-us');
+    } else if (id === 'story-page') {
       onNavigate('story');
     } else if (id === 'stores-section') {
       onNavigate('locations');
@@ -64,6 +66,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onNavigate }) => 
               <li>
                 <a href="#products" onClick={(e) => { e.preventDefault(); handleScrollToSection('products-section'); }}>
                   {t('nav.products')}
+                </a>
+              </li>
+              <li>
+                <a href="#why-us" onClick={(e) => { e.preventDefault(); handleScrollToSection('why-us'); }}>
+                  {t('nav.about')}
                 </a>
               </li>
               <li>
