@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from '../../hooks/useTranslation';
 
-import imgHero from '../../assets/images/seed-el-balad/why_hero_s_page_1.jpeg';
+import imgHero from '../../assets/images/seed-el-balad/hero s our story.jpeg';
 import imgOrigin from '../../assets/images/seed-el-balad/section_3.jpeg';
 import imgFactory from '../../assets/images/seed-el-balad/img_22.jpeg';
 import imgProduct from '../../assets/images/seed-el-balad/product_1.jpeg';
