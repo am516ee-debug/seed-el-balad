@@ -190,20 +190,13 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
                     } 
                   }}
                 >
-                  <div 
-                    className="im" 
-                    style={{ backgroundImage: `url(${product.image})` }}
-                    aria-label={language === 'ar' ? product.title.ar : product.title.en}
-                  >
-                    {/* Permanent Text Overlay directly on image */}
-                    <div className="prod-info-overlay">
-                      <h3 className="nm">
-                        {language === 'ar' ? product.title.ar : product.title.en}
-                      </h3>
-                      <span className="ds">
-                        {language === 'ar' ? product.category.ar : product.category.en}
-                      </span>
-                    </div>
+                  <div className="im">
+                    <div 
+                      className="im-img"
+                      style={{ backgroundImage: `url(${product.image})` }}
+                      role="img"
+                      aria-label={language === 'ar' ? product.title.ar : product.title.en}
+                    />
 
                     {/* Hover CTA Button Overlay */}
                     <div className="prod-cta-overlay" aria-hidden="true">
@@ -211,6 +204,16 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
                         {language === 'ar' ? 'تفاصيل المنتج' : 'Product Details'}
                       </span>
                     </div>
+                  </div>
+
+                  {/* Clean text body below image */}
+                  <div className="pbody">
+                    <h3 className="nm">
+                      {language === 'ar' ? product.title.ar : product.title.en}
+                    </h3>
+                    <span className="ds">
+                      {language === 'ar' ? product.category.ar : product.category.en}
+                    </span>
                   </div>
                 </div>
               ))

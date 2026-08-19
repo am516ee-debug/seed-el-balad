@@ -59,21 +59,13 @@ export const CollectionPedestal: React.FC<CollectionPedestalProps> = ({ onSelect
                   } 
                 }}
               >
-                {/* Product Card Image Container styled exactly like Collection products */}
-                <div 
-                  className="im" 
-                  style={{ backgroundImage: `url(${product.image})`, aspectRatio: '1/1' }}
-                  aria-label={language === 'ar' ? product.title.ar : product.title.en}
-                >
-                  {/* Permanent Text Overlay directly on image */}
-                  <div className="prod-info-overlay">
-                    <h3 className="nm">
-                      {language === 'ar' ? product.title.ar : product.title.en}
-                    </h3>
-                    <span className="ds">
-                      {language === 'ar' ? product.category.ar : product.category.en}
-                    </span>
-                  </div>
+                <div className="im">
+                  <div 
+                    className="im-img"
+                    style={{ backgroundImage: `url(${product.image})` }}
+                    role="img"
+                    aria-label={language === 'ar' ? product.title.ar : product.title.en}
+                  />
 
                   {/* Hover CTA Button Overlay */}
                   <div className="prod-cta-overlay" aria-hidden="true">
@@ -81,6 +73,16 @@ export const CollectionPedestal: React.FC<CollectionPedestalProps> = ({ onSelect
                       {language === 'ar' ? 'اكتشف التشكيلة' : 'Discover'}
                     </span>
                   </div>
+                </div>
+
+                {/* Clean text body below image */}
+                <div className="pbody">
+                  <h3 className="nm">
+                    {language === 'ar' ? product.title.ar : product.title.en}
+                  </h3>
+                  <span className="ds">
+                    {language === 'ar' ? product.category.ar : product.category.en}
+                  </span>
                 </div>
               </div>
             );
