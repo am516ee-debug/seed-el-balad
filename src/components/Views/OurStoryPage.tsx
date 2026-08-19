@@ -81,27 +81,25 @@ export const OurStoryPage: React.FC<OurStoryPageProps> = () => {
       {/* 1. CINEMATIC HERO */}
       <section className="sp-hero">
         <div className="sp-hero-bg">
-          <img src={imgHero} alt={ar ? '\u0645\u0635\u0646\u0639 \u0633\u064a\u062f \u0627\u0644\u0628\u0644\u062f' : 'Seed El-Balad production facility'} />
+          <img src={imgHero} alt={ar ? 'مصنع سيد البلد للأسماك المدخنة' : 'Seed El-Balad facility'} />
         </div>
         <div className="sp-hero-overlay" />
         <div className="sp-hero-content">
           <span className="sp-eyebrow">
-            {ar ? '\u0642\u0635\u062a\u0646\u0627 \u0648\u0639\u0631\u0627\u0642\u062a\u0646\u0627' : 'OUR HERITAGE'}
+            {ar ? 'قصتنا وعراقتنا' : 'OUR HERITAGE'}
           </span>
           <h1 className="sp-hero-title">
-            {ar
-              ? <>\u062d\u0643\u0627\u064a\u0629 \u0643\u064f\u062a\u0628\u062a<br />\u0628\u0627\u0644\u0645\u0644\u062d \u0648\u0627\u0644\u062f\u062e\u0627\u0646</>
-              : <>A Story Written in<br />Salt & Smoke</>}
+            {ar ? 'أصل الحكاية وعراقة الصنعة' : 'Our Story & Artisanal Legacy'}
           </h1>
           <p className="sp-hero-subtitle">
             {ar
-              ? '\u0645\u0646 \u0627\u0644\u0635\u064a\u062f \u0627\u0644\u0645\u0628\u0627\u0634\u0631 \u0641\u064a \u0645\u064a\u0627\u0647 \u0623\u0648\u0631\u0648\u0628\u0627\u060c \u0625\u0644\u0649 \u0645\u0627\u0626\u062f\u0629 \u0643\u0644 \u0623\u0633\u0631\u0629 \u0645\u0635\u0631\u064a\u0629 \u2014 \u0634\u063a\u0641 \u062d\u0642\u064a\u0642\u064a \u0648\u0639\u0631\u0627\u0642\u0629 \u0637\u0648\u064a\u0644\u0629.'
-              : 'From direct fishing in European waters to every Egyptian family table \u2014 genuine passion and long-standing heritage.'}
+              ? 'من الصيد المباشر في أعماق المياه الأوروبية الباردة إلى مصنعنا المتطور في بلبيس — قصة شغف والتزام بتقديم أرقى مذاق وأعلى معايير الجودة لكل مائدة مصرية.'
+              : 'From direct sourcing in cold European waters to our state-of-the-art facility in Belbeis — a legacy of passion and unyielding commitment to premium seafood for Egyptian tables.'}
           </p>
         </div>
         <div className="sp-hero-scroll" aria-hidden="true">
           <div className="sp-hero-scroll-line" />
-          <span>{ar ? '\u0627\u0643\u062a\u0634\u0641' : 'Discover'}</span>
+          <span>{ar ? 'اكتشف' : 'Discover'}</span>
         </div>
       </section>
 
