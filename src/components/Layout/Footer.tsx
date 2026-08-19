@@ -5,7 +5,7 @@ import '../../css/footer.css';
 
 interface FooterProps {
   onOpenPrivacy: () => void;
-  onNavigate: (view: 'home' | 'collection' | 'story' | 'locations' | 'quality' | 'contact', sectionId?: string) => void;
+  onNavigate: (view: 'home' | 'collection' | 'story' | 'locations' | 'contact', sectionId?: string) => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onNavigate }) => {
@@ -14,9 +14,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onNavigate }) => 
   const handleScrollToSection = (id: string) => {
     if (id === 'products-section') {
       onNavigate('collection');
-    } else if (id === 'about-section' || id === 'quality-section') {
-      onNavigate('quality');
-    } else if (id === 'story-page') {
+    } else if (id === 'story-page' || id === 'about-section') {
       onNavigate('story');
     } else if (id === 'stores-section') {
       onNavigate('locations');
@@ -69,23 +67,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onNavigate }) => 
                 </a>
               </li>
               <li>
-                <a href="#quality" onClick={(e) => { e.preventDefault(); handleScrollToSection('quality-section'); }}>
-                  {t('nav.quality')}
+                <a href="#story" onClick={(e) => { e.preventDefault(); handleScrollToSection('story-page'); }}>
+                  {t('nav.story')}
                 </a>
               </li>
               <li>
                 <a href="#stores" onClick={(e) => { e.preventDefault(); handleScrollToSection('stores-section'); }}>
                   {t('nav.stores')}
-                </a>
-              </li>
-              <li>
-                <a href="#about" onClick={(e) => { e.preventDefault(); handleScrollToSection('about-section'); }}>
-                  {t('nav.about')}
-                </a>
-              </li>
-              <li>
-                <a href="#story" onClick={(e) => { e.preventDefault(); handleScrollToSection('story-page'); }}>
-                  {t('nav.story')}
                 </a>
               </li>
               <li>
