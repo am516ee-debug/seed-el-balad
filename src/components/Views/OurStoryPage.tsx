@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useTranslation } from '../../hooks/useTranslation';
 
 import imgHero from '../../assets/images/seed-el-balad/hero s our story.jpeg';
-import imgOrigin from '../../assets/images/seed-el-balad/section_3.jpeg';
+import imgBeginning from '../../assets/images/seed-el-balad/THE BEGINNING pic.png';
 import imgFactory from '../../assets/images/seed-el-balad/img_22.jpeg';
 import imgProduct from '../../assets/images/seed-el-balad/product_1.jpeg';
 import imgTable from '../../assets/images/seed-el-balad/img_4.jpeg';
@@ -143,7 +143,7 @@ export const OurStoryPage: React.FC<OurStoryPageProps> = () => {
       <section className="sp-origin sp-reveal">
         <div
           className="sp-origin-img"
-          style={{ backgroundImage: `url(${imgOrigin})` }}
+          style={{ backgroundImage: `url(${imgBeginning})` }}
           aria-hidden="true"
         />
         <div className="sp-origin-content">
@@ -250,7 +250,7 @@ export const OurStoryPage: React.FC<OurStoryPageProps> = () => {
           <div className="timeline-axis-wrapper">
             <div className="timeline-row">
               <div className="timeline-card">
-                <div className="timeline-card-image" style={{ backgroundImage: `url(${imgOrigin})` }} role="img" aria-label={ar ? '\u0628\u062f\u0627\u064a\u0629 \u0645\u0633\u064a\u0631\u0629 \u062c\u0648\u0644\u062f \u0641\u0648\u062f\u0632' : 'Gold Foods founding'} />
+                <div className="timeline-card-image" style={{ backgroundImage: `url(${imgBeginning})` }} role="img" aria-label={ar ? 'بداية مسيرة جولدن فودز' : 'Gold Foods founding'} />
                 <span className="timeline-year-badge">2019</span>
                 <h4>{ar ? '\u0627\u0644\u062a\u0623\u0633\u064a\u0633 \u0648\u0646\u0642\u0644 \u0627\u0644\u062e\u0628\u0631\u0629 \u0627\u0644\u0623\u0648\u0631\u0648\u0628\u064a\u0629' : 'The Inception & Tech Transfer'}</h4>
                 <p>
