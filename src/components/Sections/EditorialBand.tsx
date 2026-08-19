@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from '../../hooks/useTranslation';
-import imgEditorial from '../../assets/images/seed-el-balad/section_3_new.png';
+import imgEditorial from '../../assets/images/seed-el-balad/The Art of Seafood pic.png';
 import '../../css/home.css';
 
 export const EditorialBand: React.FC = () => {
