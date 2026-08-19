@@ -189,13 +189,6 @@
   text-align: center;
   max-width: 700px;
   margin: 0 auto 80px;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1s var(--ease-custom), transform 1s var(--ease-custom);
-}
-
-.story-timeline-sec.active-reveal .timeline-header,
-.story-timeline-sec.active .timeline-header {
   opacity: 1;
   transform: translateY(0);
 }
@@ -205,9 +198,11 @@
   max-width: 1000px;
   margin: 0 auto;
   padding: 40px 0;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Center gold line axis */
+/* Center navy line axis */
 .timeline-axis-wrapper::before {
   content: '';
   position: absolute;
@@ -218,12 +213,13 @@
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    var(--color-accent-gold) 10%,
-    var(--color-accent-gold) 90%,
+    var(--color-primary) 10%,
+    var(--color-primary) 90%,
     transparent 100%
   );
   transform: translateX(-50%);
   z-index: 1;
+  opacity: 0.35;
 }
 
 /* Default Left Aligned in LTR */
@@ -237,21 +233,16 @@
   padding-right: 40px;
 }
 
-.timeline-axis-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Central gold node */
+/* Central navy node */
 .timeline-row::after {
   content: '';
   position: absolute;
-  top: 42px; /* Center-aligned with the timeline-year-badge */
+  top: 42px;
   right: -6px;
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   background-color: var(--color-white);
-  border: 2px solid var(--color-accent-gold);
+  border: 2.5px solid var(--color-primary);
   border-radius: 50%;
   z-index: 2;
   box-sizing: border-box;
@@ -271,15 +262,15 @@
 }
 
 .timeline-row:hover::after {
-  background-color: var(--color-accent-gold);
-  transform: scale(1.3);
+  background-color: var(--color-primary);
+  transform: scale(1.25);
 }
 
 /* ==========================================
    RTL Layout (Arabic Mode Alternating)
    ========================================== */
 [dir="rtl"] .timeline-row {
-  align-self: flex-start; /* Pushes to the right side in RTL column */
+  align-self: flex-start;
   padding-right: 0;
   padding-left: 40px;
 }
@@ -290,7 +281,7 @@
 }
 
 [dir="rtl"] .timeline-row.right-aligned {
-  align-self: flex-end; /* Pushes to the left side in RTL column */
+  align-self: flex-end;
   padding-left: 0;
   padding-right: 40px;
 }
@@ -308,15 +299,16 @@
   position: relative;
   width: 100%;
   border-radius: 0px !important;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1s var(--ease-custom), transform 1s var(--ease-custom), border-color 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden; /* Lock image corners */
+  opacity: 1;
+  transform: translateY(0);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  overflow: hidden;
 }
 
 .timeline-card:hover {
   border-color: rgba(32, 95, 166, 0.35) !important;
-  box-shadow: 0 12px 30px rgba(32, 95, 166, 0.05);
+  box-shadow: 0 12px 30px rgba(32, 95, 166, 0.08);
+  transform: translateY(-3px);
 }
 
 .timeline-card-image {
@@ -328,16 +320,11 @@
   border-bottom: 1px solid var(--color-border-divider);
 }
 
-.timeline-row.reveal-row .timeline-card {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .timeline-year-badge {
   font-family: var(--font-serif);
   font-size: 1.45rem;
   font-weight: 700;
-  color: var(--color-primary); /* Standard brand blue */
+  color: var(--color-primary);
   margin-bottom: 8px;
   display: inline-flex;
   align-items: center;
