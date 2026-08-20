@@ -187,6 +187,14 @@ export const Home: React.FC<HomeProps> = ({ onViewPdf, onSelectCategory, onNavig
                 </div>
 
                 <div className="home-milestone-item">
+                  <span className="home-milestone-year">2021</span>
+                  <div className="home-milestone-info">
+                    <h4>{language === 'ar' ? 'الاستيراد المباشر والشراكات' : 'Global Direct Sourcing'}</h4>
+                    <p>{language === 'ar' ? 'شراكات حصرية في النرويج وأيسلندا وجزر فارو.' : 'Direct partnerships in Norway, Iceland, and Faroes.'}</p>
+                  </div>
+                </div>
+
+                <div className="home-milestone-item">
                   <span className="home-milestone-year">2023</span>
                   <div className="home-milestone-info">
                     <h4>{language === 'ar' ? 'اعتماد المصنع والشهادات' : 'Global Accreditation'}</h4>
