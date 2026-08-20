@@ -292,32 +292,25 @@
 }
 
 .timeline-card {
-  background-color: var(--color-bg-cream);
-  border: 1px solid var(--color-border-divider);
-  padding: 30px;
-  box-shadow: var(--shadow-soft);
+  background-color: var(--color-white);
+  border: 1px solid rgba(32, 95, 166, 0.12);
+  border-inline-start: 4px solid var(--color-primary);
+  padding: 32px 30px;
+  box-shadow: 0 4px 16px rgba(18, 34, 46, 0.04);
   position: relative;
   width: 100%;
   border-radius: 0px !important;
   opacity: 1;
   transform: translateY(0);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .timeline-card:hover {
-  border-color: rgba(32, 95, 166, 0.35) !important;
-  box-shadow: 0 12px 30px rgba(32, 95, 166, 0.08);
-  transform: translateY(-3px);
-}
-
-.timeline-card-image {
-  width: calc(100% + 60px) !important;
-  margin: -30px -30px 20px -30px !important;
-  aspect-ratio: 2/1;
-  background-size: cover;
-  background-position: center;
-  border-bottom: 1px solid var(--color-border-divider);
+  border-color: rgba(32, 95, 166, 0.35);
+  box-shadow: 0 14px 32px rgba(18, 34, 46, 0.08);
+  transform: translateY(-4px);
 }
 
 .timeline-year-badge {
@@ -1254,11 +1247,15 @@ body[dir="rtl"] .cert-meta-code {
   border-left: 1px solid rgba(32, 95, 166, 0.12);
   border-right: 3px solid var(--color-primary);
 }
-.sp-origin-card:hover {
-  box-shadow: 0 8px 24px rgba(32, 95, 166, 0.09);
-  transform: translateY(-4px);
+.sp-origin-flag {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  line-height: 1;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
 }
-.sp-origin-flag { font-size: 1.9rem; line-height: 1; }
 .sp-origin-country {
   font-family: var(--font-serif);
   font-size: 1.1rem;

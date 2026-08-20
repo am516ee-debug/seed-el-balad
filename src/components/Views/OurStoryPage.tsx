@@ -4,8 +4,6 @@ import { useTranslation } from '../../hooks/useTranslation';
 import imgHero from '../../assets/images/seed-el-balad/hero s our story.jpeg';
 import imgBeginning from '../../assets/images/seed-el-balad/THE BEGINNING pic.png';
 import imgFactory from '../../assets/images/seed-el-balad/img_22.jpeg';
-import imgProduct from '../../assets/images/seed-el-balad/product_1.jpeg';
-import imgTable from '../../assets/images/seed-el-balad/img_4.jpeg';
 
 import '../../css/story.css';
 
@@ -37,34 +35,34 @@ export const OurStoryPage: React.FC<OurStoryPageProps> = () => {
 
   const origins = [
     {
-      flag: '\u{1F1F3}\u{1F1F1}',
-      country: ar ? '\u0647\u0648\u0644\u0646\u062f\u0627' : 'Netherlands',
-      catch: ar ? '\u0647\u0627\u0631\u064a\u0646\u062c \u0645\u0627\u062a\u064a\u0633 \u0627\u0644\u062f\u0647\u0646\u064a' : 'Maatjes Herring',
-      fact: ar ? '\u0627\u0644\u0645\u0648\u0631\u062f\u0648\u0646 \u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0648\u0646 \u0644\u062e\u0627\u0645 \u0627\u0644\u0631\u0646\u062c\u0629' : 'Primary herring raw material supplier',
+      code: 'NL',
+      country: ar ? 'هولندا' : 'Netherlands',
+      catch: ar ? 'هارينج ماتيس الدهني' : 'Maatjes Herring',
+      fact: ar ? 'الموردون الرئيسيون لخام الرنجة' : 'Primary herring raw material supplier',
     },
     {
-      flag: '\u{1F1F3}\u{1F1F4}',
-      country: ar ? '\u0627\u0644\u0646\u0631\u0648\u064a\u062c' : 'Norway',
-      catch: ar ? '\u0647\u0627\u0631\u064a\u0646\u062c \u0623\u0637\u0644\u0646\u062a\u064a \u0627\u0644\u0634\u062a\u0648\u064a' : 'Winter Atlantic Herring',
-      fact: ar ? '\u0635\u064a\u062f \u0645\u0648\u0633\u0645 \u0627\u0644\u0634\u062a\u0627\u0621 \u0639\u0627\u0644\u064a \u0627\u0644\u062f\u0647\u0648\u0646' : 'High-fat winter season catch',
+      code: 'NO',
+      country: ar ? 'النرويج' : 'Norway',
+      catch: ar ? 'هارينج أطلنتي الشتوي' : 'Winter Atlantic Herring',
+      fact: ar ? 'صيد موسم الشتاء عالي الدهون' : 'High-fat winter season catch',
     },
     {
-      flag: '\u{1F1EE}\u{1F1F8}',
-      country: ar ? '\u0623\u064a\u0633\u0644\u0646\u062f\u0627' : 'Iceland',
-      catch: ar ? '\u0647\u0627\u0631\u064a\u0646\u062c \u0627\u0644\u0645\u064a\u0627\u0647 \u0627\u0644\u0628\u0627\u0631\u062f\u0629' : 'Cold-Water Herring',
-      fact: ar ? '\u0645\u064a\u0627\u0647 \u0628\u062d\u0631\u064a\u0629 \u0646\u0642\u064a\u0629 \u0648\u0645\u0635\u0627\u064a\u062f \u062e\u0627\u0636\u0639\u0629 \u0644\u0644\u0631\u0642\u0627\u0628\u0629' : 'Pure arctic waters, regulated fishing',
+      code: 'IS',
+      country: ar ? 'أيسلندا' : 'Iceland',
+      catch: ar ? 'هارينج المياه الباردة' : 'Cold-Water Herring',
+      fact: ar ? 'مياه بحرية نقية ومصايد خاضعة للرقابة' : 'Pure arctic waters, regulated fishing',
     },
     {
-      flag: '\u{1F1EB}\u{1F1F4}',
-      country: ar ? '\u062c\u0632\u0631 \u0641\u0627\u0631\u0648' : 'Faroe Islands',
-      catch: ar ? '\u0647\u0627\u0631\u064a\u0646\u062c \u0628\u0631\u064a \u0645\u0633\u062a\u062f\u0627\u0645' : 'Wild-Caught Sustainable',
-      fact: ar ? '\u0645\u0635\u064a\u062f \u0628\u0631\u064a \u0637\u0628\u064a\u0639\u064a \u062e\u0627\u0644\u0650 \u0645\u0646 \u0627\u0644\u0627\u0633\u062a\u0632\u0631\u0627\u0639' : 'Fully wild, no aquaculture',
+      code: 'FO',
+      country: ar ? 'جزر فارو' : 'Faroe Islands',
+      catch: ar ? 'هارينج بري مستدام' : 'Wild-Caught Sustainable',
+      fact: ar ? 'مصيد بري طبيعي خالٍ من الاستزراع' : 'Fully wild, no aquaculture',
     },
     {
-      flag: '\u{1F3F4}\u{E0067}\u{E0062}\u{E0073}\u{E0063}\u{E0074}\u{E007F}',
-      country: ar ? '\u0627\u0633\u0643\u062a\u0644\u0646\u062f\u0627' : 'Scotland',
-      catch: ar ? '\u0647\u0627\u0631\u064a\u0646\u062c \u0627\u0644\u062e\u0631\u064a\u0641 \u0639\u0627\u0644\u064a \u0627\u0644\u062c\u0648\u062f\u0629' : 'Autumn High-Grade Herring',
-      fact: ar ? '\u0623\u0639\u0644\u0649 \u0645\u062d\u062a\u0648\u0649 \u062f\u0647\u0648\u0646\u064a \u0644\u0623\u062c\u0648\u062f \u0627\u0644\u0645\u0646\u062a\u062c\u0627\u062a' : 'Highest fat content for premium products',
+      code: 'UK',
+      country: ar ? 'اسكتلندا' : 'Scotland',
+      catch: ar ? 'هارينج الخريف عالي الجودة' : 'Autumn High-Grade Herring',
+      fact: ar ? 'أعلى محتوى دهوني لأجود المنتجات' : 'Highest fat content for premium products',
     },
   ];
 
@@ -250,48 +248,44 @@ export const OurStoryPage: React.FC<OurStoryPageProps> = () => {
           <div className="timeline-axis-wrapper">
             <div className="timeline-row">
               <div className="timeline-card">
-                <div className="timeline-card-image" style={{ backgroundImage: `url(${imgBeginning})` }} role="img" aria-label={ar ? 'بداية مسيرة جولدن فودز' : 'Gold Foods founding'} />
                 <span className="timeline-year-badge">2019</span>
-                <h4>{ar ? '\u0627\u0644\u062a\u0623\u0633\u064a\u0633 \u0648\u0646\u0642\u0644 \u0627\u0644\u062e\u0628\u0631\u0629 \u0627\u0644\u0623\u0648\u0631\u0648\u0628\u064a\u0629' : 'The Inception & Tech Transfer'}</h4>
+                <h4>{ar ? 'التأسيس ونقل الخبرة الأوروبية' : 'The Inception & Tech Transfer'}</h4>
                 <p>
                   {ar
-                    ? '\u0628\u062f\u0623\u062a \u0645\u0633\u064a\u0631\u0629 \u062c\u0648\u0644\u062f \u0641\u0648\u062f\u0632 \u0641\u064a \u0645\u0635\u0631 \u0628\u0639\u062f \u0633\u0646\u0648\u0627\u062a \u0645\u0646 \u0627\u0644\u062e\u0628\u0631\u0629 \u0641\u064a \u0623\u0633\u0648\u0627\u0642 \u0623\u0644\u0645\u0627\u0646\u064a\u0627 \u0648\u0625\u0633\u0628\u0627\u0646\u064a\u0627 \u0648\u0627\u0644\u062f\u0646\u0645\u0627\u0631\u0643\u060c \u0628\u0647\u062f\u0641 \u062a\u0637\u0628\u064a\u0642 \u0623\u0631\u0642\u0649 \u0645\u0639\u0627\u064a\u064a\u0631 \u062a\u0635\u0646\u064a\u0639 \u0627\u0644\u0623\u0633\u0645\u0627\u0643 \u0627\u0644\u0645\u062f\u062e\u0646\u0629 \u0645\u062d\u0644\u064a\u0627\u064b.'
+                    ? 'بدأت مسيرة جولدن فودز في مصر بعد سنوات من الخبرة في أسواق ألمانيا وإسبانيا والدنمارك، بهدف تطبيق أرقى معايير تصنيع الأسماك المدخنة محلياً.'
                     : 'The journey began by transferring deep manufacturing expertise from Spain, Germany, and Denmark to establish a premium local processing standard.'}
                 </p>
               </div>
             </div>
             <div className="timeline-row right-aligned">
               <div className="timeline-card">
-                <div className="timeline-card-image" style={{ backgroundImage: `url(${imgFactory})` }} role="img" aria-label={ar ? '\u0645\u0635\u0646\u0639 \u0628\u0644\u0628\u064a\u0633' : 'Belbeis factory'} />
                 <span className="timeline-year-badge">2021</span>
-                <h4>{ar ? '\u062a\u0623\u0633\u064a\u0633 \u0645\u0635\u0646\u0639 \u0628\u0644\u0628\u064a\u0633 \u0627\u0644\u0645\u062a\u0637\u0648\u0631' : 'The Belbeis Production Fortress'}</h4>
+                <h4>{ar ? 'تأسيس مصنع بلبيس المتطور' : 'The Belbeis Production Fortress'}</h4>
                 <p>
                   {ar
-                    ? '\u0627\u0641\u062a\u062a\u0627\u062d \u0645\u0635\u0646\u0639\u0646\u0627 \u0627\u0644\u0631\u0626\u064a\u0633\u064a \u0628\u0628\u0644\u0628\u064a\u0633 \u0627\u0644\u0634\u0631\u0642\u064a\u0629 \u0648\u062a\u062c\u0647\u064a\u0632\u0647 \u0628\u0623\u062d\u062f\u062b \u0623\u0641\u0631\u0627\u0646 \u0627\u0644\u062a\u062f\u062e\u064a\u0646 \u0627\u0644\u0631\u0642\u0645\u064a\u0629 \u0627\u0644\u0645\u063a\u0644\u0642\u0629 \u0644\u0644\u0627\u0645\u062a\u062b\u0627\u0644 \u0644\u0634\u0647\u0627\u062f\u0627\u062a \u0633\u0644\u0627\u0645\u0629 \u0627\u0644\u063a\u0630\u0627\u0621 \u0627\u0644\u0639\u0627\u0644\u0645\u064a\u0629.'
+                    ? 'افتتاح مصنعنا الرئيسي ببلبيس الشرقية وتجهيزه بأحدث أفران التدخين الرقمية المغلقة للامتثال لشهادات سلامة الغذاء العالمية.'
                     : 'Opening of our specialized Belbeis facility with sealed computer-monitored smoking chambers to meet global ISO standards.'}
                 </p>
               </div>
             </div>
             <div className="timeline-row">
               <div className="timeline-card">
-                <div className="timeline-card-image" style={{ backgroundImage: `url(${imgProduct})` }} role="img" aria-label={ar ? '\u0645\u0646\u062a\u062c\u0627\u062a \u0633\u064a\u062f \u0627\u0644\u0628\u0644\u062f' : 'Seed El-Balad products'} />
                 <span className="timeline-year-badge">2023</span>
-                <h4>{ar ? '\u0625\u0637\u0644\u0627\u0642 \u0639\u0644\u0627\u0645\u0629 \u0633\u064a\u062f \u0627\u0644\u0628\u0644\u062f' : 'Launching "Seed El-Balad"'}</h4>
+                <h4>{ar ? 'إطلاق علامة سيد البلد' : 'Launching "Seed El-Balad"'}</h4>
                 <p>
                   {ar
-                    ? '\u0625\u0637\u0644\u0627\u0642 \u0627\u0644\u0639\u0644\u0627\u0645\u0629 \u0627\u0644\u062a\u062c\u0627\u0631\u064a\u0629 \u0644\u062a\u0645\u062b\u0644 \u0645\u0639\u064a\u0627\u0631 \u0627\u0644\u062c\u0648\u062f\u0629 \u0644\u0644\u0631\u0646\u062c\u0629 \u0627\u0644\u0645\u062f\u062e\u0646\u0629 \u0648\u0628\u0637\u0627\u0631\u062e \u0627\u0644\u0631\u0646\u062c\u0629 \u0627\u0644\u0641\u0627\u062e\u0631\u060c \u0648\u062a\u0648\u0633\u064a\u0639 \u0627\u0644\u0634\u0631\u0627\u0643\u0629 \u0645\u0639 \u0643\u0628\u0631\u0649 \u0633\u0644\u0627\u0633\u0644 \u0627\u0644\u0633\u0648\u0628\u0631\u0645\u0627\u0631\u0643\u062a \u0648\u0627\u0644\u0641\u0646\u0627\u062f\u0642.'
+                    ? 'إطلاق العلامة التجارية لتمثل معيار الجودة للرنجة المدخنة وبطارخ الرنجة الفاخر، وتوسيع الشراكة مع كبرى سلاسل السوبرماركت والفنادق.'
                     : 'Official launch of the consumer brand as the quality benchmark for premium smoked herring, expanding into luxury retail and hotel chains.'}
                 </p>
               </div>
             </div>
             <div className="timeline-row right-aligned">
               <div className="timeline-card">
-                <div className="timeline-card-image" style={{ backgroundImage: `url(${imgTable})` }} role="img" aria-label={ar ? '\u0633\u0641\u0631\u0629 \u0639\u0627\u0626\u0644\u064a\u0629 \u0645\u0635\u0631\u064a\u0629' : 'Egyptian family table'} />
                 <span className="timeline-year-badge">2026</span>
-                <h4>{ar ? '\u0627\u0644\u0631\u064a\u0627\u062f\u0629 \u0648\u0627\u0644\u0627\u0646\u062a\u0634\u0627\u0631 \u0627\u0644\u0642\u0648\u0645\u064a' : 'Market Leadership & National Expansion'}</h4>
+                <h4>{ar ? 'الريادة والانتشار القومي' : 'Market Leadership & National Expansion'}</h4>
                 <p>
                   {ar
-                    ? '\u062a\u063a\u0637\u064a\u0629 \u0648\u0627\u0633\u0639\u0629 \u0644\u0643\u0627\u0641\u0629 \u0627\u0644\u0645\u062d\u0627\u0641\u0638\u0627\u062a \u0627\u0644\u0645\u0635\u0631\u064a\u0629 \u0639\u0628\u0631 \u0623\u0633\u0637\u0648\u0644 \u062a\u0648\u0632\u064a\u0639 \u0645\u0628\u0631\u062f \u0645\u062a\u0637\u0648\u0631\u060c \u0648\u062a\u0639\u0632\u064a\u0632 \u0645\u0648\u0642\u0639\u0646\u0627 \u0643\u0639\u0644\u0627\u0645\u0629 \u0627\u0644\u062c\u0648\u062f\u0629 \u0627\u0644\u0623\u0648\u0644\u0649 \u0641\u064a \u0641\u0626\u062a\u0646\u0627.'
+                    ? 'تغطية واسعة لكافة المحافظات المصرية عبر أسطول توزيع مبرد متطور، وتعزيز موقعنا كعلامة الجودة الأولى في فئتنا.'
                     : 'Nationwide coverage through an advanced refrigerated distribution fleet, cementing our position as the leading quality brand in our category.'}
                 </p>
               </div>
@@ -304,21 +298,21 @@ export const OurStoryPage: React.FC<OurStoryPageProps> = () => {
       <section className="sp-sourcing sp-reveal">
         <div className="container">
           <div className="sp-sourcing-header">
-            <span className="sp-section-tag">{ar ? '\u0627\u0644\u062c\u0648\u062f\u0629 \u062a\u0628\u062f\u0623 \u0645\u0646 \u0627\u0644\u0628\u062d\u0631' : 'QUALITY STARTS AT SEA'}</span>
+            <span className="sp-section-tag">{ar ? 'الجودة تبدأ من البحر' : 'QUALITY STARTS AT SEA'}</span>
             <div className="sp-navy-rule" />
             <h2 className="sp-sourcing-title">
-              {ar ? '\u0646\u0633\u0627\u0641\u0631 \u0644\u0646\u062e\u062a\u0627\u0631 \u0627\u0644\u0623\u0641\u0636\u0644 \u0628\u0623\u0646\u0641\u0633\u0646\u0627' : 'We Travel to Source the Best Ourselves'}
+              {ar ? 'نسافر لنختار الأفضل بأنفسنا' : 'We Travel to Source the Best Ourselves'}
             </h2>
             <p className="sp-sourcing-desc">
               {ar
-                ? '\u064a\u0633\u0627\u0641\u0631 \u0641\u0631\u064a\u0642 \u0627\u0644\u0625\u062f\u0627\u0631\u0629 \u0648\u0645\u0646\u062f\u0648\u0628\u0648 \u0627\u0644\u062c\u0648\u062f\u0629 \u0625\u0644\u0649 \u0623\u0634\u0647\u0631 \u0645\u0646\u0627\u0637\u0642 \u0635\u064a\u062f \u0627\u0644\u0647\u0627\u0631\u064a\u0646\u062c \u0641\u064a \u0627\u0644\u0639\u0627\u0644\u0645 \u0644\u0627\u062e\u062a\u064a\u0627\u0631 \u0627\u0644\u062e\u0627\u0645 \u0645\u0628\u0627\u0634\u0631\u0629 \u0645\u0646 \u0627\u0644\u0645\u0635\u062f\u0631\u060c \u0648\u0627\u0644\u062a\u0623\u0643\u062f \u0645\u0646 \u0645\u0637\u0627\u0628\u0642\u0629 \u0643\u0644 \u0634\u062d\u0646\u0629 \u0644\u0645\u0639\u0627\u064a\u064a\u0631\u0646\u0627 \u0627\u0644\u0635\u0627\u0631\u0645\u0629.'
+                ? 'يسافر فريق الإدارة ومندوبو الجودة إلى أشهر مناطق صيد الهارينج في العالم لاختيار الخام مباشرة من المصدر، والتأكد من مطابقة كل شحنة لمعاييرنا الصارمة.'
                 : 'Our management and quality teams travel to the world\'s leading herring fishing zones to select raw materials at source and verify every shipment meets our strict standards.'}
             </p>
           </div>
           <div className="sp-origin-cards">
             {origins.map((o, i) => (
               <div key={i} className="sp-origin-card">
-                <span className="sp-origin-flag">{o.flag}</span>
+                <span className="sp-origin-flag">{o.code}</span>
                 <h4 className="sp-origin-country">{o.country}</h4>
                 <span className="sp-origin-catch">{o.catch}</span>
                 <p className="sp-origin-fact">{o.fact}</p>
