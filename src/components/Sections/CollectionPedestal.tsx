@@ -14,10 +14,10 @@ export const CollectionPedestal: React.FC<CollectionPedestalProps> = ({ onSelect
 
   const getCategoryFilterKey = (categoryEn: string) => {
     const cat = categoryEn.toLowerCase();
-    if (cat.includes('smoked')) return 'smoked-herring';
+    if (cat.includes('roe') || cat.includes('caviar')) return 'gourmet-roe';
     if (cat.includes('fillet')) return 'premium-fillet';
-    if (cat.includes('spread') || cat.includes('paste')) return 'spreads-paste';
     if (cat.includes('canned')) return 'canned-herring';
+    if (cat.includes('smoked')) return 'smoked-herring';
     return 'all';
   };
 

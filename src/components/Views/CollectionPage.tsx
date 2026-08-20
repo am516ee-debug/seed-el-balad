@@ -30,9 +30,9 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
   const categories = [
     { id: 'all', label: { ar: 'الكل', en: 'All' } },
     { id: 'smoked-herring', label: { ar: 'الرنجة المدخنة', en: 'Smoked Herring' } },
+    { id: 'gourmet-roe', label: { ar: 'البطارخ والكافيار', en: 'Gourmet Roe' } },
     { id: 'premium-fillet', label: { ar: 'شرائح الفيليه', en: 'Premium Fillet' } },
-    { id: 'spreads-paste', label: { ar: 'المعجون والمتبل', en: 'Spreads & Paste' } },
-    { id: 'canned-herring', label: { ar: 'المعلبات سهلة الفتح', en: 'Canned Herring' } }
+    { id: 'canned-herring', label: { ar: 'المعلبات', en: 'Canned Seafood' } }
   ];
 
   const handleCategoryChange = (catId: string) => {
@@ -54,10 +54,10 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
       const prodCat = p.category.en.toLowerCase();
       if (activeCategory === 'smoked-herring') {
         matchesCategory = prodCat.includes('smoked herring');
+      } else if (activeCategory === 'gourmet-roe') {
+        matchesCategory = prodCat.includes('roe') || prodCat.includes('caviar') || prodCat.includes('بطارخ');
       } else if (activeCategory === 'premium-fillet') {
         matchesCategory = prodCat.includes('premium fillet') || prodCat.includes('fillet');
-      } else if (activeCategory === 'spreads-paste') {
-        matchesCategory = prodCat.includes('spreads') || prodCat.includes('paste');
       } else if (activeCategory === 'canned-herring') {
         matchesCategory = prodCat.includes('canned') || prodCat.includes('معلبات');
       }
