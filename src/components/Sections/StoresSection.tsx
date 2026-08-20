@@ -223,9 +223,6 @@ export const StoresSection: React.FC = () => {
           <h2 className="section-title">
             {language === 'ar' ? 'المقرات الرسمية والمصانع' : 'Headquarters & Factories'}
           </h2>
-          <div className="title-divider">
-            <span className="dot"></span>
-          </div>
           <p className="section-desc">
             {language === 'ar' 
               ? 'يسعدنا تشريفكم في مقر إدارة الشركة الرئيسي بالقاهرة أو زيارة منفذ بيع المصنع في بلبيس بمحافظة الشرقية للتواصل المباشر:' 

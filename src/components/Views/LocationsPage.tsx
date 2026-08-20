@@ -48,7 +48,6 @@ export const LocationsPage: React.FC = () => {
             <span className="loc-eyebrow">
               {language === 'ar' ? 'قنوات المساعدة والتواصل المباشر' : 'DIRECT CLIENT ASSISTANCE'}
             </span>
-            <div className="loc-navy-line" />
             <h2>
               {language === 'ar' 
                 ? 'نحن هنا لخدمتكم والإجابة عن استفساراتكم' 
