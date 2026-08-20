@@ -74,7 +74,13 @@ export const ContactSection: React.FC = () => {
             </div>
 
             {/* Address Card */}
-            <div className="contact-card">
+            <a 
+              href="https://maps.app.goo.gl/4XrjBhoWF4qXuxzGA" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="contact-card"
+              style={{ textDecoration: 'none', color: 'inherit' }}
+            >
               <div className="contact-icon-wrapper">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
@@ -85,7 +91,7 @@ export const ContactSection: React.FC = () => {
                 <h5>{t('contact.address')}</h5>
                 <p>{t('contact.addressVal')}</p>
               </div>
-            </div>
+            </a>
 
 
           </div>

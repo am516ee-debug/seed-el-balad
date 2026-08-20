@@ -108,7 +108,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onNavigate }) => 
                 </svg>
                 +20 1032033302
               </a>
-              <div>
+              <a href="https://maps.app.goo.gl/4XrjBhoWF4qXuxzGA" target="_blank" rel="noopener noreferrer">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ display: 'inline', marginRight: '6px', verticalAlign: 'middle' }}>
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                   <circle cx="12" cy="10" r="3"/>
@@ -116,7 +116,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onNavigate }) => 
                 <span style={{ fontSize: '0.8rem', display: 'inline-block', maxWidth: '240px', verticalAlign: 'middle' }}>
                   {t('contact.addressVal')}
                 </span>
-              </div>
+              </a>
             </div>
           </div>
 

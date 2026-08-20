@@ -19,15 +19,15 @@ interface Branch {
 const BRANCHES_DATA: Branch[] = [
   {
     id: 'gf-factory-belbeis',
-    nameEn: 'Gold Foods Factory & Outlet',
-    nameAr: 'مصنع جولد فودز - المنفذ الرئيسي',
-    lat: 30.4192,
-    lng: 31.5647,
-    addressEn: 'Industrial Zone, Belbeis, Sharqia, Egypt',
-    addressAr: 'المنطقة الصناعية، بلبيس، الشرقية، مصر',
-    gmapsUrl: 'https://maps.google.com/?q=30.4192,31.5647',
-    typeEn: 'Head Office & Factory',
-    typeAr: 'الفرع الرئيسي والمصنع',
+    nameEn: 'Gold Foods Factory for Food Industries',
+    nameAr: 'مصنع شركة جولد فودز للصناعات الغذائية',
+    lat: 30.6413568,
+    lng: 31.637504,
+    addressEn: '8FGX+75 Gold Foods Factory for Food Industries, Bilbeis, Al-Sharqia Governorate 7050301',
+    addressAr: '8FGX+75 مصنع شركة جولد فودز للصناعات الغذائية، بلبيس، محافظة الشرقية 7050301',
+    gmapsUrl: 'https://maps.app.goo.gl/4XrjBhoWF4qXuxzGA',
+    typeEn: 'Headquarters & Main Factory',
+    typeAr: 'الفرع الرئيسي ومجمع المصانع',
     city: 'belbeis'
   },
   {

@@ -148,7 +148,7 @@ export const LocationsPage: React.FC = () => {
                   : 'Sun - Thu: 9:00 AM - 5:00 PM'}
               </p>
               <span className="loc-assist-footnote">
-                {language === 'ar' ? 'مجمع بلبيس الصناعي، الشرقية' : 'Belbeis Industrial Complex, Egypt'}
+                {language === 'ar' ? '8FGX+75 مصنع شركة جولد فودز، بلبيس، الشرقية' : '8FGX+75 Gold Foods Factory, Bilbeis, Sharqia'}
               </span>
             </div>
           </div>

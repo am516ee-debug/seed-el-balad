@@ -90,8 +90,10 @@ export class TranslationHelper {
     'contact.sub': { ar: 'يسعد فريق جولد فودز التواصل معك لمناقشة فرص التعاون والتوزيع.', en: 'The Gold Foods team is happy to connect for trading and distribution opportunities.' },
     'contact.email': { ar: 'البريد الإلكتروني للرئيس التنفيذي', en: 'CEO Email Address' },
     'contact.phone': { ar: 'الهاتف والواتساب المباشر', en: 'Direct Phone & WhatsApp' },
-    'contact.address': { ar: 'العنوان والمصنع الرئيسي', en: 'Headquarters & Factory Address' },
-    'contact.addressVal': { ar: 'برج جولد، قطعة رقم ٣٩، شمال دار مصر، مدينة ١٥ مايو، القاهرة، مصر', en: 'Gold Tower, Plot 39, North Dar Misr, 15th of May City, Cairo, Egypt' },
+    'contact.addressVal': { 
+      ar: '8FGX+75 مصنع شركة جولد فودز للصناعات الغذائية، بلبيس، محافظة الشرقية 7050301', 
+      en: '8FGX+75 Gold Foods Factory for Food Industries, Bilbeis, Al-Sharqia Governorate 7050301' 
+    },
     'contact.formName': { ar: 'الاسم الكريم', en: 'Full Name' },
     'contact.formEmail': { ar: 'البريد الإلكتروني', en: 'Email Address' },
     'contact.formPhone': { ar: 'رقم الهاتف', en: 'Phone Number' },
