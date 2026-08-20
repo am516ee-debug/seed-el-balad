@@ -30,13 +30,17 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
   const categories = [
     { id: 'all', label: { ar: 'الكل', en: 'All' } },
     { id: 'smoked-herring', label: { ar: 'الرنجة المدخنة', en: 'Smoked Herring' } },
+    { id: 'premium-fillet', label: { ar: 'شرائح الفيليه', en: 'Smoked Fillet' } },
     { id: 'gourmet-roe', label: { ar: 'البطارخ والكافيار', en: 'Gourmet Roe' } },
-    { id: 'premium-fillet', label: { ar: 'شرائح الفيليه', en: 'Premium Fillet' } },
-    { id: 'canned-herring', label: { ar: 'المعلبات', en: 'Canned Seafood' } }
+    { id: 'canned-herring', label: { ar: 'المعلبات', en: 'Canned Seafood' } },
+    { id: 'gifts', label: { ar: 'الهدايا والتغليف', en: 'Gifts & Packaging' } }
   ];
 
   const handleCategoryChange = (catId: string) => {
     if (catId === activeCategory) return;
+    if (onClearSearch && searchQuery) {
+      onClearSearch();
+    }
     setIsAnimating(true);
     setTimeout(() => {
       setActiveCategory(catId);
@@ -53,25 +57,31 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
     if (activeCategory !== 'all') {
       const prodCat = p.category.en.toLowerCase();
       if (activeCategory === 'smoked-herring') {
-        matchesCategory = prodCat.includes('smoked herring');
+        matchesCategory = prodCat === 'smoked herring' || prodCat.includes('smoked herring');
+      } else if (activeCategory === 'premium-fillet') {
+        matchesCategory = prodCat.includes('fillet') || prodCat.includes('فيليه');
       } else if (activeCategory === 'gourmet-roe') {
         matchesCategory = prodCat.includes('roe') || prodCat.includes('caviar') || prodCat.includes('بطارخ');
-      } else if (activeCategory === 'premium-fillet') {
-        matchesCategory = prodCat.includes('premium fillet') || prodCat.includes('fillet');
       } else if (activeCategory === 'canned-herring') {
         matchesCategory = prodCat.includes('canned') || prodCat.includes('معلبات');
+      } else if (activeCategory === 'gifts') {
+        matchesCategory = prodCat.includes('gift') || prodCat.includes('هدايا') || prodCat.includes('packaging');
       }
     }
     
-    // 2. Filter by search input query
+    // 2. Filter by search input query (Multi-token bilingual search across all fields)
     let matchesSearch = true;
     if (searchQuery) {
-      const q = searchQuery.toLowerCase().trim();
-      const name = (language === 'ar' ? p.title.ar : p.title.en).toLowerCase();
-      const desc = (language === 'ar' ? p.desc.ar : p.desc.en).toLowerCase();
-      const category = (language === 'ar' ? p.category.ar : p.category.en).toLowerCase();
-      
-      matchesSearch = name.includes(q) || desc.includes(q) || category.includes(q);
+      const qTokens = searchQuery.toLowerCase().trim().split(/\s+/).filter(Boolean);
+      const searchableText = [
+        p.title.ar, p.title.en,
+        p.desc.ar, p.desc.en,
+        p.category.ar, p.category.en,
+        p.ingredients?.ar || '', p.ingredients?.en || '',
+        p.size?.ar || '', p.size?.en || ''
+      ].join(' ').toLowerCase();
+
+      matchesSearch = qTokens.every(token => searchableText.includes(token));
     }
     
     return matchesCategory && matchesSearch;
@@ -114,40 +124,83 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
             ))}
           </div>
 
-          {/* Active Search Query Bar */}
+          {/* Active Search Query Bar with enhanced styling and generous spacing */}
           {searchQuery && (
             <div className="search-query-bar reveal active" style={{
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center',
-              gap: '12px',
-              margin: '25px auto 0',
-              padding: '10px 20px',
-              backgroundColor: 'var(--color-primary-light)',
-              border: '1px solid var(--color-border-divider)',
-              maxWidth: 'fit-content',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: '16px',
+              margin: '32px auto 48px',
+              padding: '16px 28px',
+              backgroundColor: 'var(--color-bg-cream)',
+              border: '1px solid rgba(185, 150, 83, 0.3)',
+              boxShadow: '0 4px 20px rgba(18, 34, 46, 0.05)',
+              maxWidth: '900px',
+              width: '92%'
             }}>
-              <span style={{ fontSize: '0.9rem', color: 'var(--color-text-ink)', fontWeight: 500 }}>
-                {language === 'ar' 
-                  ? `نتائج البحث عن: "${searchQuery}"` 
-                  : `Search results for: "${searchQuery}"`}
-              </span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                <span style={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center', 
+                  width: '34px', 
+                  height: '34px', 
+                  borderRadius: '50%', 
+                  backgroundColor: 'rgba(185, 150, 83, 0.15)',
+                  color: 'var(--color-accent-gold-dark)',
+                  flexShrink: 0
+                }}>
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="11" cy="11" r="7"/>
+                    <path d="M20 20l-4-4"/>
+                  </svg>
+                </span>
+                <div style={{ textAlign: 'start' }}>
+                  <div style={{ fontSize: '1rem', color: 'var(--color-text-ink)', fontWeight: 600 }}>
+                    {language === 'ar' 
+                      ? <>نتائج البحث عن: <span style={{ color: 'var(--color-accent-gold-dark)' }}>"{searchQuery}"</span></>
+                      : <>Search results for: <span style={{ color: 'var(--color-accent-gold-dark)' }}>"{searchQuery}"</span></>}
+                  </div>
+                  <div style={{ fontSize: '0.82rem', color: 'var(--color-text-muted)', marginTop: '2px' }}>
+                    {language === 'ar' 
+                      ? `تم العثور على (${filteredProducts.length}) ${filteredProducts.length === 1 ? 'منتج' : 'منتجات'}`
+                      : `Found (${filteredProducts.length}) ${filteredProducts.length === 1 ? 'product' : 'products'}`}
+                  </div>
+                </div>
+              </div>
+
               <button 
                 type="button" 
                 onClick={onClearSearch}
                 style={{
-                  background: 'transparent',
-                  border: 'none',
-                  color: 'var(--color-accent-gold-dark)',
+                  background: 'var(--color-white)',
+                  border: '1px solid rgba(185, 150, 83, 0.4)',
+                  color: 'var(--color-text-ink)',
                   cursor: 'pointer',
                   display: 'inline-flex',
                   alignItems: 'center',
-                  fontSize: '0.85rem',
-                  fontWeight: 700,
-                  textDecoration: 'underline'
+                  gap: '6px',
+                  padding: '8px 18px',
+                  fontSize: '0.82rem',
+                  fontWeight: 600,
+                  transition: 'all 0.2s ease',
+                  letterSpacing: language === 'ar' ? '0' : '0.04em'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = 'var(--color-accent-gold)';
+                  e.currentTarget.style.color = '#fff';
+                  e.currentTarget.style.borderColor = 'var(--color-accent-gold)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'var(--color-white)';
+                  e.currentTarget.style.color = 'var(--color-text-ink)';
+                  e.currentTarget.style.borderColor = 'rgba(185, 150, 83, 0.4)';
                 }}
               >
-                {language === 'ar' ? 'إلغاء البحث' : 'Clear'}
+                <span>✕</span>
+                <span>{language === 'ar' ? 'إلغاء البحث وعرض الكل' : 'Clear Search & Show All'}</span>
               </button>
             </div>
           )}
