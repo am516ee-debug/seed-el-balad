@@ -8,7 +8,7 @@
   background-color: var(--color-bg-cream);
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
+  width: 100%;
 }
 
 /* ─── SCROLL REVEAL ───────────────────────────────────────────────────────── */
