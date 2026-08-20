@@ -66,28 +66,100 @@ export const Home: React.FC<HomeProps> = ({ onViewPdf, onSelectCategory, onNavig
       {/* Visual Quality & Certifications Section */}
       <QualitySection onViewPdf={onViewPdf} />
       
-      {/* 1. Full-Width Sourcing & Countries Section */}
-      <section className="homepage-sourcing-section" id="about-section" style={{ padding: '100px 8% 80px', backgroundColor: 'var(--color-bg-cream)', borderBottom: '1px solid var(--color-border-divider)' }}>
-        <div className="container" style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
-          <span className="collection-kick">{t('sourcing.eyebrow')}</span>
-          <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '2.6rem', color: 'var(--color-text-ink)', marginTop: '12px', lineHeight: '1.2' }}>
-            {t('sourcing.title')}
-          </h2>
-          <p style={{ opacity: 0.85, fontSize: '1rem', lineHeight: '1.7', marginTop: '20px', maxWidth: '800px', marginInline: 'auto' }}>
-            {t('sourcing.desc')}
-          </p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginTop: '30px', justifyContent: 'center' }}>
-            <span className="iso-badge" style={{ backgroundColor: 'var(--color-white)', border: '1px solid var(--color-border-divider)' }}>{language === 'ar' ? '🇳🇱 هولندا' : '🇳🇱 Netherlands'}</span>
-            <span className="iso-badge" style={{ backgroundColor: 'var(--color-white)', border: '1px solid var(--color-border-divider)' }}>{language === 'ar' ? '🇳🇴 النرويج' : '🇳🇴 Norway'}</span>
-            <span className="iso-badge" style={{ backgroundColor: 'var(--color-white)', border: '1px solid var(--color-border-divider)' }}>{language === 'ar' ? '🇮🇸 أيسلندا' : '🇮🇸 Iceland'}</span>
-            <span className="iso-badge" style={{ backgroundColor: 'var(--color-white)', border: '1px solid var(--color-border-divider)' }}>{language === 'ar' ? '🇫🇴 جزر فارو' : '🇫🇴 Faroe Islands'}</span>
-            <span className="iso-badge" style={{ backgroundColor: 'var(--color-white)', border: '1px solid var(--color-border-divider)' }}>{language === 'ar' ? '🏴󠁧󠁢󠁳 كوتلندا' : '🏴󠁧󠁢󠁳 Scotland'}</span>
+      {/* 1. Luxury Sourcing & Countries Section */}
+      <section className="homepage-sourcing-section reveal" id="about-section">
+        <div className="container">
+          <div className="sourcing-header reveal">
+            <span className="collection-kick">{t('sourcing.eyebrow')}</span>
+            <div className="divider-ornament" aria-hidden="true" style={{ margin: '14px auto 18px' }}>
+              <span className="line-left" />
+              <span className="diamond" />
+              <span className="line-right" />
+            </div>
+            <h2>{language === 'ar' ? 'نسافر لنختار الأفضل بأنفسنا' : 'We Travel to Source the Best Ourselves'}</h2>
+            <p className="sourcing-lead">
+              {language === 'ar'
+                ? 'يسافر فريق الإدارة ومسؤولو الجودة إلى أشهر وأرقى مناطق صيد الهارينج في شمال الأطلسي لاختيار أفضل الخامات مباشرة من المصدر، وفحص كل شحنة للتأكد من مطابقتها لأعلى معايير الجودة الصارمة.'
+                : 'Our management and quality assurance teams travel directly to the world’s leading cold-water herring zones to select premium raw materials at source and verify every shipment meets our strict standards.'}
+            </p>
           </div>
-          <div style={{ marginTop: '35px' }}>
+
+          {/* 5 Sourcing Hub Cards */}
+          <div className="sourcing-grid">
+            {[
+              {
+                code: 'NL',
+                name: language === 'ar' ? 'هولندا' : 'Netherlands',
+                tag: language === 'ar' ? 'هارينج الماتيس الفاخر' : 'MAATJES HERRING',
+                desc: language === 'ar' ? 'المصدر التاريخي والأساسي لأجود خامات أسماك الهارينج النقية.' : 'Primary herring raw material supplier with historic processing heritage.'
+              },
+              {
+                code: 'NO',
+                name: language === 'ar' ? 'النرويج' : 'Norway',
+                tag: language === 'ar' ? 'هارينج الأطلسي الشتوي' : 'WINTER ATLANTIC HERRING',
+                desc: language === 'ar' ? 'صيد شتوي فائق النقاء غني بالزيوت الطبيعية والأوميجا 3.' : 'High-fat winter season catch from pure, deep arctic waters.'
+              },
+              {
+                code: 'IS',
+                name: language === 'ar' ? 'أيسلندا' : 'Iceland',
+                tag: language === 'ar' ? 'مياه القطب الشمالي الباردة' : 'COLD-WATER HERRING',
+                desc: language === 'ar' ? 'مياه متجمدة بكر ومصايد برية تخضع لأعلى معايير الاستدامة.' : 'Pure arctic waters with strictly regulated sustainable wild fishing.'
+              },
+              {
+                code: 'FO',
+                name: language === 'ar' ? 'جزر فارو' : 'Faroe Islands',
+                tag: language === 'ar' ? 'صيد بري طبيعي مستدام' : 'WILD-CAUGHT SUSTAINABLE',
+                desc: language === 'ar' ? 'صيد بري 100% بدون أي استزراع، ذو قوام لحمي متماسك.' : 'Fully wild oceanic catch with firm texture, no aquaculture.'
+              },
+              {
+                code: 'UK',
+                name: language === 'ar' ? 'اسكتلندا' : 'Scotland',
+                tag: language === 'ar' ? 'صيد خريفي عالي الجودة' : 'AUTUMN HIGH-GRADE HERRING',
+                desc: language === 'ar' ? 'أعلى نسبة دهون طبيعية وقوام زبدي لمنتجات الفيليه الممتازة.' : 'Highest natural fat content selected for our flagship premium products.'
+              }
+            ].map((hub, idx) => (
+              <div className="sourcing-card reveal" key={idx}>
+                <span className="sourcing-code">{hub.code}</span>
+                <h3 className="sourcing-country">{hub.name}</h3>
+                <span className="sourcing-tag">{hub.tag}</span>
+                <p className="sourcing-desc">{hub.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Criteria Banner Box */}
+          <div className="sourcing-criteria-box reveal">
+            <h4 className="sourcing-criteria-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <polyline points="9 12 11 14 15 10" />
+              </svg>
+              <span>{language === 'ar' ? 'معايير فحص وتقييم الشحنات المستوردة:' : 'Shipment Evaluation Criteria:'}</span>
+            </h4>
+            <div className="sourcing-criteria-grid">
+              <div className="sourcing-criterion">
+                <span className="sourcing-check" aria-hidden="true">✓</span>
+                <span>{language === 'ar' ? 'جودة موسم الصيد وخصائص المصيد الطبيعية والبيئية.' : 'Catch quality & fishing season characteristics.'}</span>
+              </div>
+              <div className="sourcing-criterion">
+                <span className="sourcing-check" aria-hidden="true">✓</span>
+                <span>{language === 'ar' ? 'نسبة الدهون الطبيعية المتوازنة والقوام الزبدي.' : 'Natural balanced fat content & buttery meat profile.'}</span>
+              </div>
+              <div className="sourcing-criterion">
+                <span className="sourcing-check" aria-hidden="true">✓</span>
+                <span>{language === 'ar' ? 'تجانس حجم الأسماك وتوحيد درجات الفرز لكل دفعة.' : 'Fish size consistency & uniform batch grading.'}</span>
+              </div>
+              <div className="sourcing-criterion">
+                <span className="sourcing-check" aria-hidden="true">✓</span>
+                <span>{language === 'ar' ? 'سلامة سلسلة التبريد الدقيقة وطرق التجميد الفوري في عرض البحر.' : 'Cold chain integrity & onboard flash-freezing methods.'}</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="sourcing-cta-wrap reveal">
             <a 
               href="#story" 
               className="cs-all" 
-              style={{ marginInline: 'auto' }}
               onClick={(e) => { 
                 e.preventDefault(); 
                 onNavigate('story'); 
