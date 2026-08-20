@@ -1517,53 +1517,68 @@ body[dir="rtl"] .cert-meta-code {
   text-align: center;
 }
 
-/* Reusable luxury button */
+/* Reusable luxury button - Modern Minimalist (No Stroke) */
 .btn-home-cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  background-color: var(--color-primary);
-  color: var(--color-white);
+  background-color: var(--color-primary) !important;
+  color: var(--color-white) !important;
   font-family: var(--font-sans);
   font-size: 0.88rem;
   font-weight: 600;
   letter-spacing: 0.08em;
-  padding: 16px 36px;
-  border: 1px solid var(--color-primary);
+  padding: 16px 40px;
+  border: none !important;
+  outline: none;
   border-radius: 0px !important;
   cursor: pointer;
-  box-shadow: 0 4px 18px rgba(32, 95, 166, 0.2);
+  box-shadow: 0 6px 20px rgba(32, 95, 166, 0.22);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
+  position: relative;
+  overflow: hidden;
 }
 
 [dir="rtl"] .btn-home-cta {
   letter-spacing: 0 !important;
+  font-size: 0.98rem;
 }
 
-.btn-home-cta:hover {
-  background-color: #16467d;
-  border-color: #16467d;
-  color: var(--color-white);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 26px rgba(32, 95, 166, 0.3);
+.btn-home-cta span,
+.btn-home-cta svg {
+  position: relative;
+  z-index: 2;
+  color: var(--color-white) !important;
 }
 
 .btn-home-cta svg {
-  transition: transform 0.3s ease;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 [dir="rtl"] .btn-home-cta svg {
   transform: scaleX(-1);
 }
 
+.btn-home-cta:hover {
+  background-color: #17487d !important;
+  color: var(--color-white) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(32, 95, 166, 0.35);
+}
+
 .btn-home-cta:hover svg {
-  transform: translateX(4px);
+  transform: translateX(5px);
 }
 
 [dir="rtl"] .btn-home-cta:hover svg {
-  transform: scaleX(-1) translateX(4px);
+  transform: scaleX(-1) translateX(5px);
+}
+
+.btn-home-cta:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(32, 95, 166, 0.25);
 }
 
 /* ─── 2. HOMEPAGE OUR STORY SHOWCASE ──────────────────────────────────────── */
