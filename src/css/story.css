@@ -1056,6 +1056,7 @@ body[dir="rtl"] .cert-meta-code {
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 68vh;
+  margin-bottom: 80px; /* Generous airy spacing before The Craft section */
   border-bottom: 1px solid rgba(32, 95, 166, 0.12);
 }
 .sp-origin-img {
@@ -1139,11 +1140,12 @@ body[dir="rtl"] .cert-meta-code {
   opacity: 0.9;
 }
 
-/* ── 4. THE CRAFT — Luxury Translucent Primary Navy Section ───────────────*/
+/* ── 4. THE CRAFT — Linear Primary Navy Translucent Overlay ───────────────*/
 .sp-craft {
   position: relative;
   padding: 120px 8%;
   overflow: hidden;
+  border-top: 1px solid rgba(32, 95, 166, 0.12);
   border-bottom: 1px solid rgba(32, 95, 166, 0.12);
   background-color: #0c2038;
 }
@@ -1153,7 +1155,7 @@ body[dir="rtl"] .cert-meta-code {
   inset: 0;
   background-size: cover;
   background-position: center;
-  filter: brightness(0.48) contrast(1.1) saturate(0.85);
+  filter: brightness(0.60) contrast(1.08) saturate(0.9);
   z-index: 1;
 }
 
@@ -1162,13 +1164,11 @@ body[dir="rtl"] .cert-meta-code {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    140deg,
-    rgba(14, 44, 82, 0.88) 0%,
-    rgba(32, 95, 166, 0.76) 50%,
-    rgba(10, 30, 58, 0.92) 100%
+    to bottom,
+    rgba(32, 95, 166, 0.52) 0%,
+    rgba(22, 68, 120, 0.72) 45%,
+    rgba(12, 36, 68, 0.90) 100%
   );
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
   z-index: 1;
 }
 
