@@ -94,26 +94,6 @@ export const LocationsPage: React.FC = () => {
         </div>
       </div>
 
-      {/* 4. Bottom Dedicated CTA Section */}
-      <section className="locations-cta-section reveal active">
-        <div className="locations-cta-content">
-          <span>{language === 'ar' ? 'شراكات الجملة والتوزيع' : 'WHOLESALE & DISTRIBUTION'}</span>
-          <h2>
-            {language === 'ar' 
-              ? 'هل ترغب في اعتماد منتجاتنا في متجرك؟' 
-              : 'Looking to Partner with Seed El-blad?'}
-          </h2>
-          <p>
-            {language === 'ar'
-              ? 'نحن نوفر خيارات مخصصة للفنادق، المطاعم، والهايبر ماركت الكبرى بأعلى مواصفات الجودة وشهادات الأيزو العالمية المعتمدة في التصنيع الغذائي.'
-              : 'We provide specialized smoked fish packages for hotels, premium restaurants, and leading hypermarkets with ISO-certified production standards.'}
-          </p>
-          <button className="locations-cta-btn" onClick={handleWhatsAppClick}>
-            {language === 'ar' ? 'طلب عرض مبيعات الجملة' : 'Request Wholesale Catalog'}
-          </button>
-        </div>
-      </section>
-
     </div>
   );
 };
