@@ -857,8 +857,7 @@ body[dir="rtl"] .cert-meta-code {
   font-weight: 700;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: #7CBBEB;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  color: var(--color-primary);
   display: block;
 }
 [dir="rtl"] .sp-eyebrow { letter-spacing: 0; }
