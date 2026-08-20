@@ -243,36 +243,81 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  margin-top: 16px;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 15px 36px;
   font-family: var(--font-sans);
-  font-size: 0.74rem;
-  letter-spacing: 0.28em;
-  color: var(--color-text-ink);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  color: var(--color-primary);
+  background-color: var(--color-white);
+  border: 1.5px solid var(--color-primary);
+  border-radius: 0px !important;
   text-decoration: none;
-  padding-bottom: 6px;
-  font-weight: 600;
-  transition: color 0.25s;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(32, 95, 166, 0.1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
 }
 
 [dir="rtl"] .cs-all {
   letter-spacing: 0 !important;
+  font-size: 0.94rem;
 }
 
 .cs-all::before {
   content: '';
   position: absolute;
+  top: 0;
   left: 0;
-  bottom: 0;
   width: 100%;
-  height: 1px;
-  background: var(--color-accent-gold);
-  transform: scaleX(1);
-  transition: transform 0.4s var(--ease-custom);
+  height: 100%;
+  background-color: var(--color-primary);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+.cs-all span,
+.cs-all svg {
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cs-all svg {
+  transition: transform 0.3s ease;
+}
+
+[dir="rtl"] .cs-all svg {
+  transform: scaleX(-1);
 }
 
 .cs-all:hover {
-  color: var(--color-accent-gold-dark);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+  box-shadow: 0 10px 28px rgba(32, 95, 166, 0.28);
+  transform: translateY(-3px);
+}
+
+.cs-all:hover::before {
+  transform: translateY(0);
+}
+
+.cs-all:hover span {
+  color: var(--color-white);
+}
+
+.cs-all:hover svg {
+  color: var(--color-white);
+  transform: translateX(4px);
+}
+
+[dir="rtl"] .cs-all:hover svg {
+  transform: scaleX(-1) translateX(4px);
 }
 
 /* Responsive grid layout overrides */
