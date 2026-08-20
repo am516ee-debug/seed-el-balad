@@ -45,9 +45,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onNavigate }) => 
                 }
               }}
             >
-              <img src={logoPng} alt="Seed El-blad" />
+              <img src={logoPng} alt="Seed El-balad" />
               <div className="brand-txt">
-                <span className="logo-wm">Seed El-blad</span>
+                <span className="logo-wm">Seed El-balad</span>
                 <span className="logo-ar">سيد البلد</span>
               </div>
             </div>
@@ -137,7 +137,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onNavigate }) => 
         {/* Bottom Bar */}
         <div className="footer-bottom">
           <div className="copyright">
-            © {new Date().getFullYear()} Gold Foods. All rights reserved. Brand: Seed El-blad.
+            © {new Date().getFullYear()} Gold Foods. All rights reserved. Brand: Seed El-balad.
           </div>
           <div className="footer-legal-links">
             <button type="button" onClick={onOpenPrivacy}>

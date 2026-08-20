@@ -16,7 +16,7 @@ export const Hero: React.FC = () => {
   return (
     <section className="hero" id="hero">
       <div className="hero-bg">
-        <img src={imgHero} alt="Seed El-blad Premium Smoked Herring Still Life" />
+        <img src={imgHero} alt="Seed El-balad Premium Smoked Herring Still Life" />
       </div>
       <div className="hero-content">
         <div className="hero-eyebrow">{t('hero.eyebrow')}</div>

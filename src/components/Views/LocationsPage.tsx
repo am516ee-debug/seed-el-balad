@@ -32,8 +32,8 @@ export const LocationsPage: React.FC = () => {
           </h1>
           <p>
             {language === 'ar' 
-              ? 'تفضل بزيارة مقرات ومصانع "Seed El-blad" لمعاينة أرقى معايير تصنيع الأسماك المدخنة وبطروخ الرنجة في مصر، أو تواصل معنا مباشرة عبر القنوات الرسمية.'
-              : 'Visit Seed El-blad’s administrative offices or our modern processing factory to experience the gold standard of smoked fish production in Egypt.'}
+              ? 'تفضل بزيارة مقرات ومصانع "Seed El-balad" لمعاينة أرقى معايير تصنيع الأسماك المدخنة وبطروخ الرنجة في مصر، أو تواصل معنا مباشرة عبر القنوات الرسمية.'
+              : 'Visit Seed El-balad’s administrative offices or our modern processing factory to experience the gold standard of smoked fish production in Egypt.'}
           </p>
         </div>
       </section>

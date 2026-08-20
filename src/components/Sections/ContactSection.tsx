@@ -20,7 +20,7 @@ export const ContactSection: React.FC = () => {
 
     const formattedText = language === 'ar'
       ? `💬 رسالة جديدة من موقع سيد البلد:\n\n👤 الاسم: ${name}\n📧 البريد: ${email}\n📞 الهاتف: ${phone}\n✉️ الرسالة:\n${message}`
-      : `💬 New Message from Seed El-blad website:\n\n👤 Name: ${name}\n📧 Email: ${email}\n📞 Phone: ${phone}\n✉️ Message:\n${message}`;
+      : `💬 New Message from Seed El-balad website:\n\n👤 Name: ${name}\n📧 Email: ${email}\n📞 Phone: ${phone}\n✉️ Message:\n${message}`;
 
     const encodedText = encodeURIComponent(formattedText);
     window.open(`https://wa.me/201032033302?text=${encodedText}`, '_blank');

@@ -120,10 +120,10 @@ export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate, onSearc
 
         <a href="/" className="wordmark" onClick={(e) => { e.preventDefault(); onNavigate('home'); }}>
           <span className="navseal">
-            <img src={logoPng} alt="Seed El-blad Logo" />
+            <img src={logoPng} alt="Seed El-balad Logo" />
           </span>
           <span className="wmtxt">
-            <span className="wm">Seed El-blad</span>
+            <span className="wm">Seed El-balad</span>
             <span className="ar">سيد البلد</span>
           </span>
         </a>

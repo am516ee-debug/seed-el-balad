@@ -4,7 +4,7 @@ export class TranslationHelper {
     'nav.home': { ar: 'الرئيسية', en: 'Home' },
     'nav.products': { ar: 'المجموعة الخاصة', en: 'Our Collection' },
     'nav.quality': { ar: 'الجودة والشهادات', en: 'Quality & Certs' },
-    'nav.about': { ar: 'لماذا سيد البلد؟', en: 'Why Seed El-blad?' },
+    'nav.about': { ar: 'لماذا سيد البلد؟', en: 'Why Seed El-balad?' },
     'nav.story': { ar: 'قصتنا وعراقتنا', en: 'Our Story' },
     'nav.contact': { ar: 'تواصل معنا', en: 'Contact Us' },
     'nav.menu': { ar: 'القائمة', en: 'Menu' },

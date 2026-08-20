@@ -33,7 +33,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ productId, isOpen, o
   const handleOrder = () => {
     const text = language === 'ar' 
       ? `مرحباً جولد فودز، أريد الاستفسار عن منتج سيد البلد: ${product.title.ar} وطلب كمية توزيع / جملة منه.`
-      : `Hello Gold Foods, I would like to inquire about the Seed El-blad product: ${product.title.en} for wholesale/distribution.`;
+      : `Hello Gold Foods, I would like to inquire about the Seed El-balad product: ${product.title.en} for wholesale/distribution.`;
     
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/201032033302?text=${encodedText}`, '_blank');

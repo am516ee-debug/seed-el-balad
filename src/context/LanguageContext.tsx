@@ -43,10 +43,10 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
         metaDesc.setAttribute('content', 'اكتشف منتجات رنجة سيد البلد المدخنة طبيعياً بخشب الزان. بطارخ شامبين خفيفة الملح، فيليه رنجة مخلي، معقمة بالكامل ومصنعة وفق أرقى معايير الجودة الأوربية.');
       }
     } else {
-      document.title = "Seed El-blad | Premium Smoked Herring & Golden Caviar Roe";
+      document.title = "Seed El-balad | Premium Smoked Herring & Golden Caviar Roe";
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) {
-        metaDesc.setAttribute('content', 'Experience Seed El-blad premium smoked herring & golden caviar roe. Slow-smoked over natural beechwood, low-sodium, and processed under European safety protocols.');
+        metaDesc.setAttribute('content', 'Experience Seed El-balad premium smoked herring & golden caviar roe. Slow-smoked over natural beechwood, low-sodium, and processed under European safety protocols.');
       }
     }
 
