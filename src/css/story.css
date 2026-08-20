@@ -880,31 +880,68 @@ body[dir="rtl"] .cert-meta-code {
   margin: 0;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
-.sp-hero-scroll {
+.sp-hero .scroll-cue {
   position: absolute;
-  bottom: 32px;
+  bottom: 36px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  opacity: 0.7;
-}
-.sp-hero-scroll-line {
-  width: 1px;
-  height: 36px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.65), transparent);
-}
-.sp-hero-scroll span {
+  gap: 8px;
   font-family: var(--font-sans);
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+  transition: color var(--transition-fast), transform var(--transition-fast);
 }
-[dir="rtl"] .sp-hero-scroll span { letter-spacing: 0; }
+
+[dir="rtl"] .sp-hero .scroll-cue {
+  letter-spacing: 0 !important;
+}
+
+.sp-hero .scroll-cue:hover {
+  color: var(--color-primary);
+  transform: translateX(-50%) translateY(2px);
+}
+
+.sp-hero .scroll-cue .dot {
+  width: 1.5px;
+  height: 42px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), transparent);
+  position: relative;
+  overflow: hidden;
+}
+
+.sp-hero .scroll-cue .dot::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 16px;
+  background-color: var(--color-white);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+  animation: scrollDot 2s infinite ease-in-out;
+}
+
+@keyframes scrollDot {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(200%);
+    opacity: 0;
+  }
+}
 
 /* ── 2. MANIFESTO ─────────────────────────────────────────────────────────*/
 .sp-manifesto {

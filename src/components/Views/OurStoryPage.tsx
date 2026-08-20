@@ -95,14 +95,20 @@ export const OurStoryPage: React.FC<OurStoryPageProps> = () => {
               : 'From direct sourcing in cold European waters to our state-of-the-art facility in Belbeis — a legacy of passion and unyielding commitment to premium seafood for Egyptian tables.'}
           </p>
         </div>
-        <div className="sp-hero-scroll" aria-hidden="true">
-          <div className="sp-hero-scroll-line" />
+        <div 
+          className="scroll-cue" 
+          onClick={() => {
+            const nextSec = document.getElementById('story-manifesto');
+            if (nextSec) nextSec.scrollIntoView({ behavior: 'smooth' });
+          }}
+        >
           <span>{ar ? 'اكتشف' : 'Discover'}</span>
+          <span className="dot" />
         </div>
       </section>
 
       {/* 2. FOUNDERS MANIFESTO */}
-      <section className="sp-manifesto sp-reveal">
+      <section className="sp-manifesto sp-reveal" id="story-manifesto">
         <div className="sp-manifesto-frame">
           <div className="sp-manifesto-accent" />
           <span className="sp-manifesto-tag">
