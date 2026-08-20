@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { StoresSection } from '../Sections/StoresSection';
 import { useTranslation } from '../../hooks/useTranslation';
-import imgHero from '../../assets/images/seed-el-balad/why_hero_s_page_1.jpeg';
+import imgHero from '../../assets/images/seed-el-balad/herosection.png';
 
 export const LocationsPage: React.FC = () => {
   const { language } = useTranslation();
