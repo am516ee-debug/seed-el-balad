@@ -1,9 +1,8 @@
 /* Store Locator Section Styles */
 
 .stores-section {
-  padding: var(--spacing-xxl) 0;
+  padding: 80px 0 90px;
   background-color: var(--color-bg-cream);
-  border-bottom: 1px solid rgba(185, 150, 83, 0.15);
 }
 
 .storewrap {
@@ -430,7 +429,8 @@
 .locations-page-view {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 0;
+  width: 100%;
 }
 
 .locations-intro-block {
@@ -460,8 +460,8 @@
 
 /* ─── LUXURY CLIENT ASSISTANCE SECTION ───────────────────────────────────── */
 .locations-assistance-section {
-  padding: 80px 0 60px;
-  background-color: var(--color-bg-cream);
+  padding: 90px 0 90px;
+  background-color: var(--color-white);
   border-top: 1px solid rgba(32, 95, 166, 0.12);
   position: relative;
 }
