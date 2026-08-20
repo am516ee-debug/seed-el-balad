@@ -195,22 +195,38 @@
   top: 0;
   left: 0; /* Starts on the left side for English (LTR) */
   right: auto;
-  width: clamp(280px, 40vw, 360px);
+  width: clamp(300px, 30vw, 380px);
+  max-width: 90vw;
   height: 100vh;
+  height: 100dvh;
+  max-height: 100dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   background-color: rgba(250, 248, 245, 0.98);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   z-index: 1001;
   transform: translateX(-100%); /* Slides from the left */
   visibility: hidden;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
-  padding: 90px 32px 40px;
+  padding: 80px 28px 36px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 15px;
+  align-items: stretch;
+  gap: 10px;
   box-shadow: 10px 0 40px rgba(18, 34, 46, 0.12); /* Shadow facing right */
   border-right: 1px solid rgba(32, 95, 166, 0.15); /* Border on the right */
+  box-sizing: border-box;
+}
+
+.menu-drawer::-webkit-scrollbar {
+  width: 4px;
+}
+
+.menu-drawer::-webkit-scrollbar-thumb {
+  background: rgba(32, 95, 166, 0.2);
 }
 
 [dir="rtl"] .menu-drawer {
@@ -479,26 +495,35 @@
 
 /* Drawer Call CTA inside Mobile Menu */
 .drawer-call-cta {
-  border: 1px solid var(--color-primary) !important;
+  border: 1.5px solid var(--color-primary) !important;
   color: var(--color-primary) !important;
   background-color: transparent !important;
-  margin-top: 20px;
-  padding: 12px 24px !important;
-  width: 100%;
-  font-family: var(--font-sans);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  margin-top: 20px !important;
+  margin-bottom: 8px !important;
+  padding: 13px 20px !important;
+  width: 100% !important;
+  min-height: 48px !important;
+  box-sizing: border-box !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
   border-radius: 0px !important;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  flex-shrink: 0 !important;
   animation: callCtaPulseScrolled 3s infinite ease-in-out;
 }
 
 .drawer-call-cta:hover {
   background-color: var(--color-primary) !important;
   color: var(--color-white) !important;
-  box-shadow: 0 6px 16px rgba(32, 95, 166, 0.15);
+  box-shadow: 0 6px 18px rgba(32, 95, 166, 0.2) !important;
   transform: translateY(-1px);
   animation-play-state: paused;
 }
@@ -506,6 +531,7 @@
 /* RTL Specific Letter Spacing Reset */
 [dir="rtl"] .drawer-call-cta {
   letter-spacing: 0 !important;
+  font-size: 0.95rem !important;
 }
 
 /* Elegant, non-intrusive glow & color cycle keyframes */
