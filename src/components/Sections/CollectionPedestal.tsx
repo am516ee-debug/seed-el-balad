@@ -17,7 +17,8 @@ export const CollectionPedestal: React.FC<CollectionPedestalProps> = ({ onSelect
     if (cat.includes('roe') || cat.includes('caviar')) return 'gourmet-roe';
     if (cat.includes('fillet')) return 'premium-fillet';
     if (cat.includes('canned')) return 'canned-herring';
-    if (cat.includes('smoked')) return 'smoked-herring';
+    if (cat.includes('packaged') || cat.includes('smoked') || cat.includes('herring')) return 'packaged-herring';
+    if (cat.includes('gift')) return 'gifts';
     return 'all';
   };
 

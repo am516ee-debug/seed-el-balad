@@ -120,7 +120,7 @@ export class ProductHelper {
     {
       id: 'herring-caviar-jar',
       title: { ar: 'برطمان بطارخ رنجة خرز فاخرة', en: 'Premium Herring Caviar Roe Jar' },
-      category: { ar: 'البطارخ والكافيار', en: 'Gourmet Roe' },
+      category: { ar: 'بطارخ', en: 'Gourmet Roe' },
       image: imgPr3,
       rating: 5.0,
       size: { ar: 'برطمان زجاجي محكم الإغلاق - ٢٥٠ جرام صافي', en: 'Hygienic glass jar - 250g net' },
@@ -161,7 +161,7 @@ export class ProductHelper {
     {
       id: 'whole-smoked-herring-box',
       title: { ar: 'صندوق رنجة جامبو كاملة على الجليد', en: 'Premium Jumbo Box of Whole Smoked Herring' },
-      category: { ar: 'الرنجة المدخنة', en: 'Smoked Herring' },
+      category: { ar: 'رنجة مغلفة', en: 'Packaged Herring' },
       image: imgPr4,
       rating: 4.9,
       size: { ar: 'صندوق كرتوني فاخر - وزن تقريبي ٥ كجم', en: 'Premium carton box - approx 5 kg' },
@@ -202,7 +202,7 @@ export class ProductHelper {
     {
       id: 'family-savings-box',
       title: { ar: 'صندوق التوفير العائلي من ظروف الرنجة', en: 'Family Savings Box of Vacuum Herring Pouches' },
-      category: { ar: 'الرنجة المدخنة', en: 'Smoked Herring' },
+      category: { ar: 'رنجة مغلفة', en: 'Packaged Herring' },
       image: imgPr5,
       rating: 4.9,
       size: { ar: 'علبة كرتونية فاخرة تحتوي على ٦ ظروف مفرغة الهواء', en: 'Premium box containing 6 vacuum pouches' },
@@ -284,7 +284,7 @@ export class ProductHelper {
     {
       id: 'smoked-herring-retail-pouch',
       title: { ar: 'ظرف رنجة مدخنة فاخرة بالوزن', en: 'Premium Smoked Herring Retail Pouch' },
-      category: { ar: 'الرنجة المدخنة', en: 'Smoked Herring' },
+      category: { ar: 'رنجة مغلفة', en: 'Packaged Herring' },
       image: imgPr7,
       rating: 4.9,
       size: { ar: 'ظرف محكم الغلق مفرغ الهواء - وزن تقريبي ١ كجم', en: 'Vacuum sealed retail pouch - approx 1 kg' },

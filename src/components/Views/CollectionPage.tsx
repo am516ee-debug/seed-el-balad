@@ -29,9 +29,9 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
 
   const categories = [
     { id: 'all', label: { ar: 'الكل', en: 'All' } },
-    { id: 'smoked-herring', label: { ar: 'الرنجة المدخنة', en: 'Smoked Herring' } },
+    { id: 'packaged-herring', label: { ar: 'رنجة مغلفة', en: 'Packaged Herring' } },
     { id: 'premium-fillet', label: { ar: 'شرائح الفيليه', en: 'Smoked Fillet' } },
-    { id: 'gourmet-roe', label: { ar: 'البطارخ والكافيار', en: 'Gourmet Roe' } },
+    { id: 'gourmet-roe', label: { ar: 'بطارخ', en: 'Gourmet Roe' } },
     { id: 'canned-herring', label: { ar: 'المعلبات', en: 'Canned Seafood' } },
     { id: 'gifts', label: { ar: 'الهدايا والتغليف', en: 'Gifts & Packaging' } }
   ];
@@ -56,16 +56,17 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
     let matchesCategory = true;
     if (activeCategory !== 'all') {
       const prodCat = p.category.en.toLowerCase();
-      if (activeCategory === 'smoked-herring') {
-        matchesCategory = prodCat === 'smoked herring' || prodCat.includes('smoked herring');
+      const prodCatAr = p.category.ar;
+      if (activeCategory === 'packaged-herring' || activeCategory === 'smoked-herring') {
+        matchesCategory = prodCat.includes('packaged') || prodCat.includes('smoked') || prodCat.includes('herring') || prodCatAr.includes('مغلفة') || prodCatAr.includes('الرنجة');
       } else if (activeCategory === 'premium-fillet') {
-        matchesCategory = prodCat.includes('fillet') || prodCat.includes('فيليه');
+        matchesCategory = prodCat.includes('fillet') || prodCatAr.includes('فيليه');
       } else if (activeCategory === 'gourmet-roe') {
-        matchesCategory = prodCat.includes('roe') || prodCat.includes('caviar') || prodCat.includes('بطارخ');
+        matchesCategory = prodCat.includes('roe') || prodCat.includes('caviar') || prodCatAr.includes('بطارخ');
       } else if (activeCategory === 'canned-herring') {
-        matchesCategory = prodCat.includes('canned') || prodCat.includes('معلبات');
+        matchesCategory = prodCat.includes('canned') || prodCatAr.includes('معلبات');
       } else if (activeCategory === 'gifts') {
-        matchesCategory = prodCat.includes('gift') || prodCat.includes('هدايا') || prodCat.includes('packaging');
+        matchesCategory = prodCat.includes('gift') || prodCatAr.includes('هدايا') || prodCat.includes('packaging');
       }
     }
     

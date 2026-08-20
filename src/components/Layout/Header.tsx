@@ -19,12 +19,11 @@ export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate, onSearc
   const [searchVal, setSearchVal] = useState('');
 
   const quickTags = [
-    { ar: 'رنجة', en: 'Herring' },
-    { ar: 'فيليه', en: 'Fillet' },
-    { ar: 'بطارخ', en: 'Roe & Caviar' },
+    { ar: 'بطارخ', en: 'Gourmet Roe' },
+    { ar: 'رنجة مغلفة', en: 'Packaged Herring' },
+    { ar: 'فيليه', en: 'Smoked Fillet' },
     { ar: 'معلبات', en: 'Canned Seafood' },
-    { ar: 'برطمان', en: 'Jar' },
-    { ar: 'صندوق', en: 'Box' }
+    { ar: 'رنجة', en: 'Herring' }
   ];
 
   const handleSearchSubmit = (val: string) => {
