@@ -182,22 +182,46 @@ export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate, onSearc
           </svg>
         </button>
 
-        <a href="#hero" onClick={(e) => { e.preventDefault(); handleNavClick('hero'); }}>
+        <a 
+          href="#hero" 
+          className={currentView === 'home' ? 'active' : ''}
+          onClick={(e) => { e.preventDefault(); handleNavClick('hero'); }}
+        >
           {t('nav.home')}
         </a>
-        <a href="#products" onClick={(e) => { e.preventDefault(); handleNavClick('products-section'); }}>
+        <a 
+          href="#products" 
+          className={currentView === 'collection' ? 'active' : ''}
+          onClick={(e) => { e.preventDefault(); handleNavClick('products-section'); }}
+        >
           {t('nav.products')}
         </a>
-        <a href="#why-us" onClick={(e) => { e.preventDefault(); handleNavClick('why-us'); }}>
+        <a 
+          href="#why-us" 
+          className={currentView === 'why-us' ? 'active' : ''}
+          onClick={(e) => { e.preventDefault(); handleNavClick('why-us'); }}
+        >
           {t('nav.about')}
         </a>
-        <a href="#story" onClick={(e) => { e.preventDefault(); handleNavClick('story-page'); }}>
+        <a 
+          href="#story" 
+          className={currentView === 'story' ? 'active' : ''}
+          onClick={(e) => { e.preventDefault(); handleNavClick('story-page'); }}
+        >
           {t('nav.story')}
         </a>
-        <a href="#stores" onClick={(e) => { e.preventDefault(); handleNavClick('stores-section'); }}>
+        <a 
+          href="#stores" 
+          className={currentView === 'locations' ? 'active' : ''}
+          onClick={(e) => { e.preventDefault(); handleNavClick('stores-section'); }}
+        >
           {t('nav.stores')}
         </a>
-        <a href="#contact" onClick={(e) => { e.preventDefault(); handleNavClick('contact-section'); }}>
+        <a 
+          href="#contact" 
+          className={currentView === 'contact' ? 'active' : ''}
+          onClick={(e) => { e.preventDefault(); handleNavClick('contact-section'); }}
+        >
           {t('nav.contact')}
         </a>
         <button 
