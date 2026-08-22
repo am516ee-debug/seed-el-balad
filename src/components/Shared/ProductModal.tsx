@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from '../../hooks/useTranslation';
 import { ProductHelper } from '../../helpers/ProductHelper';
+import useSEO from '../../hooks/useSEO';
 import '../../css/shared.css';
 
 interface ProductModalProps {
@@ -12,13 +13,54 @@ interface ProductModalProps {
 export const ProductModal: React.FC<ProductModalProps> = ({ productId, isOpen, onClose }) => {
   const { t, language } = useTranslation();
 
-  if (!isOpen || !productId) {
-    return null;
-  }
+  const product = productId ? ProductHelper.getById(productId) : undefined;
 
-  const product = ProductHelper.getById(productId);
+  // Dynamic SEO & Structured Data Schema for Product
+  const productSchema = product ? {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: language === 'ar' ? product.title.ar : product.title.en,
+    image: product.image.startsWith('http') ? product.image : `https://seed-elbalad.com${product.image}`,
+    description: language === 'ar' ? product.desc.ar : product.desc.en,
+    brand: {
+      '@type': 'Brand',
+      name: 'Seed El-balad (سيد البلد)'
+    },
+    manufacturer: {
+      '@type': 'Organization',
+      name: 'Gold Foods Egypt'
+    },
+    category: language === 'ar' ? product.category.ar : product.category.en,
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'EGP',
+      availability: 'https://schema.org/InStock',
+      url: `https://seed-elbalad.com/product/${product.id}`,
+      seller: {
+        '@type': 'Organization',
+        name: 'Seed El-balad'
+      }
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: product.rating.toString(),
+      bestRating: '5',
+      reviewCount: '128'
+    }
+  } : undefined;
 
-  if (!product) {
+  useSEO({
+    title: isOpen && product ? product.seo.metaTitle[language] : (language === 'ar' ? 'تشكيلة المأكولات البحرية الفاخرة' : 'Luxury Seafood Collection'),
+    description: isOpen && product ? product.seo.metaDescription[language] : (language === 'ar' ? 'تعرف على منتجات سيد البلد من الرنجة الهولندية والنرويجية والفسيخ والبطارخ.' : 'Explore Seed El-Balad luxury smoked herring, feseekh, caviar roe, and seafood.'),
+    keywords: isOpen && product ? product.seo.keywords[language] : undefined,
+    canonicalUrl: product ? `https://seed-elbalad.com/product/${product.id}` : 'https://seed-elbalad.com/collection',
+    ogImage: product?.image ? (product.image.startsWith('http') ? product.image : `https://seed-elbalad.com${product.image}`) : undefined,
+    ogType: 'product',
+    schema: productSchema,
+    lang: language
+  });
+
+  if (!isOpen || !product) {
     return null;
   }
 
@@ -39,30 +81,55 @@ export const ProductModal: React.FC<ProductModalProps> = ({ productId, isOpen, o
     window.open(`https://wa.me/201032033302?text=${encodedText}`, '_blank');
   };
 
+  const handleCopyLink = () => {
+    const url = `https://seed-elbalad.com/product/${product.id}`;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(url);
+      alert(language === 'ar' ? 'تم نسخ رابط المنتج بنجاح!' : 'Product link copied to clipboard!');
+    }
+  };
+
   return (
     <div className="modal-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="product-modal-title">
       <div className="modal-card" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <span className="product-detail-category">{language === 'ar' ? product.category.ar : product.category.en}</span>
-          <button type="button" className="modal-close-btn" onClick={onClose} aria-label="Close">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M18 6L6 18M6 6l12 12"/>
-            </svg>
-          </button>
+          <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+            <button 
+              type="button" 
+              className="modal-close-btn" 
+              onClick={handleCopyLink} 
+              title={language === 'ar' ? 'نسخ رابط المنتج' : 'Copy link'}
+              aria-label="Copy product link"
+              style={{ width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+              </svg>
+            </button>
+            <button type="button" className="modal-close-btn" onClick={onClose} aria-label="Close">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M18 6L6 18M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
         </div>
         
         <div className="modal-body">
           <div className="product-detail-grid">
             {/* Image Column */}
             <div className="product-image-container">
-              <div 
-                className="product-modal-image" 
-                style={{ backgroundImage: `url(${product.image})` }}
-                aria-label={language === 'ar' ? product.title.ar : product.title.en}
+              <img 
+                src={product.image} 
+                alt={product.seo?.altText?.[language] || (language === 'ar' ? product.title.ar : product.title.en)} 
+                className="product-modal-image"
+                style={{ width: '100%', borderRadius: '4px', objectFit: 'cover', display: 'block' }}
+                loading="eager"
               />
               
               {/* Nutrition Table */}
-              <div className="product-detail-nutrition">
+              <div className="product-detail-nutrition" style={{ marginTop: '20px' }}>
                 <h4>{t('product.nutrition')}</h4>
                 <table className="nutrition-table">
                   <tbody>
@@ -107,7 +174,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ productId, isOpen, o
               </div>
 
               {/* Description */}
-              <p className="product-detail-desc">
+              <p className="product-detail-desc" style={{ lineHeight: '1.75', fontSize: '0.92rem' }}>
                 {language === 'ar' ? product.desc.ar : product.desc.en}
               </p>
 

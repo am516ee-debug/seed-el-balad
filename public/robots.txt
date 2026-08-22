@@ -1,4 +1,20 @@
+# Seed El-balad Robots.txt
 User-agent: *
 Allow: /
 
+# Directives for major bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+# Sitemap Index
 Sitemap: https://seed-elbalad.com/sitemap.xml
+Host: https://seed-elbalad.com

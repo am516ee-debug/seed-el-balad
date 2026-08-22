@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from '../../hooks/useTranslation';
-import logoPng from '../../assets/images/seed-el-balad/logo.png';
+import logoPng from '../../assets/images/seed-el-balad/logo.webp';
 import '../../css/footer.css';
 
 interface FooterProps {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../../hooks/useLanguage';
 import { useTranslation } from '../../hooks/useTranslation';
-import logoPng from '../../assets/images/seed-el-balad/logo.png';
+import logoPng from '../../assets/images/seed-el-balad/logo.webp';
 import '../../css/header.css';
 
 interface HeaderProps {

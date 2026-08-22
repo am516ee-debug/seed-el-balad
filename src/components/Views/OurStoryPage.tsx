@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from '../../hooks/useTranslation';
 
-import imgHero from '../../assets/images/seed-el-balad/hero s our story.jpeg';
-import imgBeginning from '../../assets/images/seed-el-balad/THE BEGINNING pic.png';
-import imgFactory from '../../assets/images/seed-el-balad/img_22.jpeg';
+import imgHero from '../../assets/images/seed-el-balad/hero s our story.webp';
+import imgBeginning from '../../assets/images/seed-el-balad/THE BEGINNING pic.webp';
+import imgFactory from '../../assets/images/seed-el-balad/img_22.webp';
 
 import '../../css/story.css';
 

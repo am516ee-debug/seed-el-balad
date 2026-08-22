@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from '../../hooks/useTranslation';
-import imgHero from '../../assets/images/seed-el-balad/herosection.png';
+import imgHero from '../../assets/images/seed-el-balad/herosection.webp';
 import '../../css/home.css';
 
 export const Hero: React.FC = () => {

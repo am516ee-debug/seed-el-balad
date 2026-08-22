@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import { useTranslation } from '../../hooks/useTranslation';
 
 // Section images — named by section
-import imgHero from '../../assets/images/seed-el-balad/herosection.png';
-import imgProcess1 from '../../assets/images/seed-el-balad/SOURCING & HARVEST pic.png';
-import imgProcess2 from '../../assets/images/seed-el-balad/BRINING & SMOKING pic.png';
-import imgFactory from '../../assets/images/seed-el-balad/OUR BELBEIS FACILITY pic.png';
+import imgHero from '../../assets/images/seed-el-balad/herosection.webp';
+import imgProcess1 from '../../assets/images/seed-el-balad/SOURCING & HARVEST pic.webp';
+import imgProcess2 from '../../assets/images/seed-el-balad/BRINING & SMOKING pic.webp';
+import imgFactory from '../../assets/images/seed-el-balad/OUR BELBEIS FACILITY pic.webp';
 
 import '../../css/whyus.css';
 

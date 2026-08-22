@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../../hooks/useLanguage';
-import imgFactory from '../../assets/images/seed-el-balad/img_22.jpeg';
+import imgFactory from '../../assets/images/seed-el-balad/img_22.webp';
 
 interface WholesaleCtaProps {
   onExploreClick?: () => void;

@@ -5,7 +5,7 @@ import EditorialBand from '../Sections/EditorialBand';
 import StatsSection from '../Sections/StatsSection';
 import QualitySection from '../Sections/QualitySection';
 import { useTranslation } from '../../hooks/useTranslation';
-import imgFacility from '../../assets/images/seed-el-balad/OUR BELBEIS FACILITY pic.png';
+import imgFacility from '../../assets/images/seed-el-balad/OUR BELBEIS FACILITY pic.webp';
 
 import '../../css/home.css';
 import '../../css/story.css';

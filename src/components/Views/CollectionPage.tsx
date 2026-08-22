@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from '../../hooks/useTranslation';
-import { ProductHelper } from '../../helpers/ProductHelper';
+import { ProductHelper, type Product } from '../../helpers/ProductHelper';
 import '../../css/products.css';
 
 interface CollectionPageProps {
-  onSelectProduct: (id: string) => void;
+  onSelectProduct: (productId: string) => void;
   initialCategory?: string;
   searchQuery?: string;
   onClearSearch?: () => void;
@@ -17,76 +17,66 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
   onClearSearch
 }) => {
   const { t, language } = useTranslation();
-  const products = ProductHelper.getAll();
   const [activeCategory, setActiveCategory] = useState<string>(initialCategory);
-  const [isAnimating, setIsAnimating] = useState<boolean>(false);
-
-  useEffect(() => {
-    setActiveCategory(initialCategory);
-    // Scroll to top on mount
-    window.scrollTo({ top: 0, behavior: 'instant' as any });
-  }, [initialCategory]);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const categories = [
-    { id: 'all', label: { ar: 'الكل', en: 'All' } },
+    { id: 'all', label: { ar: 'كافة المنتجات', en: 'All Collection' } },
     { id: 'packaged-herring', label: { ar: 'رنجة مغلفة', en: 'Packaged Herring' } },
-    { id: 'premium-fillet', label: { ar: 'شرائح الفيليه', en: 'Smoked Fillet' } },
+    { id: 'premium-fillet', label: { ar: 'شرائح الفيليه', en: 'Premium Fillet' } },
     { id: 'gourmet-roe', label: { ar: 'بطارخ', en: 'Gourmet Roe' } },
-    { id: 'canned-herring', label: { ar: 'المعلبات', en: 'Canned Seafood' } },
+    { id: 'canned-herring', label: { ar: 'المعلبات سهلة الفتح', en: 'Canned Seafood' } },
     { id: 'gifts', label: { ar: 'الهدايا والتغليف', en: 'Gifts & Packaging' } }
   ];
 
-  const handleCategoryChange = (catId: string) => {
-    if (catId === activeCategory) return;
-    if (onClearSearch && searchQuery) {
+  useEffect(() => {
+    if (initialCategory) {
+      setActiveCategory(initialCategory);
+    }
+  }, [initialCategory]);
+
+  useEffect(() => {
+    setIsAnimating(true);
+    const timer = setTimeout(() => {
+      const all = ProductHelper.getAll();
+      let result = all;
+
+      if (searchQuery.trim()) {
+        const query = searchQuery.toLowerCase().trim();
+        result = result.filter(p => 
+          p.title.ar.toLowerCase().includes(query) ||
+          p.title.en.toLowerCase().includes(query) ||
+          p.category.ar.toLowerCase().includes(query) ||
+          p.category.en.toLowerCase().includes(query) ||
+          p.desc.ar.toLowerCase().includes(query) ||
+          p.desc.en.toLowerCase().includes(query) ||
+          (p.seo && p.seo.keywords && (p.seo.keywords.ar.toLowerCase().includes(query) || p.seo.keywords.en.toLowerCase().includes(query)))
+        );
+      } else if (activeCategory !== 'all') {
+        result = result.filter(p => {
+          if (activeCategory === 'packaged-herring') return p.category.en === 'Packaged Herring';
+          if (activeCategory === 'premium-fillet') return p.category.en === 'Premium Fillet';
+          if (activeCategory === 'gourmet-roe') return p.category.en === 'Gourmet Roe';
+          if (activeCategory === 'canned-herring') return p.category.en === 'Canned Seafood';
+          if (activeCategory === 'gifts') return p.category.en === 'Gifts & Packaging';
+          return true;
+        });
+      }
+
+      setFilteredProducts(result);
+      setIsAnimating(false);
+    }, 150);
+
+    return () => clearTimeout(timer);
+  }, [activeCategory, searchQuery]);
+
+  const handleCategoryChange = (categoryId: string) => {
+    if (searchQuery && onClearSearch) {
       onClearSearch();
     }
-    setIsAnimating(true);
-    setTimeout(() => {
-      setActiveCategory(catId);
-      setTimeout(() => {
-        setIsAnimating(false);
-      }, 50);
-    }, 250);
+    setActiveCategory(categoryId);
   };
-
-  // Filter products based on active tab and text search query
-  const filteredProducts = products.filter((p) => {
-    // 1. Filter by category
-    let matchesCategory = true;
-    if (activeCategory !== 'all') {
-      const prodCat = p.category.en.toLowerCase();
-      const prodCatAr = p.category.ar;
-      if (activeCategory === 'packaged-herring' || activeCategory === 'smoked-herring') {
-        matchesCategory = prodCat.includes('packaged') || prodCat.includes('smoked') || prodCat.includes('herring') || prodCatAr.includes('مغلفة') || prodCatAr.includes('الرنجة');
-      } else if (activeCategory === 'premium-fillet') {
-        matchesCategory = prodCat.includes('fillet') || prodCatAr.includes('فيليه');
-      } else if (activeCategory === 'gourmet-roe') {
-        matchesCategory = prodCat.includes('roe') || prodCat.includes('caviar') || prodCatAr.includes('بطارخ');
-      } else if (activeCategory === 'canned-herring') {
-        matchesCategory = prodCat.includes('canned') || prodCatAr.includes('معلبات');
-      } else if (activeCategory === 'gifts') {
-        matchesCategory = prodCat.includes('gift') || prodCatAr.includes('هدايا') || prodCat.includes('packaging');
-      }
-    }
-    
-    // 2. Filter by search input query (Multi-token bilingual search across all fields)
-    let matchesSearch = true;
-    if (searchQuery) {
-      const qTokens = searchQuery.toLowerCase().trim().split(/\s+/).filter(Boolean);
-      const searchableText = [
-        p.title.ar, p.title.en,
-        p.desc.ar, p.desc.en,
-        p.category.ar, p.category.en,
-        p.ingredients?.ar || '', p.ingredients?.en || '',
-        p.size?.ar || '', p.size?.en || ''
-      ].join(' ').toLowerCase();
-
-      matchesSearch = qTokens.every(token => searchableText.includes(token));
-    }
-    
-    return matchesCategory && matchesSearch;
-  });
 
   return (
     <div className="collection-page-view" style={{ paddingTop: '80px', backgroundColor: 'transparent', minHeight: '100vh' }}>
@@ -125,7 +115,7 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
             ))}
           </div>
 
-          {/* Active Search Query Bar with enhanced styling and generous spacing */}
+          {/* Active Search Query Bar */}
           {searchQuery && (
             <div className="search-query-bar reveal active" style={{
               display: 'flex',
@@ -138,24 +128,23 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
               backgroundColor: 'var(--color-bg-cream)',
               border: '1px solid rgba(185, 150, 83, 0.3)',
               boxShadow: '0 4px 20px rgba(18, 34, 46, 0.05)',
-              maxWidth: '900px',
-              width: '92%'
+              borderRadius: '2px',
+              maxWidth: '1200px'
             }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                 <span style={{ 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  justifyContent: 'center', 
-                  width: '34px', 
-                  height: '34px', 
-                  borderRadius: '50%', 
-                  backgroundColor: 'rgba(185, 150, 83, 0.15)',
-                  color: 'var(--color-accent-gold-dark)',
-                  flexShrink: 0
+                  color: 'var(--color-accent-gold)', 
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(185, 150, 83, 0.15)'
                 }}>
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <circle cx="11" cy="11" r="7"/>
-                    <path d="M20 20l-4-4"/>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
                   </svg>
                 </span>
                 <div style={{ textAlign: 'start' }}>
@@ -230,47 +219,51 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
                 </p>
               </div>
             ) : (
-              filteredProducts.map((product) => (
-                <div 
-                  key={product.id} 
-                  className="prod"
-                  onClick={() => onSelectProduct(product.id)}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => { 
-                    if (e.key === 'Enter' || e.key === ' ') { 
-                      e.preventDefault(); 
-                      onSelectProduct(product.id); 
-                    } 
-                  }}
-                >
-                  <div className="im">
-                    <div 
-                      className="im-img"
-                      style={{ backgroundImage: `url(${product.image})` }}
-                      role="img"
-                      aria-label={language === 'ar' ? product.title.ar : product.title.en}
-                    />
+              filteredProducts.map((product) => {
+                const altText = product.seo?.altText?.[language] || (language === 'ar' ? product.title.ar : product.title.en);
+                return (
+                  <div 
+                    key={product.id} 
+                    className="prod"
+                    onClick={() => onSelectProduct(product.id)}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => { 
+                      if (e.key === 'Enter' || e.key === ' ') { 
+                        e.preventDefault(); 
+                        onSelectProduct(product.id); 
+                      } 
+                    }}
+                  >
+                    <div className="im">
+                      <img 
+                        src={product.image}
+                        alt={altText}
+                        className="im-img"
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                        loading="lazy"
+                      />
 
-                    {/* Hover CTA Button Overlay */}
-                    <div className="prod-cta-overlay" aria-hidden="true">
-                      <span className="prod-cta-btn">
-                        {language === 'ar' ? 'تفاصيل المنتج' : 'Product Details'}
+                      {/* Hover CTA Button Overlay */}
+                      <div className="prod-cta-overlay" aria-hidden="true">
+                        <span className="prod-cta-btn">
+                          {language === 'ar' ? 'تفاصيل المنتج' : 'Product Details'}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Clean text body below image */}
+                    <div className="pbody">
+                      <h3 className="nm">
+                        {language === 'ar' ? product.title.ar : product.title.en}
+                      </h3>
+                      <span className="ds">
+                        {language === 'ar' ? product.category.ar : product.category.en}
                       </span>
                     </div>
                   </div>
-
-                  {/* Clean text body below image */}
-                  <div className="pbody">
-                    <h3 className="nm">
-                      {language === 'ar' ? product.title.ar : product.title.en}
-                    </h3>
-                    <span className="ds">
-                      {language === 'ar' ? product.category.ar : product.category.en}
-                    </span>
-                  </div>
-                </div>
-              ))
+                );
+              })
             )}
           </div>
 

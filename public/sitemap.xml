@@ -3,11 +3,173 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://seed-elbalad.com/</loc>
-    <lastmod>2026-08-14</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://seed-elbalad.com/?lang=ar" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://seed-elbalad.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://seed-elbalad.com/?lang=en" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://seed-elbalad.com/" />
+  </url>
+  <url>
+    <loc>https://seed-elbalad.com/collection</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://seed-elbalad.com/collection" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://seed-elbalad.com/collection?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://seed-elbalad.com/collection" />
+  </url>
+  <url>
+    <loc>https://seed-elbalad.com/story</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://seed-elbalad.com/story" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://seed-elbalad.com/story?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://seed-elbalad.com/story" />
+  </url>
+  <url>
+    <loc>https://seed-elbalad.com/why-us</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://seed-elbalad.com/why-us" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://seed-elbalad.com/why-us?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://seed-elbalad.com/why-us" />
+  </url>
+  <url>
+    <loc>https://seed-elbalad.com/locations</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://seed-elbalad.com/locations" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://seed-elbalad.com/locations?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://seed-elbalad.com/locations" />
+  </url>
+  <url>
+    <loc>https://seed-elbalad.com/contact</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://seed-elbalad.com/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://seed-elbalad.com/contact?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://seed-elbalad.com/contact" />
+  </url>
+  <url>
+    <loc>https://seed-elbalad.com/product/dutch-herring</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://seed-elbalad.com/product/dutch-herring" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://seed-elbalad.com/product/dutch-herring?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://seed-elbalad.com/product/dutch-herring" />
+  </url>
+  <url>
+    <loc>https://seed-elbalad.com/product/norwegian-herring</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://seed-elbalad.com/product/norwegian-herring" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://seed-elbalad.com/product/norwegian-herring?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://seed-elbalad.com/product/norwegian-herring" />
+  </url>
+  <url>
+    <loc>https://seed-elbalad.com/product/icelandic-herring</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://seed-elbalad.com/product/icelandic-herring" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://seed-elbalad.com/product/icelandic-herring?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://seed-elbalad.com/product/icelandic-herring" />
+  </url>
+  <url>
+    <loc>https://seed-elbalad.com/product/russian-herring</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://seed-elbalad.com/product/russian-herring" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://seed-elbalad.com/product/russian-herring?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://seed-elbalad.com/product/russian-herring" />
+  </url>
+  <url>
+    <loc>https://seed-elbalad.com/product/vacuum-feseekh</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://seed-elbalad.com/product/vacuum-feseekh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://seed-elbalad.com/product/vacuum-feseekh?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://seed-elbalad.com/product/vacuum-feseekh" />
+  </url>
+  <url>
+    <loc>https://seed-elbalad.com/product/vacuum-mackerel</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://seed-elbalad.com/product/vacuum-mackerel" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://seed-elbalad.com/product/vacuum-mackerel?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://seed-elbalad.com/product/vacuum-mackerel" />
+  </url>
+  <url>
+    <loc>https://seed-elbalad.com/product/fresh-fillet-pouch</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://seed-elbalad.com/product/fresh-fillet-pouch" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://seed-elbalad.com/product/fresh-fillet-pouch?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://seed-elbalad.com/product/fresh-fillet-pouch" />
+  </url>
+  <url>
+    <loc>https://seed-elbalad.com/product/herring-caviar-jar</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://seed-elbalad.com/product/herring-caviar-jar" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://seed-elbalad.com/product/herring-caviar-jar?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://seed-elbalad.com/product/herring-caviar-jar" />
+  </url>
+  <url>
+    <loc>https://seed-elbalad.com/product/canned-herring-oil</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://seed-elbalad.com/product/canned-herring-oil" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://seed-elbalad.com/product/canned-herring-oil?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://seed-elbalad.com/product/canned-herring-oil" />
+  </url>
+  <url>
+    <loc>https://seed-elbalad.com/product/whole-smoked-herring-box</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://seed-elbalad.com/product/whole-smoked-herring-box" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://seed-elbalad.com/product/whole-smoked-herring-box?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://seed-elbalad.com/product/whole-smoked-herring-box" />
+  </url>
+  <url>
+    <loc>https://seed-elbalad.com/product/family-savings-box</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://seed-elbalad.com/product/family-savings-box" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://seed-elbalad.com/product/family-savings-box?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://seed-elbalad.com/product/family-savings-box" />
+  </url>
+  <url>
+    <loc>https://seed-elbalad.com/product/smoked-herring-retail-pouch</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://seed-elbalad.com/product/smoked-herring-retail-pouch" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://seed-elbalad.com/product/smoked-herring-retail-pouch?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://seed-elbalad.com/product/smoked-herring-retail-pouch" />
+  </url>
+  <url>
+    <loc>https://seed-elbalad.com/product/premium-gift-bag</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://seed-elbalad.com/product/premium-gift-bag" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://seed-elbalad.com/product/premium-gift-bag?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://seed-elbalad.com/product/premium-gift-bag" />
   </url>
 </urlset>
