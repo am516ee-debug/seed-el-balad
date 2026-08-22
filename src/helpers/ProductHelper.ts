@@ -10,7 +10,6 @@ import imgDutchHerring from '../assets/images/seed-el-balad/Dutch Herring.webp';
 import imgNorwegianHerring from '../assets/images/seed-el-balad/Norwegian Herring.webp';
 import imgIcelandicHerring from '../assets/images/seed-el-balad/Icelandic Herring.webp';
 import imgRussianHerring from '../assets/images/seed-el-balad/Russian Herring.webp';
-import imgVacuumFeseekh from '../assets/images/seed-el-balad/Vacuum Feseekh.webp';
 import imgVacuumMackerel from '../assets/images/seed-el-balad/Vacuum Mackerel.webp';
 
 export interface ProductSpecs {
@@ -295,55 +294,7 @@ export class ProductHelper {
         altText: { ar: "ظرف رنجة روسي كلاسيكية مدخنة فاخرة من سيد البلد", en: "Seed El-Balad Classic Russian Smoked Herring pack" }
       }
     },
-    {
-      id: "vacuum-feseekh",
-      title: { ar: "فسيخ بوري بلدي فاخر فاكيوم", en: "Artisanal Vacuum-Sealed Mullet Feseekh" },
-      category: { ar: "رنجة مغلفة", en: "Packaged Herring" },
-      image: imgVacuumFeseekh,
-      rating: 5.0,
-      size: { ar: "ظرف فاكيوم مفرغ الهواء - وزن تقريبي ١ كجم", en: "Vacuum sealed pouch - approx 1 kg" },
-      desc: { 
-        ar: "الفسيخ البوري البلدي الفاخر من سيد البلد هو إعادة تعريف للأكلة المصرية التراثية الأشهر بأعلى مقاييس الصحة والنظافة العصرية. ننتقي أسماك البوري الطازجة الممتلئة حبة بحبة من أجود المزارع المصرية المعتمدة، ويتم تمليحها بملح البحر الرشيدي الخشن الطبيعي بنسبة تمليح مثالية (دلّع/مظبوط) تخلق لحماً وردياً ناعماً وقواماً زبدياً فاخراً يذوب بالفم. يتم تعقيم وتجهيز الفسيخ داخل غرف مخصصة ومطابقة لاشتراطات سلامة الغذاء العالمية، وتغليفه حرارياً بأحدث ماكينات الفاكيوم لمنع أي تسرب للرائحة داخل الثلاجة تماماً وضمان سلامة ونظافة المنتج.",
-        en: "Seed El-Balad's Artisanal Mullet Feseekh redefines Egypt's most iconic heritage seafood with modern, uncompromising food safety standards. Hand-selected piece by piece from fresh, plump grey mullet fish, it is carefully cured using coarse natural sea salt to achieve the legendary buttery, melt-in-the-mouth pink meat texture with perfectly balanced, mild salting. Processed in sanitized, temperature-controlled cleanrooms compliant with global ISO 22000 hygiene benchmarks, every fish is hermetically vacuum-sealed, completely preventing odors during refrigeration and guaranteeing maximum safety."
-      },
-      details: {
-        ar: [
-          "محضر حصرياً من أسماك بوري طازجة ممتلئة منتقاة بعناية فائقة.",
-          "تعتيق وتمليح بلدي متوازن (دلّع مظبوط) يعطي قواماً زبدياً ولحماً وردياً شهياً.",
-          "تغليف فاكيوم حراري محكم يمنع أي تسرب للرائحة داخل الثلاجة بنسبة ١٠٠٪.",
-          "معقم ومحضر في بيئة صحية خاضعة لرقابة الجودة الصارمة ومطابقة للمواصفات القياسية.",
-          "خالٍ تماماً من الملوثات والروائح غير المرغوبة، آمن وصحي لجميع أفراد الأسرة."
-        ],
-        en: [
-          "Crafted exclusively from hand-selected, plump, fresh whole mullet fish.",
-          "Masterfully cured for a balanced, buttery, melt-in-your-mouth pink fillet delicacy.",
-          "Advanced thermal vacuum sealing guarantees 100% odor-free refrigeration.",
-          "Sanitized and prepared under strict ISO 22000 quality and hygiene control protocols.",
-          "100% safe, clean, and delicious for the entire family."
-        ]
-      },
-      specs: {
-        weight: { ar: "١ كجم تقريباً", en: "Approx 1 kg" },
-        origin: { ar: "جمهورية مصر العربية", en: "Egypt" },
-        shelfLife: { ar: "٤ أشهر (مبرد / مجمد)", en: "4 months (chilled/frozen)" }
-      },
-      nutrition: {
-        calories: "210 kcal",
-        fat: "13g",
-        protein: "22g",
-        salt: "3.5g"
-      },
-      ingredients: {
-        ar: "سمك بوري طازج كامل، ملح بحري رشيدي خشن نقي.",
-        en: "Fresh whole mullet fish, pure coarse sea salt."
-      },
-      seo: {
-        metaTitle: { ar: "فسيخ بوري بلدي فاخر فاكيوم | فسيخ زبدة بدون رائحة | سيد البلد", en: "Artisanal Vacuum-Sealed Mullet Feseekh | Seed El-Balad" },
-        metaDescription: { ar: "اشتري فسيخ بوري بلدي فاخر فاكيوم من سيد البلد. أسماك بوري طازجة، تمليح دلّع زبدي، وتغليف محكم بدون أي تسرب للروائح.", en: "Buy artisanal Egyptian Mullet Feseekh vacuum sealed by Seed El-Balad. Tender, buttery pink mullet cured to perfection, 100% odor-free packaging." },
-        keywords: { ar: "فسيخ بوري, فسيخ فاكيوم, فسيخ دلع, فسيخ سيد البلد, فسيخ بلدي بدون ريحة, اسعار الفسيخ في مصر, فسيخ اونلاين", en: "Egyptian Feseekh, mullet feseekh, vacuum feseekh, Seed El-Balad, buy feseekh Egypt" },
-        altText: { ar: "فسيخ بوري بلدي فاخر مغلف فاكيوم بدون رائحة من سيد البلد", en: "Seed El-Balad Artisanal Vacuum-Sealed Mullet Feseekh pack" }
-      }
-    },
+    
     {
       id: "vacuum-mackerel",
       title: { ar: "سمك ماكريل مدخن فاخر فاكيوم", en: "Premium Vacuum-Sealed Smoked Mackerel" },
