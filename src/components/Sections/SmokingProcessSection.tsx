@@ -254,7 +254,7 @@ export const SmokingProcessSection: React.FC<SmokingProcessSectionProps> = ({
           </div>
         )}
 
-        {/* ─── 4-STAGE CRAFT JOURNEY TIMELINE (ELEVATED UI/UX) ─────────────── */}
+        {/* ─── 4-STAGE CRAFT JOURNEY TIMELINE ─────────────────────────────── */}
         <div className="sp-steps-section-header">
           <span className="sp-steps-kicker">{ar ? 'دقة متناهية في كل مرحلة' : 'PRECISION AT EVERY STEP'}</span>
           <h3 className="sp-steps-title">{ar ? 'المراحل الأربعة للصنعة والإنتاج' : 'Four Pillars of Artisanal Mastery'}</h3>
@@ -336,68 +336,77 @@ export const SmokingProcessSection: React.FC<SmokingProcessSectionProps> = ({
           </div>
         </div>
 
-        {/* ─── QUALITY & SAFETY METRICS BANNER (REDESIGNED LUXURY TILES) ──── */}
-        <div className="sp-metrics-grid">
-          {/* Metric 1 */}
-          <div className="sp-metric-card">
-            <div className="sp-metric-header">
-              <div className="sp-metric-icon" aria-hidden="true">
+        {/* ─── DISTINCT QUALITY & SAFETY BENCHMARK PODIUM ─────────────────── */}
+        <div className="sp-podium-wrapper">
+          {/* Podium Header */}
+          <div className="sp-podium-header">
+            <div className="sp-podium-header-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <path d="M9 12l2 2 4-4" />
+              </svg>
+              <span>{ar ? 'معايير الجودة والاعتمادات القياسية' : 'CERTIFIED QUALITY & SAFETY BENCHMARKS'}</span>
+            </div>
+            <h3 className="sp-podium-title">
+              {ar ? 'أرقام حقيقية تعكس التزامنا بالصدارة' : 'Empirical Benchmarks of Factory Excellence'}
+            </h3>
+          </div>
+
+          {/* Integrated Benchmark Podium Pod */}
+          <div className="sp-podium-pod">
+            {/* Column 1 */}
+            <div className="sp-podium-col">
+              <div className="sp-podium-emblem" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                 </svg>
               </div>
-              <span className="sp-metric-micro-pill">{ar ? 'نقاء طبيعي' : '100% Pure'}</span>
+              <div className="sp-podium-number">100%</div>
+              <span className="sp-podium-pill">{ar ? 'نقاء طبيعي خالص' : '100% Pure Organic'}</span>
+              <h4 className="sp-podium-name">{ar ? 'خشب زان ألماني طبيعي' : 'Natural German Beechwood'}</h4>
+              <p className="sp-podium-desc">{ar ? 'نشارة خشب زان بيور بدون أي إضافات كيميائية أو ملونات.' : 'Zero artificial flavor enhancers, coloring agents or chemical smoke.'}</p>
             </div>
-            <div className="sp-metric-number">100%</div>
-            <h4 className="sp-metric-title">{ar ? 'خشب زان ألماني طبيعي' : 'Natural Beechwood'}</h4>
-            <p className="sp-metric-desc">{ar ? 'بدون أي صبغات أو مكسبات طعم أو مواد كيميائية' : 'Zero chemicals, liquid smoke or artificial additives'}</p>
-          </div>
 
-          {/* Metric 2 */}
-          <div className="sp-metric-card">
-            <div className="sp-metric-header">
-              <div className="sp-metric-icon" aria-hidden="true">
+            {/* Column 2 */}
+            <div className="sp-podium-col">
+              <div className="sp-podium-emblem" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10" />
                   <polyline points="12 6 12 12 16 14" />
                 </svg>
               </div>
-              <span className="sp-metric-micro-pill">{ar ? 'تدخين هادئ' : 'Slow Craft'}</span>
+              <div className="sp-podium-number">12h</div>
+              <span className="sp-podium-pill">{ar ? 'تدخين بارد هادئ' : 'Cold Slow Smoked'}</span>
+              <h4 className="sp-podium-name">{ar ? 'تدخين بطيء على البارد' : 'Continuous Cold Smoke'}</h4>
+              <p className="sp-podium-desc">{ar ? 'تغلغل عميق ومتدرج للدخان لمنح اللحم نكهة زبدية مخملية.' : 'Gradual smoke saturation yielding exquisite buttery melt-in-mouth.'}</p>
             </div>
-            <div className="sp-metric-number">12h</div>
-            <h4 className="sp-metric-title">{ar ? 'تدخين بطيء على البارد' : 'Cold Slow Smoke'}</h4>
-            <p className="sp-metric-desc">{ar ? 'تغلغل عميق للدخان ونكهة متوازنة تذوب في الفم' : 'Gradual smoke penetration for a delicate buttery melt'}</p>
-          </div>
 
-          {/* Metric 3 */}
-          <div className="sp-metric-card">
-            <div className="sp-metric-header">
-              <div className="sp-metric-icon" aria-hidden="true">
+            {/* Column 3 */}
+            <div className="sp-podium-col">
+              <div className="sp-podium-emblem" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                  <path d="M9 12l2 2 4-4" />
+                  <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+                  <path d="M12 12a3 3 0 0 0 3-3" />
                 </svg>
               </div>
-              <span className="sp-metric-micro-pill">{ar ? 'ملوحة مثالية' : 'Balanced Salt'}</span>
+              <div className="sp-podium-number">48h</div>
+              <span className="sp-podium-pill">{ar ? 'ملوحة منخفضة' : 'Balanced Low Salt'}</span>
+              <h4 className="sp-podium-name">{ar ? 'تمليح بحري خفيف' : 'Low Sodium Cure'}</h4>
+              <p className="sp-podium-desc">{ar ? 'ملوحة خفيفة ومحببة لجميع أفراد الأسرة غنية بالأوميجا 3.' : 'Delicate salinity preserving natural healthy fish oils and juiciness.'}</p>
             </div>
-            <div className="sp-metric-number">48h</div>
-            <h4 className="sp-metric-title">{ar ? 'تمليح بحري خفيف هادئ' : 'Low Sodium Cure'}</h4>
-            <p className="sp-metric-desc">{ar ? 'ملوحة منضبطة تناسب جميع الأذواق والعائلات' : 'Carefully monitored salting preserving high omega-3'}</p>
-          </div>
 
-          {/* Metric 4 */}
-          <div className="sp-metric-card">
-            <div className="sp-metric-header">
-              <div className="sp-metric-icon" aria-hidden="true">
+            {/* Column 4 */}
+            <div className="sp-podium-col">
+              <div className="sp-podium-emblem" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                 </svg>
               </div>
-              <span className="sp-metric-micro-pill">{ar ? 'اعتماد دولي' : 'Certified'}</span>
+              <div className="sp-podium-number font-iso">ISO 22000</div>
+              <span className="sp-podium-pill">{ar ? 'اعتماد دولي موثق' : 'HACCP & NFSA'}</span>
+              <h4 className="sp-podium-name">{ar ? 'معتمد سلامة غذاء' : 'Food Safety Standard'}</h4>
+              <p className="sp-podium-desc">{ar ? 'مطابق لأعلى مواصفات الهيئة القومية لسلامة الغذاء المصرية.' : 'Manufactured under rigorous NFSA and international ISO standards.'}</p>
             </div>
-            <div className="sp-metric-number font-iso">ISO 22000</div>
-            <h4 className="sp-metric-title">{ar ? 'معتمد سلامة غذاء' : 'HACCP & NFSA Approved'}</h4>
-            <p className="sp-metric-desc">{ar ? 'إنتاج خاضع لرقابة هيئة سلامة الغذاء والمواصفات القياسية' : 'Strict food safety standards at our Belbeis facility'}</p>
           </div>
         </div>
 
