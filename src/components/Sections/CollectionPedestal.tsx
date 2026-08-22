@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from '../../hooks/useTranslation';
 import { ProductHelper } from '../../helpers/ProductHelper';
+import '../../css/categories.css';
 import '../../css/products.css';
 
 interface CollectionPedestalProps {
@@ -11,31 +12,22 @@ export const CollectionPedestal: React.FC<CollectionPedestalProps> = ({ onSelect
   const { t, language } = useTranslation();
   const products = ProductHelper.getAll();
 
-  const getCategoryFilterKey = (catEn: string): string => {
-    switch (catEn) {
-      case 'Packaged Herring':
-        return 'packaged-herring';
-      case 'Premium Fillet':
-        return 'premium-fillet';
-      case 'Gourmet Roe':
-        return 'gourmet-roe';
-      case 'Canned Seafood':
-        return 'canned-herring';
-      case 'Gifts & Packaging':
-        return 'gifts';
-      default:
-        return 'all';
-    }
+  const getCategoryFilterKey = (categoryEn: string) => {
+    const cat = categoryEn.toLowerCase();
+    if (cat.includes('roe') || cat.includes('caviar')) return 'gourmet-roe';
+    if (cat.includes('fillet')) return 'premium-fillet';
+    if (cat.includes('canned')) return 'canned-herring';
+    if (cat.includes('packaged') || cat.includes('smoked') || cat.includes('herring')) return 'packaged-herring';
+    if (cat.includes('gift')) return 'gifts';
+    return 'all';
   };
 
   return (
-    <section className="pedestal-section" id="pedestal-section">
+    <section className="cshow" id="products-section">
       <div className="container">
-        {/* Section Header */}
-        <div className="collection-kick reveal">
-          {t('collection.kick')}
-        </div>
-
+        {/* Title block */}
+        <div className="cs-kick reveal">{t('collection.kick')}</div>
+        
         <div className="divider-ornament reveal" aria-hidden="true">
           <span className="line-left"></span>
           <span className="diamond"></span>
@@ -43,7 +35,7 @@ export const CollectionPedestal: React.FC<CollectionPedestalProps> = ({ onSelect
         </div>
 
         <h2 className="reveal">
-          {t('collection.title')}
+          {language === 'ar' ? 'تشكيلة منتجات سيد البلد الفاخرة' : 'Our Premium Seafood Collection'}
         </h2>
         
         <p className="cs-sub reveal">
@@ -54,7 +46,6 @@ export const CollectionPedestal: React.FC<CollectionPedestalProps> = ({ onSelect
         <div className="cs-row">
           {products.map((product) => {
             const filterKey = getCategoryFilterKey(product.category.en);
-            const altText = product.seo?.altText?.[language] || (language === 'ar' ? product.title.ar : product.title.en);
             return (
               <div 
                 key={product.id} 
@@ -70,12 +61,11 @@ export const CollectionPedestal: React.FC<CollectionPedestalProps> = ({ onSelect
                 }}
               >
                 <div className="im">
-                  <img 
-                    src={product.image}
-                    alt={altText}
+                  <div 
                     className="im-img"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                    loading="lazy"
+                    style={{ backgroundImage: `url(${product.image})` }}
+                    role="img"
+                    aria-label={language === 'ar' ? product.title.ar : product.title.en}
                   />
 
                   {/* Hover CTA Button Overlay */}
@@ -100,53 +90,43 @@ export const CollectionPedestal: React.FC<CollectionPedestalProps> = ({ onSelect
           })}
         </div>
 
-        {/* Tail Message & Full Catalogue Exploration Link */}
         <div className="cs-tail reveal" style={{ marginTop: '54px' }}>
-          <p style={{ margin: '0 0 20px', fontFamily: 'var(--font-serif)', fontSize: '1.25rem', color: 'var(--color-primary)' }}>
-            {t('collection.tail')}
-          </p>
-          <button 
-            type="button" 
-            className="btn-gold-explore"
-            onClick={() => onSelectCategory('all')}
-            style={{ 
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '10px',
-              padding: '14px 34px',
-              backgroundColor: 'var(--color-accent-gold)',
-              color: 'var(--color-white)',
-              border: 'none',
-              borderRadius: '0',
-              fontFamily: 'var(--font-sans)',
-              fontSize: '0.85rem',
-              fontWeight: 600,
-              letterSpacing: language === 'ar' ? '0' : '0.12em',
-              textTransform: 'uppercase',
-              cursor: 'pointer',
-              boxShadow: '0 4px 15px rgba(185, 150, 83, 0.3)',
-              transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--color-accent-gold-dark)';
-              e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.boxShadow = '0 6px 20px rgba(185, 150, 83, 0.4)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--color-accent-gold)';
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 4px 15px rgba(185, 150, 83, 0.3)';
-            }}
-          >
-            <span>{language === 'ar' ? 'استعراض كل المنتجات' : 'View Full Catalogue'}</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </button>
+          {t('collection.tail')}
         </div>
+
+        <a 
+          href="#collection" 
+          className="cs-all reveal" 
+          onClick={(e) => { 
+            e.preventDefault(); 
+            onSelectCategory('all'); 
+          }}
+        >
+          <span>{t('collection.exploreAll')}</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+
+      {/* Decorative Minimalist Watermarks */}
+      <div className="cs-deco-elements" aria-hidden="true">
+        <svg className="cs-deco-fish" viewBox="0 0 100 40" fill="none" stroke="currentColor" strokeWidth="0.5">
+          <path d="M5,20 C15,11 40,9 65,19 C75,15 85,13 90,16 L95,10 L94,30 L90,24 C85,27 75,25 65,21 C40,31 15,29 5,20 Z" />
+          <circle cx="16" cy="18" r="0.8" fill="currentColor" />
+          <path d="M22,14 C25,17 25,23 22,26" />
+          <path d="M45,12 C48,10 52,11 54,13" />
+          <path d="M48,27 C50,29 53,29 55,27" />
+          <path d="M25,20 C45,20 65,20 80,19" strokeDasharray="1.5,1.5" />
+        </svg>
+
+        <svg className="cs-deco-wave" viewBox="0 0 100 40" fill="none" stroke="currentColor" strokeWidth="0.5">
+          <path d="M5,30 Q25,10 45,30 T85,30" />
+          <path d="M15,25 Q35,5 55,25 T95,25" opacity="0.5" />
+        </svg>
       </div>
     </section>
   );
 };
+
 export default CollectionPedestal;

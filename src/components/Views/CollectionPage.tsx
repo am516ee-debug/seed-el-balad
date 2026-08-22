@@ -219,51 +219,47 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
                 </p>
               </div>
             ) : (
-              filteredProducts.map((product) => {
-                const altText = product.seo?.altText?.[language] || (language === 'ar' ? product.title.ar : product.title.en);
-                return (
-                  <div 
-                    key={product.id} 
-                    className="prod"
-                    onClick={() => onSelectProduct(product.id)}
-                    role="button"
-                    tabIndex={0}
-                    onKeyDown={(e) => { 
-                      if (e.key === 'Enter' || e.key === ' ') { 
-                        e.preventDefault(); 
-                        onSelectProduct(product.id); 
-                      } 
-                    }}
-                  >
-                    <div className="im">
-                      <img 
-                        src={product.image}
-                        alt={altText}
-                        className="im-img"
-                        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                        loading="lazy"
-                      />
+              filteredProducts.map((product) => (
+                <div 
+                  key={product.id} 
+                  className="prod"
+                  onClick={() => onSelectProduct(product.id)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => { 
+                    if (e.key === 'Enter' || e.key === ' ') { 
+                      e.preventDefault(); 
+                      onSelectProduct(product.id); 
+                    } 
+                  }}
+                >
+                  <div className="im">
+                    <div 
+                      className="im-img"
+                      style={{ backgroundImage: `url(${product.image})` }}
+                      role="img"
+                      aria-label={language === 'ar' ? product.title.ar : product.title.en}
+                    />
 
-                      {/* Hover CTA Button Overlay */}
-                      <div className="prod-cta-overlay" aria-hidden="true">
-                        <span className="prod-cta-btn">
-                          {language === 'ar' ? 'تفاصيل المنتج' : 'Product Details'}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Clean text body below image */}
-                    <div className="pbody">
-                      <h3 className="nm">
-                        {language === 'ar' ? product.title.ar : product.title.en}
-                      </h3>
-                      <span className="ds">
-                        {language === 'ar' ? product.category.ar : product.category.en}
+                    {/* Hover CTA Button Overlay */}
+                    <div className="prod-cta-overlay" aria-hidden="true">
+                      <span className="prod-cta-btn">
+                        {language === 'ar' ? 'تفاصيل المنتج' : 'Product Details'}
                       </span>
                     </div>
                   </div>
-                );
-              })
+
+                  {/* Clean text body below image */}
+                  <div className="pbody">
+                    <h3 className="nm">
+                      {language === 'ar' ? product.title.ar : product.title.en}
+                    </h3>
+                    <span className="ds">
+                      {language === 'ar' ? product.category.ar : product.category.en}
+                    </span>
+                  </div>
+                </div>
+              ))
             )}
           </div>
 
@@ -275,4 +271,5 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({
     </div>
   );
 };
+
 export default CollectionPage;
