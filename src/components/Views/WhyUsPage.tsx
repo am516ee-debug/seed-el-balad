@@ -7,6 +7,7 @@ import imgProcess1 from '../../assets/images/seed-el-balad/SOURCING & HARVEST pi
 import imgProcess2 from '../../assets/images/seed-el-balad/BRINING & SMOKING pic.webp';
 import imgFactory from '../../assets/images/seed-el-balad/OUR BELBEIS FACILITY pic.webp';
 
+import SmokingProcessSection from '../Sections/SmokingProcessSection';
 import '../../css/whyus.css';
 
 interface WhyUsPageProps {
@@ -259,6 +260,9 @@ export const WhyUsPage: React.FC<WhyUsPageProps> = ({ onViewPdf }) => {
           </p>
         </div>
       </section>
+
+      {/* ─── 4.5. INTERACTIVE BEFORE & AFTER SMOKING TRANSFORMATION ─── */}
+      <SmokingProcessSection />
 
       {/* ─── 5. ISO CERTIFICATIONS GRID ──────────────────────── */}
       <section className="qp-certs-section">

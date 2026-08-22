@@ -5,6 +5,7 @@ import imgHero from '../../assets/images/seed-el-balad/hero s our story.webp';
 import imgBeginning from '../../assets/images/seed-el-balad/THE BEGINNING pic.webp';
 import imgFactory from '../../assets/images/seed-el-balad/img_22.webp';
 
+import SmokingProcessSection from '../Sections/SmokingProcessSection';
 import '../../css/story.css';
 
 interface OurStoryPageProps {
@@ -240,6 +241,9 @@ export const OurStoryPage: React.FC<OurStoryPageProps> = () => {
           </div>
         </div>
       </section>
+
+      {/* 4.5. INTERACTIVE BEFORE & AFTER TRANSFORMATION */}
+      <SmokingProcessSection />
 
       {/* 5. LEGACY TIMELINE */}
       <section className="story-timeline-sec sp-reveal" style={{ backgroundColor: 'var(--color-white)', padding: '100px 8% 120px', borderBottom: '1px solid rgba(32, 95, 166, 0.12)' }}>

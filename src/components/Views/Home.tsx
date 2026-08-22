@@ -4,6 +4,7 @@ import CollectionPedestal from '../Sections/CollectionPedestal';
 import EditorialBand from '../Sections/EditorialBand';
 import StatsSection from '../Sections/StatsSection';
 import QualitySection from '../Sections/QualitySection';
+import SmokingProcessSection from '../Sections/SmokingProcessSection';
 import { useTranslation } from '../../hooks/useTranslation';
 import imgFacility from '../../assets/images/seed-el-balad/OUR BELBEIS FACILITY pic.webp';
 
@@ -244,6 +245,9 @@ export const Home: React.FC<HomeProps> = ({ onViewPdf, onSelectCategory, onNavig
         </div>
       </section>
       
+      {/* ─── 3. INTERACTIVE BEFORE & AFTER SMOKING TRANSFORMATION ─── */}
+      <SmokingProcessSection />
+
       {/* Visual Quality & Certifications Section */}
       <QualitySection onViewPdf={onViewPdf} />
     </div>

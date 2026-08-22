@@ -1,0 +1,460 @@
+/* ─── SMOKING PROCESS BEFORE & AFTER SHOWCASE ────────────────────────────── */
+.smoking-process-sec {
+  padding: 100px 8% 110px;
+  background-color: var(--color-bg-cream);
+  border-top: 1px solid rgba(32, 95, 166, 0.1);
+  border-bottom: 1px solid rgba(32, 95, 166, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.sp-section-header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 50px;
+}
+
+.sp-section-header h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.8vw, 2.7rem);
+  color: var(--color-text-ink);
+  margin: 12px 0 16px;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.sp-sub-desc {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--color-text-ink);
+  opacity: 0.84;
+  margin: 0 auto 32px;
+}
+
+/* Mode Toggle Buttons */
+.sp-mode-tabs {
+  display: inline-flex;
+  gap: 10px;
+  background-color: rgba(32, 95, 166, 0.06);
+  padding: 6px;
+  border-radius: 0px !important;
+  border: 1px solid rgba(32, 95, 166, 0.14);
+}
+
+.sp-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 11px 22px;
+  background: transparent;
+  border: none !important;
+  outline: none;
+  cursor: pointer;
+  color: var(--color-text-ink);
+  border-radius: 0px !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sp-tab-btn svg {
+  opacity: 0.65;
+  transition: opacity 0.3s;
+}
+
+.sp-tab-btn:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.sp-tab-btn.active {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: 0 4px 14px rgba(32, 95, 166, 0.25);
+}
+
+.sp-tab-btn.active svg {
+  opacity: 1;
+  color: var(--color-white);
+}
+
+/* ─── SLIDER WRAPPER ─────────────────────────────────────────────────────── */
+.sp-interactive-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.sp-slider-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  max-height: 620px;
+  overflow: hidden;
+  background-color: #0c1821;
+  border: 2px solid var(--color-accent-gold);
+  box-shadow: 0 16px 45px rgba(18, 34, 46, 0.14);
+  cursor: ew-resize;
+  user-select: none;
+}
+
+.sp-slide-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.sp-slide-layer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+/* Badges on images */
+.sp-badge {
+  position: absolute;
+  bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  background: rgba(12, 24, 33, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--color-white);
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  z-index: 5;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+[dir="rtl"] .sp-badge {
+  letter-spacing: 0 !important;
+  font-size: 0.88rem;
+}
+
+.sp-badge-after {
+  inset-inline-end: 24px;
+  border-color: var(--color-accent-gold);
+}
+
+.sp-badge-before {
+  inset-inline-start: 24px;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.sp-badge-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.sp-badge-dot.gold {
+  background-color: var(--color-accent-gold);
+  box-shadow: 0 0 10px var(--color-accent-gold);
+}
+
+.sp-badge-dot.silver {
+  background-color: #d1d5db;
+  box-shadow: 0 0 10px #ffffff;
+}
+
+/* Draggable Handle */
+.sp-slider-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 44px;
+  margin-inline-start: -22px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.sp-handle-line {
+  width: 2.5px;
+  flex: 1;
+  background-color: var(--color-accent-gold);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+.sp-handle-knob {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: var(--color-accent-gold);
+  color: #0c1821;
+  border: 3px solid var(--color-white);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  flex-shrink: 0;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s;
+}
+
+.sp-slider-frame:active .sp-handle-knob {
+  transform: scale(1.15);
+  background-color: #d4a955;
+}
+
+.sp-slider-instruction {
+  margin-top: 18px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--color-text-ink);
+  opacity: 0.75;
+  font-weight: 500;
+}
+
+.sp-drag-icon {
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+/* ─── SIDE BY SIDE CARDS ─────────────────────────────────────────────────── */
+.sp-side-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sp-card {
+  background-color: var(--color-white);
+  border: 1px solid rgba(32, 95, 166, 0.12);
+  box-shadow: 0 4px 20px rgba(18, 34, 46, 0.05);
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s, border-color 0.35s;
+}
+
+.sp-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(18, 34, 46, 0.12);
+}
+
+.sp-card-after {
+  border-top: 4px solid var(--color-accent-gold);
+}
+
+.sp-card-before {
+  border-top: 4px solid var(--color-primary);
+}
+
+.sp-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+  background-color: #0c1821;
+}
+
+.sp-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sp-card:hover .sp-card-media img {
+  transform: scale(1.04);
+}
+
+.sp-stage-tag {
+  position: absolute;
+  top: 16px;
+  inset-inline-start: 16px;
+  padding: 6px 14px;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  background: rgba(12, 24, 33, 0.85);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+[dir="rtl"] .sp-stage-tag {
+  letter-spacing: 0 !important;
+}
+
+.sp-stage-tag.gold {
+  border-inline-start: 3px solid var(--color-accent-gold);
+}
+
+.sp-stage-tag.silver {
+  border-inline-start: 3px solid #cbd5e1;
+}
+
+.sp-card-body {
+  padding: 28px 26px 32px;
+}
+
+.sp-card-body h3 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--color-text-ink);
+  margin: 0 0 20px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.sp-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sp-feature-list li {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--color-text-ink);
+  opacity: 0.88;
+  position: relative;
+  padding-inline-start: 18px;
+}
+
+.sp-feature-list li::before {
+  content: "•";
+  position: absolute;
+  inset-inline-start: 0;
+  color: var(--color-accent-gold);
+  font-size: 1.3rem;
+  line-height: 1;
+  top: 1px;
+}
+
+.sp-feature-list strong {
+  color: var(--color-text-ink);
+  font-weight: 600;
+}
+
+/* ─── METRICS STRIP ──────────────────────────────────────────────────────── */
+.sp-metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  max-width: 1100px;
+  margin: 60px auto 0;
+  background-color: var(--color-white);
+  border: 1px solid rgba(32, 95, 166, 0.12);
+  box-shadow: 0 4px 16px rgba(18, 34, 46, 0.04);
+}
+
+.sp-metric-box {
+  padding: 32px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+
+.sp-metric-val {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  color: var(--color-accent-gold);
+  line-height: 1;
+  font-weight: 500;
+}
+
+.sp-metric-title {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text-ink);
+}
+
+.sp-metric-sub {
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  color: var(--color-text-ink);
+  opacity: 0.65;
+}
+
+.sp-metric-divider {
+  width: 1px;
+  background-color: rgba(32, 95, 166, 0.1);
+}
+
+/* ─── RESPONSIVE BREAKPOINTS ─────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .sp-side-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .sp-metrics-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .sp-metric-divider {
+    display: none;
+  }
+  .sp-metric-box {
+    border-bottom: 1px solid rgba(32, 95, 166, 0.08);
+  }
+  .sp-metric-box:nth-child(odd) {
+    border-inline-end: 1px solid rgba(32, 95, 166, 0.08);
+  }
+}
+
+@media (max-width: 640px) {
+  .smoking-process-sec {
+    padding: 60px 5% 70px;
+  }
+  .sp-slider-frame {
+    aspect-ratio: 4 / 3;
+  }
+  .sp-badge {
+    bottom: 12px;
+    padding: 6px 10px;
+    font-size: 0.72rem;
+  }
+  .sp-badge-after {
+    inset-inline-end: 12px;
+  }
+  .sp-badge-before {
+    inset-inline-start: 12px;
+  }
+  .sp-mode-tabs {
+    flex-direction: column;
+    width: 100%;
+  }
+  .sp-tab-btn {
+    justify-content: center;
+    padding: 9px 14px;
+    font-size: 0.78rem;
+  }
+  .sp-metrics-strip {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 40px;
+  }
+  .sp-metric-val {
+    font-size: 1.8rem;
+  }
+  .sp-metric-title {
+    font-size: 0.8rem;
+  }
+}
