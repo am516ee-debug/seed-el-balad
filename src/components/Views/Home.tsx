@@ -48,6 +48,9 @@ export const Home: React.FC<HomeProps> = ({ onViewPdf, onSelectCategory, onNavig
       <CollectionPedestal onSelectCategory={onSelectCategory} />
       <EditorialBand />
 
+      {/* ─── BEFORE & AFTER SMOKING PROCESS SHOWCASE ─── */}
+      <SmokingProcessSection />
+
       {/* ─── 1. WHY SEED EL-BALAD SHOWCASE SECTION ─── */}
       <section className="home-whyus-section reveal" id="why-us-showcase">
         <div className="container">
@@ -245,8 +248,7 @@ export const Home: React.FC<HomeProps> = ({ onViewPdf, onSelectCategory, onNavig
         </div>
       </section>
       
-      {/* ─── 3. INTERACTIVE BEFORE & AFTER SMOKING TRANSFORMATION ─── */}
-      <SmokingProcessSection />
+
 
       {/* Visual Quality & Certifications Section */}
       <QualitySection onViewPdf={onViewPdf} />
