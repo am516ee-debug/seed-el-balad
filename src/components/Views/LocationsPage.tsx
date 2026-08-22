@@ -120,8 +120,8 @@ export const LocationsPage: React.FC = () => {
               </div>
               <h3 className="loc-assist-title">{language === 'ar' ? 'البريد الإلكتروني' : 'Official Email'}</h3>
               <p className="loc-assist-desc">{language === 'ar' ? 'للتعاقدات والإدارة والشركاء' : 'Corporate & Partnership Requests'}</p>
-              <a href="mailto:info@goldfoods.co" className="loc-assist-action">
-                <span>info@goldfoods.co</span>
+              <a href="mailto:Ceo@gf-egypt.com" className="loc-assist-action">
+                <span>Ceo@gf-egypt.com</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>

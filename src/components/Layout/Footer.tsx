@@ -95,12 +95,12 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onNavigate }) => 
           <div className="footer-col">
             <h4>{t('nav.contact')}</h4>
             <div className="footer-contact-info">
-              <a href="mailto:CEO@gf-egypt.com">
+              <a href="mailto:Ceo@gf-egypt.com">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                   <path d="M22 6l-10 7L2 6"/>
                 </svg>
-                CEO@gf-egypt.com
+                Ceo@gf-egypt.com
               </a>
               <a href="https://wa.me/201032033302" target="_blank" rel="noopener noreferrer">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
