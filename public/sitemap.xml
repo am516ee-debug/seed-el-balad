@@ -172,4 +172,12 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://seed-elbalad.com/product/premium-gift-bag?lang=en" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://seed-elbalad.com/product/premium-gift-bag" />
   </url>
+  <url>
+    <loc>https://seed-elbalad.com/product/vacuum-herring</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://seed-elbalad.com/product/vacuum-herring" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://seed-elbalad.com/product/vacuum-herring?lang=en" />
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>

@@ -1,3 +1,4 @@
+import imgVacuumHerring from '../assets/images/seed-el-balad/Vacuum Herring.webp';
 import imgPr1 from '../assets/images/seed-el-balad/pr1.webp';
 import imgPr2 from '../assets/images/seed-el-balad/pr2.webp';
 import imgPr3 from '../assets/images/seed-el-balad/pr3.webp';
@@ -49,6 +50,55 @@ export interface Product {
 
 export class ProductHelper {
   private static readonly products: Product[] = [
+    {
+      id: "vacuum-herring",
+      title: { ar: "رنجة فاكيوم فاخرة مفرغة الهواء", en: "Vacuum Herring" },
+      category: { ar: "رنجة مغلفة", en: "Packaged Herring" },
+      image: imgVacuumHerring,
+      rating: 5.0,
+      size: { ar: "ظرف فاكيوم محكم الغلق - وزن تقريبي ١ كجم", en: "Vacuum-sealed pouch - approx 1 kg" },
+      desc: { 
+        ar: "رنجة فاكيوم (Vacuum Herring) الفاخرة من سيد البلد هي الاختيار الأمثل لعشاق الجودة العالية والحفظ الآمن الطويل. نعتمد في تصنيعها على أجود أنواع أسماك الهارينج المستوردة والمصطادة من مياه بحر الشمال الباردة والنقية. يتم تدخين الأسماك تدخيناً بطيئاً على البارد باستخدام خشب الزان الطبيعي الخالص لإكسابها لوناً ذهبياً ساحراً ومذاقاً مدخناً أصيلاً يذوب في الفم، مع ضبط دقيق لنسبة الملح لتكون خفيفة وصحية ومناسبة لكافة أفراد العائلة. يتم سحب الهواء تماماً وتغليف الرنجة بتقنية الفاكيوم الحراري المتطورة داخل مصنعنا المعتمد ببلبيس، مما يعزلها تماماً عن الهواء الخارجي والبكتيريا ويمنع انبعاث أية روائح داخل الثلاجة مع بقاء اللحم رطباً وطازجاً بنكهته الكاملة وقيمته الغذائية الغنية بأحماض أوميجا 3 والبروتين.",
+        en: "Seed El-Balad's Vacuum Herring is the premium standard for seafood enthusiasts seeking exceptional flavor combined with superior hygienic preservation. Crafted from top-tier North Sea herring, each fish undergoes a slow, natural cold-smoking process using premium beechwood sawdust to achieve an alluring golden skin and a succulent, melt-in-the-mouth buttery texture. Balanced with a delicate touch of pure sea salt, it provides an exquisite taste rich in Omega-3 fatty acids and wholesome protein. Hermetically sealed using advanced thermal vacuum technology in our certified Bilbeis facility, it completely locks out air and bacteria, ensuring 100% odor-free refrigeration while maintaining peak moistness and fresh aroma."
+      },
+      details: {
+        ar: [
+          "منتج فاخر يحمل اسم Vacuum Herring معبأ بتكنولوجيا التفريغ الهوائي الفاكيوم.",
+          "مدخنة بخشب الزان الطبيعي المستورد دون أية ملونات أو نكهات صناعية.",
+          "تغليف حراري عازل يمنع نفاذ الهواء ويضمن عدم خروج أي روائح بالثلاجة.",
+          "لحم رطب زبدي متماسك غني بالبروتين والأحماض الدهنية أوميجا ٣.",
+          "مطابقة لأعلى معايير سلامة الأغذية والتطهير ISO 22000 و HACCP."
+        ],
+        en: [
+          "Premium Vacuum Herring packaged using state-of-the-art air extraction technology.",
+          "Naturally cold-smoked with real imported beechwood, zero artificial additives.",
+          "Heavy-duty barrier pouch preventing oxidation and ensuring 100% odor-free refrigeration.",
+          "Succulent, buttery texture rich in wholesome protein and essential Omega-3 fatty acids.",
+          "Fully compliant with global food hygiene and quality standards (ISO 22000, HACCP)."
+        ]
+      },
+      specs: {
+        weight: { ar: "١ كجم تقريباً", en: "Approx 1 kg" },
+        origin: { ar: "هولندا / النرويج", en: "Netherlands / Norway" },
+        shelfLife: { ar: "٦ أشهر (مجمد -١٨ مئوية)", en: "6 months (frozen -18°C)" }
+      },
+      nutrition: {
+        calories: "218 kcal",
+        fat: "15.5g",
+        protein: "19.5g",
+        salt: "1.8g"
+      },
+      ingredients: {
+        ar: "سمك هارينج كامل، ملح بحري نقي، دخان خشب الزان الطبيعي.",
+        en: "Whole herring fish, pure sea salt, natural beechwood smoke."
+      },
+      seo: {
+        metaTitle: { ar: "Vacuum Herring | رنجة فاكيوم فاخرة مفرغة الهواء | سيد البلد", en: "Vacuum Herring | Premium Smoked Vacuum Sealed Herring | Seed El-Balad" },
+        metaDescription: { ar: "رنجة فاكيوم (Vacuum Herring) من سيد البلد: رنجة هولندية ونرويجية مدخنة بخشب الزان، مغلفة بالتفريغ الهوائي الفاكيوم بدون أي روائح وبأعلى جودة.", en: "Buy Vacuum Herring by Seed El-Balad. Cold-smoked Dutch and Norwegian herring, vacuum sealed for ultimate freshness and 100% odor-free refrigeration." },
+        keywords: { ar: "Vacuum Herring, رنجة فاكيوم, رنجة مفرغة الهواء, رنجة سيد البلد, سمك مدخن فاكيوم, اسعار الرنجة الفاكيوم", en: "Vacuum Herring, vacuum packed herring, Seed El-Balad smoked fish, North Sea herring" },
+        altText: { ar: "ظرف رنجة فاكيوم Vacuum Herring فاخرة من سيد البلد", en: "Seed El-Balad Vacuum Herring sealed pack" }
+      }
+    },
     {
       id: "dutch-herring",
       title: { ar: "رنجة هولندي فاخرة مدخنة", en: "Premium Dutch Smoked Herring" },
