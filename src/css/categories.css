@@ -102,7 +102,7 @@
   gap: clamp(10px, 2vw, 28px);
   max-width: 1380px;
   margin: clamp(36px, 5vw, 64px) auto 0;
-  align-items: start;
+  align-items: stretch;
 }
 
 /* Category Card Wrapper */
@@ -318,9 +318,5 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 18px 12px;
   }
-  .cs-card:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    justify-self: center;
-    width: calc((100% - 12px) / 2);
-  }
+
 }
