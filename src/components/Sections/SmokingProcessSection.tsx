@@ -55,15 +55,6 @@ export const SmokingProcessSection: React.FC<SmokingProcessSectionProps> = ({
     updatePosition(e.clientX);
   };
 
-  // Clipping calculation:
-  // In RTL:
-  // - sliderPosition is % from right (0% = right edge, 100% = left edge).
-  // - Before is on the RIGHT half: visible from 0 to sliderPosition -> inset(0 0 0 (100 - sliderPosition)%)
-  // - After is on the LEFT half: visible from sliderPosition to 100 -> inset(0 sliderPosition% 0 0)
-  // In LTR:
-  // - sliderPosition is % from left (0% = left edge, 100% = right edge).
-  // - Before is on the LEFT half: visible from 0 to sliderPosition -> inset(0 (100 - sliderPosition)% 0 0)
-  // - After is on the RIGHT half: visible from sliderPosition to 100 -> inset(0 0 0 sliderPosition%)
   const clipBefore = ar
     ? `inset(0 0 0 ${100 - sliderPosition}%)`
     : `inset(0 ${100 - sliderPosition}% 0 0)`;
@@ -131,7 +122,7 @@ export const SmokingProcessSection: React.FC<SmokingProcessSectionProps> = ({
               onPointerCancel={handlePointerUp}
               onClick={handleSliderClick}
             >
-              {/* After Smoking Layer (Clipped seamlessly with slider) */}
+              {/* After Smoking Layer */}
               <div
                 className="sp-layer sp-layer-after"
                 style={{ clipPath: clipAfter }}
@@ -147,7 +138,7 @@ export const SmokingProcessSection: React.FC<SmokingProcessSectionProps> = ({
                 </div>
               </div>
 
-              {/* Before Smoking Layer (Clipped seamlessly with slider) */}
+              {/* Before Smoking Layer */}
               <div
                 className="sp-layer sp-layer-before"
                 style={{ clipPath: clipBefore }}
@@ -263,50 +254,150 @@ export const SmokingProcessSection: React.FC<SmokingProcessSectionProps> = ({
           </div>
         )}
 
-        {/* ─── 4-STAGE CRAFT JOURNEY TIMELINE ─────────────────────────────── */}
+        {/* ─── 4-STAGE CRAFT JOURNEY TIMELINE (ELEVATED UI/UX) ─────────────── */}
+        <div className="sp-steps-section-header">
+          <span className="sp-steps-kicker">{ar ? 'دقة متناهية في كل مرحلة' : 'PRECISION AT EVERY STEP'}</span>
+          <h3 className="sp-steps-title">{ar ? 'المراحل الأربعة للصنعة والإنتاج' : 'Four Pillars of Artisanal Mastery'}</h3>
+        </div>
+
         <div className="sp-steps-row">
+          {/* Step 1 */}
           <div className="sp-step-card">
-            <div className="sp-step-num">01</div>
-            <h4>{ar ? 'الصيد والاستيراد المباشر' : 'Arctic Deep Catch'}</h4>
-            <p>{ar ? 'صيد بري من أعماق بحر الشمال وهولندا في مواسم الذروة.' : 'Direct wild catch from North Sea winter runs.'}</p>
+            <div className="sp-step-card-top">
+              <div className="sp-step-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M2 20a6 6 0 0 0 10 0 6 6 0 0 0 10 0" />
+                  <path d="M12 4v10" />
+                  <path d="M18 9l-6-6-6 6" />
+                  <circle cx="12" cy="14" r="2" />
+                </svg>
+              </div>
+              <span className="sp-step-badge">01</span>
+            </div>
+            <div className="sp-step-card-content">
+              <span className="sp-step-tag">{ar ? 'استيراد قطبي مباشر' : 'Arctic Deep Catch'}</span>
+              <h4>{ar ? 'الصيد والاستيراد المباشر' : 'Sourcing & Harvesting'}</h4>
+              <p>{ar ? 'صيد بري من أعماق بحر الشمال وهولندا وجزر فارو في مواسم الذروة لضمان أعلى نسبة دهون صحية ونضارة.' : 'Direct wild catch from North Sea and Dutch winter waters ensuring optimal natural oils and ocean freshness.'}</p>
+            </div>
           </div>
+
+          {/* Step 2 */}
           <div className="sp-step-card">
-            <div className="sp-step-num">02</div>
-            <h4>{ar ? 'التمليح البحري الهادئ' : 'Natural Sea Cure'}</h4>
-            <p>{ar ? '48 ساعة تمليح خفيف بملح بحري نقي لضبط الملوحة والقوام.' : '48h low-sodium sea-salt dry brining.'}</p>
+            <div className="sp-step-card-top">
+              <div className="sp-step-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+                  <path d="M12 12a3 3 0 0 0 3-3" />
+                </svg>
+              </div>
+              <span className="sp-step-badge">02</span>
+            </div>
+            <div className="sp-step-card-content">
+              <span className="sp-step-tag">{ar ? 'ملح بحري طبيعي' : 'Pure Sea Salt Cure'}</span>
+              <h4>{ar ? 'التمليح البحري الهادئ' : 'Natural Sea Cure'}</h4>
+              <p>{ar ? '48 ساعة تمليح جاف خفيف بملح بحري نقي لضبط ملوحة متوازنة ومحببة مع الحفاظ على تماسك القوام وطراوة اللحم.' : '48h low-sodium natural sea-salt curing achieving a delicate, pleasant taste while retaining juicy texture.'}</p>
+            </div>
           </div>
+
+          {/* Step 3 */}
           <div className="sp-step-card">
-            <div className="sp-step-num">03</div>
-            <h4>{ar ? 'التدخين بخشب الزان' : 'Beechwood Smoke'}</h4>
-            <p>{ar ? '12 ساعة تدخين بطيء داخل أفران رقمية بنشارة الزان الخالص.' : '12h slow cold smoking with pure beechwood.'}</p>
+            <div className="sp-step-card-top">
+              <div className="sp-step-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
+                </svg>
+              </div>
+              <span className="sp-step-badge">03</span>
+            </div>
+            <div className="sp-step-card-content">
+              <span className="sp-step-tag">{ar ? 'خشب زان طبيعي 100%' : '100% Beechwood'}</span>
+              <h4>{ar ? 'التدخين بخشب الزان' : 'Beechwood Smoke'}</h4>
+              <p>{ar ? '12 ساعة تدخين بطيء على البارد داخل أفران رقمية معقمة بنشارة خشب الزان لمنح السمك لونه الكهرماني وطعمه الفاخر.' : '12h slow cold smoking inside digital climate-controlled smokehouses delivering amber luster and aromatic depth.'}</p>
+            </div>
           </div>
+
+          {/* Step 4 */}
           <div className="sp-step-card">
-            <div className="sp-step-num">04</div>
-            <h4>{ar ? 'التغليف الفاكيوم المعقم' : 'Vacuum Packaging'}</h4>
-            <p>{ar ? 'سحب هواء وتغليف حراري محكم يحفظ الطراوة والنكهة بدون روائح.' : 'Airtight thermal vacuum seal locking freshness.'}</p>
+            <div className="sp-step-card-top">
+              <div className="sp-step-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="8" width="18" height="13" rx="2" />
+                  <path d="M8 8V5a4 4 0 0 1 8 0v3" />
+                  <line x1="12" y1="13" x2="12" y2="17" />
+                </svg>
+              </div>
+              <span className="sp-step-badge">04</span>
+            </div>
+            <div className="sp-step-card-content">
+              <span className="sp-step-tag">{ar ? 'معقم وخالي من الروائح' : 'Airtight Vacuum Lock'}</span>
+              <h4>{ar ? 'التغليف الفاكيوم المعقم' : 'Vacuum Packaging'}</h4>
+              <p>{ar ? 'سحب كامل للأكسجين وتغليف حراري عالي الكثافة لحفظ الطراوة والنكهة ومنع أي نفاذ للروائح حتى فتح العبوة.' : 'Total oxygen extraction in multi-layer thermal vacuum packaging preserving peak moisture and zero aroma leaks.'}</p>
+            </div>
           </div>
         </div>
 
-        {/* ─── QUALITY & SAFETY METRICS BADGES ────────────────────────────── */}
-        <div className="sp-metrics-banner">
-          <div className="sp-metric-unit">
-            <span className="sp-metric-highlight">100%</span>
-            <span className="sp-metric-label">{ar ? 'خشب زان طبيعي خالص' : 'Natural Beechwood'}</span>
+        {/* ─── QUALITY & SAFETY METRICS BANNER (REDESIGNED LUXURY TILES) ──── */}
+        <div className="sp-metrics-grid">
+          {/* Metric 1 */}
+          <div className="sp-metric-card">
+            <div className="sp-metric-header">
+              <div className="sp-metric-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+              </div>
+              <span className="sp-metric-micro-pill">{ar ? 'نقاء طبيعي' : '100% Pure'}</span>
+            </div>
+            <div className="sp-metric-number">100%</div>
+            <h4 className="sp-metric-title">{ar ? 'خشب زان ألماني طبيعي' : 'Natural Beechwood'}</h4>
+            <p className="sp-metric-desc">{ar ? 'بدون أي صبغات أو مكسبات طعم أو مواد كيميائية' : 'Zero chemicals, liquid smoke or artificial additives'}</p>
           </div>
-          <div className="sp-metric-sep" />
-          <div className="sp-metric-unit">
-            <span className="sp-metric-highlight">12h</span>
-            <span className="sp-metric-label">{ar ? 'تدخين بارد متدرج' : 'Slow Cold Smoke'}</span>
+
+          {/* Metric 2 */}
+          <div className="sp-metric-card">
+            <div className="sp-metric-header">
+              <div className="sp-metric-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </div>
+              <span className="sp-metric-micro-pill">{ar ? 'تدخين هادئ' : 'Slow Craft'}</span>
+            </div>
+            <div className="sp-metric-number">12h</div>
+            <h4 className="sp-metric-title">{ar ? 'تدخين بطيء على البارد' : 'Cold Slow Smoke'}</h4>
+            <p className="sp-metric-desc">{ar ? 'تغلغل عميق للدخان ونكهة متوازنة تذوب في الفم' : 'Gradual smoke penetration for a delicate buttery melt'}</p>
           </div>
-          <div className="sp-metric-sep" />
-          <div className="sp-metric-unit">
-            <span className="sp-metric-highlight">48h</span>
-            <span className="sp-metric-label">{ar ? 'تمليح بحري خفيف' : 'Low Sodium Cure'}</span>
+
+          {/* Metric 3 */}
+          <div className="sp-metric-card">
+            <div className="sp-metric-header">
+              <div className="sp-metric-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  <path d="M9 12l2 2 4-4" />
+                </svg>
+              </div>
+              <span className="sp-metric-micro-pill">{ar ? 'ملوحة مثالية' : 'Balanced Salt'}</span>
+            </div>
+            <div className="sp-metric-number">48h</div>
+            <h4 className="sp-metric-title">{ar ? 'تمليح بحري خفيف هادئ' : 'Low Sodium Cure'}</h4>
+            <p className="sp-metric-desc">{ar ? 'ملوحة منضبطة تناسب جميع الأذواق والعائلات' : 'Carefully monitored salting preserving high omega-3'}</p>
           </div>
-          <div className="sp-metric-sep" />
-          <div className="sp-metric-unit">
-            <span className="sp-metric-highlight">ISO 22000</span>
-            <span className="sp-metric-label">{ar ? 'معتمد سلامة غذاء' : 'HACCP & NFSA Certified'}</span>
+
+          {/* Metric 4 */}
+          <div className="sp-metric-card">
+            <div className="sp-metric-header">
+              <div className="sp-metric-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+              </div>
+              <span className="sp-metric-micro-pill">{ar ? 'اعتماد دولي' : 'Certified'}</span>
+            </div>
+            <div className="sp-metric-number font-iso">ISO 22000</div>
+            <h4 className="sp-metric-title">{ar ? 'معتمد سلامة غذاء' : 'HACCP & NFSA Approved'}</h4>
+            <p className="sp-metric-desc">{ar ? 'إنتاج خاضع لرقابة هيئة سلامة الغذاء والمواصفات القياسية' : 'Strict food safety standards at our Belbeis facility'}</p>
           </div>
         </div>
 
