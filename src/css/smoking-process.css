@@ -1,4 +1,4 @@
-/* ─── LIGHT LUXURY SMOKING PROCESS BEFORE & AFTER SHOWCASE ────────────────── */
+/* ─── BRAND BLUE LUXURY SMOKING PROCESS SHOWCASE ─────────────────────────── */
 .smoking-process-sec {
   padding: 100px 8% 115px !important;
   background-color: var(--color-bg-cream) !important;
@@ -36,10 +36,10 @@
   font-size: 0.95rem;
 }
 
-.sp-gold-accent-line {
+.sp-blue-accent-line {
   width: 54px;
   height: 2.5px;
-  background-color: #b99653;
+  background-color: var(--color-primary);
   margin: 0 auto 20px;
 }
 
@@ -112,7 +112,7 @@
   max-height: 640px;
   overflow: hidden;
   background-color: #0c1821;
-  border: 2px solid #b99653;
+  border: 2px solid var(--color-primary);
   box-shadow: 0 16px 45px rgba(16, 42, 67, 0.12);
   cursor: ew-resize;
   user-select: none;
@@ -134,7 +134,7 @@
   pointer-events: none;
 }
 
-/* Badges on images */
+/* Badges on images (Inside each layer so they clip automatically with the slider) */
 .sp-tag-pill {
   position: absolute;
   bottom: 24px;
@@ -142,7 +142,7 @@
   align-items: center;
   gap: 10px;
   padding: 10px 18px;
-  background: rgba(12, 24, 33, 0.88);
+  background: rgba(12, 24, 33, 0.9);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: var(--color-white);
@@ -154,6 +154,7 @@
   z-index: 5;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
   pointer-events: none;
+  white-space: nowrap;
 }
 
 [dir="rtl"] .sp-tag-pill {
@@ -161,12 +162,12 @@
   font-size: 0.88rem;
 }
 
-.sp-tag-gold {
+.sp-tag-after {
   inset-inline-end: 24px;
-  border-color: #b99653;
+  border-color: var(--color-logo-cyan);
 }
 
-.sp-tag-silver {
+.sp-tag-before {
   inset-inline-start: 24px;
   border-color: rgba(255, 255, 255, 0.4);
 }
@@ -178,9 +179,9 @@
   display: inline-block;
 }
 
-.sp-tag-dot.dot-gold {
-  background-color: #b99653;
-  box-shadow: 0 0 10px #b99653;
+.sp-tag-dot.dot-primary {
+  background-color: var(--color-logo-cyan);
+  box-shadow: 0 0 10px var(--color-primary);
 }
 
 .sp-tag-dot.dot-silver {
@@ -206,7 +207,7 @@
 .sp-splitter-line {
   width: 3px;
   flex: 1;
-  background: linear-gradient(180deg, rgba(185, 150, 83, 0.4), #b99653, rgba(185, 150, 83, 0.4));
+  background: linear-gradient(180deg, rgba(32, 95, 166, 0.3), var(--color-primary), rgba(32, 95, 166, 0.3));
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
@@ -214,10 +215,10 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: #b99653;
-  color: #0c1821;
+  background: var(--color-primary);
+  color: var(--color-white);
   border: 3px solid #ffffff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 20px rgba(16, 42, 67, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -229,7 +230,7 @@
 
 .sp-slider-canvas:active .sp-splitter-knob {
   transform: scale(1.15);
-  background: #d4a955;
+  background: var(--color-primary-dark);
 }
 
 .sp-instruction-pill {
@@ -269,16 +270,16 @@
 
 .sp-dual-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(185, 150, 83, 0.4);
+  border-color: rgba(32, 95, 166, 0.4);
   box-shadow: 0 16px 36px rgba(16, 42, 67, 0.1);
 }
 
 .sp-card-raw {
-  border-top: 4px solid var(--color-primary);
+  border-top: 4px solid var(--color-text-muted);
 }
 
 .sp-card-smoked {
-  border-top: 4px solid #b99653;
+  border-top: 4px solid var(--color-primary);
 }
 
 .sp-dual-photo-wrap {
@@ -319,8 +320,8 @@
   letter-spacing: 0;
 }
 
-.sp-stage-badge-top.gold {
-  border-inline-start: 3px solid #b99653;
+.sp-stage-badge-top.primary {
+  border-inline-start: 3px solid var(--color-primary);
 }
 
 .sp-stage-badge-top.silver {
@@ -353,9 +354,9 @@
   flex-shrink: 0;
 }
 
-.sp-status-dot.gold {
-  background: #b99653;
-  box-shadow: 0 0 10px rgba(185, 150, 83, 0.5);
+.sp-status-dot.primary {
+  background: var(--color-primary);
+  box-shadow: 0 0 10px rgba(32, 95, 166, 0.5);
 }
 
 .sp-status-dot.silver {
@@ -416,17 +417,17 @@
 
 .sp-step-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(185, 150, 83, 0.4);
-  box-shadow: 0 8px 24px rgba(185, 150, 83, 0.12);
+  border-color: rgba(32, 95, 166, 0.4);
+  box-shadow: 0 8px 24px rgba(32, 95, 166, 0.12);
 }
 
 .sp-step-num {
   font-family: var(--font-serif);
   font-size: 1.6rem;
-  color: #b99653;
+  color: var(--color-primary);
   line-height: 1;
   margin-bottom: 10px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .sp-step-card h4 {
@@ -468,9 +469,9 @@
 .sp-metric-highlight {
   font-family: var(--font-serif);
   font-size: 2.2rem;
-  color: #b99653;
+  color: var(--color-primary);
   line-height: 1;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .sp-metric-label {
@@ -529,10 +530,10 @@
     padding: 6px 12px;
     font-size: 0.72rem;
   }
-  .sp-tag-gold {
+  .sp-tag-after {
     inset-inline-end: 12px;
   }
-  .sp-tag-silver {
+  .sp-tag-before {
     inset-inline-start: 12px;
   }
   .sp-steps-row {

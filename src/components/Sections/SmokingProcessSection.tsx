@@ -55,6 +55,23 @@ export const SmokingProcessSection: React.FC<SmokingProcessSectionProps> = ({
     updatePosition(e.clientX);
   };
 
+  // Clipping calculation:
+  // In RTL:
+  // - sliderPosition is % from right (0% = right edge, 100% = left edge).
+  // - Before is on the RIGHT half: visible from 0 to sliderPosition -> inset(0 0 0 (100 - sliderPosition)%)
+  // - After is on the LEFT half: visible from sliderPosition to 100 -> inset(0 sliderPosition% 0 0)
+  // In LTR:
+  // - sliderPosition is % from left (0% = left edge, 100% = right edge).
+  // - Before is on the LEFT half: visible from 0 to sliderPosition -> inset(0 (100 - sliderPosition)% 0 0)
+  // - After is on the RIGHT half: visible from sliderPosition to 100 -> inset(0 0 0 sliderPosition%)
+  const clipBefore = ar
+    ? `inset(0 0 0 ${100 - sliderPosition}%)`
+    : `inset(0 ${100 - sliderPosition}% 0 0)`;
+
+  const clipAfter = ar
+    ? `inset(0 ${sliderPosition}% 0 0)`
+    : `inset(0 0 0 ${sliderPosition}%)`;
+
   return (
     <section className={`smoking-process-sec ${className}`} id={id}>
       <div className="container">
@@ -64,14 +81,14 @@ export const SmokingProcessSection: React.FC<SmokingProcessSectionProps> = ({
           <span className="sp-eyebrow">
             {ar ? 'أسرار الصنعة الحرفية بمصنعنا' : 'FACTORY ARTISANAL CRAFT'}
           </span>
-          <div className="sp-gold-accent-line" />
+          <div className="sp-blue-accent-line" />
           <h2 className="sp-main-title">
-            {ar ? 'رحلة التحول الذهبي: قبل وبعد التدخين' : 'The Golden Masterpiece: Before & After Smoking'}
+            {ar ? 'رحلة الصنعة والتدخين: قبل وبعد' : 'Artisanal Transformation: Before & After Smoking'}
           </h2>
           <p className="sp-lead-text">
             {ar
-              ? 'شاهد بالصور الحقيقية من داخل عنابر مصنعنا ببلبيس، الفارق المبهر بين سمك الرنجة الفضي الطازج بعد التمليح والتجهيز، والتحول الملكي إلى اللون الذهبي الفاخر بعد 12 ساعة من التدخين البطيء بنشارة خشب الزان الطبيعي.'
-              : 'Witness authentic photography from our Belbeis facility — the dramatic contrast between raw ocean-silver cured fish and the royal golden luster achieved after 12 hours of slow cold smoking with natural beechwood.'}
+              ? 'شاهد بالصور الحقيقية من داخل عنابر مصنعنا ببلبيس، الفارق الواضح بين سمك الرنجة الفضي الطازج بعد التمليح والتجهيز، والتحول بعد 12 ساعة من التدخين البطيء بنشارة خشب الزان الطبيعي.'
+              : 'Witness authentic photography from our Belbeis facility — the distinct contrast between raw ocean-silver cured fish and the rich texture achieved after 12 hours of slow cold smoking with natural beechwood.'}
           </p>
 
           {/* View Mode Switcher */}
@@ -114,36 +131,35 @@ export const SmokingProcessSection: React.FC<SmokingProcessSectionProps> = ({
               onPointerCancel={handlePointerUp}
               onClick={handleSliderClick}
             >
-              {/* Bottom Image: After Smoking (Golden) */}
-              <div className="sp-layer sp-layer-after">
+              {/* After Smoking Layer (Clipped seamlessly with slider) */}
+              <div
+                className="sp-layer sp-layer-after"
+                style={{ clipPath: clipAfter }}
+              >
                 <img
                   src={imgAfter}
-                  alt={ar ? 'الأسماك بعد التدخين باللون الذهبي' : 'Fish after beechwood smoking'}
+                  alt={ar ? 'الأسماك بعد التدخين' : 'Fish after beechwood smoking'}
                   draggable={false}
                 />
-                <div className="sp-tag-pill sp-tag-gold">
-                  <span className="sp-tag-dot dot-gold" />
-                  <span>{ar ? 'بعد التدخين — الذهب المدخن الفاخر' : 'AFTER SMOKING — GOLDEN LUSTER'}</span>
+                <div className="sp-tag-pill sp-tag-after">
+                  <span className="sp-tag-dot dot-primary" />
+                  <span>{ar ? 'بعد التدخين — رنجة مدخنة فاخرة' : 'AFTER SMOKING — PREMIUM SMOKED'}</span>
                 </div>
               </div>
 
-              {/* Top Image: Before Smoking (Silver Raw) */}
+              {/* Before Smoking Layer (Clipped seamlessly with slider) */}
               <div
                 className="sp-layer sp-layer-before"
-                style={{
-                  clipPath: ar
-                    ? `inset(0 0 0 ${100 - sliderPosition}%)`
-                    : `inset(0 ${100 - sliderPosition}% 0 0)`,
-                }}
+                style={{ clipPath: clipBefore }}
               >
                 <img
                   src={imgBefore}
                   alt={ar ? 'الأسماك قبل التدخين بعد التمليح' : 'Fish before smoking after curing'}
                   draggable={false}
                 />
-                <div className="sp-tag-pill sp-tag-silver">
+                <div className="sp-tag-pill sp-tag-before">
                   <span className="sp-tag-dot dot-silver" />
-                  <span>{ar ? 'قبل التدخين — الخام الطازج والمملح' : 'BEFORE SMOKING — FRESH CURED'}</span>
+                  <span>{ar ? 'قبل التدخين — تمليح بحري طازج' : 'BEFORE SMOKING — FRESH CURED'}</span>
                 </div>
               </div>
 
@@ -167,8 +183,8 @@ export const SmokingProcessSection: React.FC<SmokingProcessSectionProps> = ({
               <span className="sp-pulse-icon">👆</span>
               <span>
                 {ar
-                  ? 'اسحب المقبض الذهبي يميناً ويساراً لمشاهدة التحول المذهل في اللون والقوام'
-                  : 'Drag or click the gold slider handle left and right to reveal the full transformation'}
+                  ? 'اسحب المقبض يميناً ويساراً لمشاهدة الفارق في اللون والقوام'
+                  : 'Drag or click the slider handle left and right to reveal the full transformation'}
               </span>
             </div>
           </div>
@@ -215,23 +231,23 @@ export const SmokingProcessSection: React.FC<SmokingProcessSectionProps> = ({
             <div className="sp-dual-card sp-card-smoked">
               <div className="sp-dual-photo-wrap">
                 <img src={imgAfter} alt={ar ? 'الرنجة بعد التدخين' : 'Herring after smoking'} />
-                <div className="sp-stage-badge-top gold">
-                  {ar ? 'المرحلة 2: التحول الذهبي' : 'STAGE 2: GOLDEN SMOKED'}
+                <div className="sp-stage-badge-top primary">
+                  {ar ? 'المرحلة 2: اكتمال التدخين' : 'STAGE 2: SLOW SMOKED'}
                 </div>
               </div>
               <div className="sp-dual-details">
                 <div className="sp-card-heading">
-                  <span className="sp-status-dot gold" />
-                  <h3>{ar ? 'بعد التدخين (الذهب الملكي)' : 'After Smoking (Golden Glory)'}</h3>
+                  <span className="sp-status-dot primary" />
+                  <h3>{ar ? 'بعد التدخين (الرنجة المدخنة)' : 'After Smoking (Smoked Herring)'}</h3>
                 </div>
                 <div className="sp-detail-grid">
                   <div className="sp-detail-item">
                     <span className="sp-detail-label">{ar ? 'المظهر الخارجي:' : 'Appearance:'}</span>
-                    <span className="sp-detail-val">{ar ? 'لون ذهبي برونزي متوهج 100% طبيعي' : 'Luminous golden-bronze coat'}</span>
+                    <span className="sp-detail-val">{ar ? 'لون كهرماني طبيعي غني ومتجانس' : 'Rich natural amber-smoked finish'}</span>
                   </div>
                   <div className="sp-detail-item">
                     <span className="sp-detail-label">{ar ? 'نوع الخشب:' : 'Wood Type:'}</span>
-                    <span className="sp-detail-val">{ar ? 'نشارة خشب الزان الألماني الطبيعي' : '100% natural German beechwood'}</span>
+                    <span className="sp-detail-val">{ar ? 'نشارة خشب الزان الطبيعي الخالص' : '100% natural beechwood sawdust'}</span>
                   </div>
                   <div className="sp-detail-item">
                     <span className="sp-detail-label">{ar ? 'زمن التدخين:' : 'Smoking Time:'}</span>
@@ -239,7 +255,7 @@ export const SmokingProcessSection: React.FC<SmokingProcessSectionProps> = ({
                   </div>
                   <div className="sp-detail-item">
                     <span className="sp-detail-label">{ar ? 'قوام ومذاق اللحم:' : 'Taste & Texture:'}</span>
-                    <span className="sp-detail-val">{ar ? 'زبدي مخملي يذوب مع نكهة تدخين ساحرة' : 'Velvety buttery melt-in-mouth finish'}</span>
+                    <span className="sp-detail-val">{ar ? 'زبدي متماسك يذوب مع نكهة تدخين راقية' : 'Velvety buttery melt-in-mouth finish'}</span>
                   </div>
                 </div>
               </div>
