@@ -25,7 +25,20 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
   });
 
   const toggleLanguage = () => {
-    setLanguage(prev => (prev === 'ar' ? 'en' : 'ar'));
+    setLanguage(prev => {
+      const next = prev === 'ar' ? 'en' : 'ar';
+      // Keep the URL in sync so the link can be shared and Googlebot can crawl it
+      if (typeof window !== 'undefined') {
+        const url = new URL(window.location.href);
+        if (next === 'ar') {
+          url.searchParams.delete('lang');
+        } else {
+          url.searchParams.set('lang', next);
+        }
+        window.history.replaceState({}, '', url.toString());
+      }
+      return next;
+    });
   };
 
   useEffect(() => {

@@ -16,7 +16,7 @@ export const useSEO = ({
   description,
   keywords,
   canonicalUrl = 'https://seed-elbalad.com/',
-  ogImage = 'https://seed-elbalad.com/assets/logo.png',
+  ogImage = 'https://seed-elbalad.com/images/og-home.jpg',
   ogType = 'website',
   schema,
   lang = 'ar',
@@ -52,14 +52,20 @@ export const useSEO = ({
     setMetaTag('property', 'og:description', description);
     setMetaTag('property', 'og:url', canonicalUrl);
     setMetaTag('property', 'og:image', ogImage);
+    setMetaTag('property', 'og:image:width', '1200');
+    setMetaTag('property', 'og:image:height', '630');
+    setMetaTag('property', 'og:image:alt', title);
     setMetaTag('property', 'og:type', ogType);
     setMetaTag('property', 'og:site_name', 'Seed El-balad - سيد البلد');
+    setMetaTag('property', 'og:locale', lang === 'ar' ? 'ar_EG' : 'en_US');
+    setMetaTag('property', 'og:locale:alternate', lang === 'ar' ? 'en_US' : 'ar_EG');
 
     // Twitter Card Meta Tags
     setMetaTag('name', 'twitter:card', 'summary_large_image');
     setMetaTag('name', 'twitter:title', fullTitle);
     setMetaTag('name', 'twitter:description', description);
     setMetaTag('name', 'twitter:image', ogImage);
+    setMetaTag('name', 'twitter:image:alt', title);
     setMetaTag('name', 'twitter:url', canonicalUrl);
 
     // Canonical URL
@@ -70,6 +76,24 @@ export const useSEO = ({
       document.head.appendChild(linkCanonical);
     }
     linkCanonical.setAttribute('href', canonicalUrl);
+
+    // hreflang Alternate Links
+    const setHreflang = (hreflang: string, href: string) => {
+      let el = document.querySelector(`link[rel="alternate"][hreflang="${hreflang}"]`) as HTMLLinkElement;
+      if (!el) {
+        el = document.createElement('link');
+        el.setAttribute('rel', 'alternate');
+        el.setAttribute('hreflang', hreflang);
+        document.head.appendChild(el);
+      }
+      el.setAttribute('href', href);
+    };
+
+    // Build ar/en alternate URLs from canonical
+    const canonicalBase = canonicalUrl.split('?')[0];
+    setHreflang('ar', canonicalBase);
+    setHreflang('en', `${canonicalBase}?lang=en`);
+    setHreflang('x-default', canonicalBase);
 
     // JSON-LD Structured Data Schema
     let schemaScript = document.getElementById('dynamic-seo-schema') as HTMLScriptElement;
@@ -106,6 +130,11 @@ export const useSEO = ({
           latitude: 30.4192,
           longitude: 31.5647,
         },
+        hasMap: 'https://maps.app.goo.gl/4XrjBhoWF4qXuxzGA',
+        sameAs: [
+          'https://www.facebook.com/seedelbalad',
+          'https://www.instagram.com/seedelbalad',
+        ],
       };
       schemaScript.textContent = JSON.stringify(defaultSchema, null, 2);
     }
