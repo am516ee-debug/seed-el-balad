@@ -36,7 +36,7 @@ export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate, onSearc
 
   useEffect(() => {
     const handleScroll = () => {
-      if (currentView === 'contact' || currentView === 'collection') {
+      if (currentView === 'contact' || currentView === 'collection' || currentView === 'privacy-policy') {
         setIsScrolled(true);
         return;
       }
@@ -222,6 +222,13 @@ export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate, onSearc
           onClick={(e) => { e.preventDefault(); handleNavClick('contact-section'); }}
         >
           {t('nav.contact')}
+        </a>
+        <a 
+          href="/privacy-policy" 
+          className={currentView === 'privacy-policy' ? 'active' : ''}
+          onClick={(e) => { e.preventDefault(); setIsMenuOpen(false); onNavigate('privacy-policy'); }}
+        >
+          {language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}
         </a>
         <button 
           type="button"

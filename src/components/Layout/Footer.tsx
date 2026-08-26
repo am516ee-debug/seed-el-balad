@@ -9,7 +9,7 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
 
   const handleScrollToSection = (id: string) => {
     if (id === 'products-section') {
@@ -86,6 +86,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <li>
                 <a href="#contact" onClick={(e) => { e.preventDefault(); handleScrollToSection('contact-section'); }}>
                   {t('nav.contact')}
+                </a>
+              </li>
+              <li>
+                <a href="/privacy-policy" onClick={(e) => { e.preventDefault(); onNavigate('privacy-policy'); }}>
+                  {language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}
                 </a>
               </li>
             </ul>
