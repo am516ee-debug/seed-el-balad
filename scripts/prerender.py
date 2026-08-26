@@ -1,4 +1,4 @@
-﻿import os
+import os
 import re
 
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -35,6 +35,7 @@ pages = [
     {"path": "why-us", "title": "لماذا تختارنا | معايير الجودة والأيزو | سيد البلد", "desc": "اكتشف سر تميز سيد البلد: تدخين طبيعي بخلاصة خشب الزان، تمليح خفيف، تغليف فاكيوم بدون روائح، وشهادات الأيزو ISO 22000.", "image": "https://seed-elbalad.com/images/og-why-us.jpg"},
     {"path": "locations", "title": "مواقعنا وتغطيتنا | مصنع بلبيس وشبكة التوزيع | سيد البلد", "desc": "مقر مصنع شركة جولد فودز ببلبيس الشرقية وشبكة توزيع منتجات سيد البلد للمطاعم وتجار الجملة والتجزئة في كافة المحافظات.", "image": "https://seed-elbalad.com/images/og-locations.jpg"},
     {"path": "contact", "title": "تواصل معنا | طلبات الجملة والتوزيع | سيد البلد", "desc": "تواصل مع إدارة مبيعات وتصدير سيد البلد وجولد فودز لطلبات التوريد، التوزيع، والضيافة في مصر والشرق الأوسط.", "image": "https://seed-elbalad.com/images/og-home.jpg"},
+    {"path": "privacy-policy", "title": "سياسة الخصوصية | Seed El Balad | Gold Foods", "desc": "تعرف على كيفية جمع واستخدام وحماية بياناتك الشخصية عند استخدام موقع Seed El Balad التابع لشركة Gold Foods.", "image": "https://seed-elbalad.com/images/og-home.jpg"},
 ]
 
 def render_page(out_dir, title, desc, url, og_image="https://seed-elbalad.com/images/og-home.jpg", extra_schema=""):

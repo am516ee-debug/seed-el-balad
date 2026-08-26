@@ -56,6 +56,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://seed-elbalad.com/contact" />
   </url>
   <url>
+    <loc>https://seed-elbalad.com/privacy-policy</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://seed-elbalad.com/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://seed-elbalad.com/privacy-policy?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://seed-elbalad.com/privacy-policy" />
+  </url>
+  <url>
     <loc>https://seed-elbalad.com/product/dutch-herring</loc>
     <lastmod>2026-08-25</lastmod>
     <changefreq>weekly</changefreq>

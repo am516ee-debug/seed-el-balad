@@ -11,6 +11,7 @@ import OurStoryPage from '../Views/OurStoryPage';
 import LocationsPage from '../Views/LocationsPage';
 import WhyUsPage from '../Views/WhyUsPage';
 import ContactPage from '../Views/ContactPage';
+import PrivacyPolicyPage from '../Views/PrivacyPolicyPage';
 import WholesaleCta from '../Sections/WholesaleCta';
 import { useTranslation } from '../../hooks/useTranslation';
 import useSEO from '../../hooks/useSEO';
@@ -27,7 +28,7 @@ export const Layout: React.FC = () => {
   const [selectedPdfTitle, setSelectedPdfTitle] = useState<string | null>(null);
   const [isPdfModalOpen, setIsPdfModalOpen] = useState(false);
 
-  const [currentView, setCurrentView] = useState<'home' | 'collection' | 'story' | 'locations' | 'why-us' | 'contact'>('home');
+  const [currentView, setCurrentView] = useState<'home' | 'collection' | 'story' | 'locations' | 'why-us' | 'contact' | 'privacy-policy'>('home');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
@@ -63,6 +64,10 @@ export const Layout: React.FC = () => {
       setIsProductModalOpen(false);
     } else if (path === 'contact') {
       setCurrentView('contact');
+      setSelectedProductId(null);
+      setIsProductModalOpen(false);
+    } else if (path === 'privacy-policy' || path === 'privacy') {
+      setCurrentView('privacy-policy');
       setSelectedProductId(null);
       setIsProductModalOpen(false);
     }
@@ -105,6 +110,11 @@ export const Layout: React.FC = () => {
       title: language === 'ar' ? 'تواصل معنا | طلبات الجملة والتوزيع' : 'Contact Us | Wholesale & Distribution Orders',
       desc: language === 'ar' ? 'تواصل مع إدارة مبيعات وتصدير سيد البلد وجولد فودز لطلبات التوريد، التوزيع، والضيافة في مصر والشرق الأوسط.' : 'Contact Seed El-Balad & Gold Foods for wholesale, catering, and export inquiries across Egypt and the Middle East.',
       path: 'contact'
+    },
+    'privacy-policy': {
+      title: language === 'ar' ? 'سياسة الخصوصية | Seed El Balad | Gold Foods' : 'Privacy Policy | Seed El-balad | Gold Foods',
+      desc: language === 'ar' ? 'تعرف على كيفية جمع واستخدام وحماية بياناتك الشخصية عند استخدام موقع Seed El Balad التابع لشركة Gold Foods.' : 'Learn how Seed El-balad by Gold Foods collects, uses, and protects your personal data when using our website and services.',
+      path: 'privacy-policy'
     }
   };
 
@@ -151,7 +161,7 @@ export const Layout: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleNavigate = (view: 'home' | 'collection' | 'story' | 'locations' | 'why-us' | 'contact', sectionId?: string) => {
+  const handleNavigate = (view: 'home' | 'collection' | 'story' | 'locations' | 'why-us' | 'contact' | 'privacy-policy', sectionId?: string) => {
     setCurrentView(view);
     setSearchQuery('');
     const targetPath = view === 'home' ? '/' : `/${view}`;
@@ -225,10 +235,13 @@ export const Layout: React.FC = () => {
         {currentView === 'contact' && (
           <ContactPage />
         )}
+        {currentView === 'privacy-policy' && (
+          <PrivacyPolicyPage onNavigate={handleNavigate} />
+        )}
       </main>
 
-      {/* Footer CTA Banner (Shown on all pages except Contact) */}
-      {currentView !== 'contact' && (
+      {/* Footer CTA Banner (Shown on all pages except Contact and Privacy Policy) */}
+      {currentView !== 'contact' && currentView !== 'privacy-policy' && (
         <WholesaleCta 
           onExploreClick={currentView !== 'collection' ? () => handleNavigate('collection') : undefined} 
         />

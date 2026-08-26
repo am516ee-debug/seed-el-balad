@@ -5,8 +5,8 @@ import logoPng from '../../assets/images/seed-el-balad/logo.webp';
 import '../../css/header.css';
 
 interface HeaderProps {
-  currentView: 'home' | 'collection' | 'story' | 'locations' | 'why-us' | 'contact';
-  onNavigate: (view: 'home' | 'collection' | 'story' | 'locations' | 'why-us' | 'contact', sectionId?: string) => void;
+  currentView: 'home' | 'collection' | 'story' | 'locations' | 'why-us' | 'contact' | 'privacy-policy';
+  onNavigate: (view: 'home' | 'collection' | 'story' | 'locations' | 'why-us' | 'contact' | 'privacy-policy', sectionId?: string) => void;
   onSearch?: (query: string) => void;
 }
 

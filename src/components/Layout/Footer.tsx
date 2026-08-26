@@ -4,11 +4,11 @@ import logoPng from '../../assets/images/seed-el-balad/logo.webp';
 import '../../css/footer.css';
 
 interface FooterProps {
-  onOpenPrivacy: () => void;
-  onNavigate: (view: 'home' | 'collection' | 'story' | 'locations' | 'why-us' | 'contact', sectionId?: string) => void;
+  onOpenPrivacy?: () => void;
+  onNavigate: (view: 'home' | 'collection' | 'story' | 'locations' | 'why-us' | 'contact' | 'privacy-policy', sectionId?: string) => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onNavigate }) => {
+export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const { t } = useTranslation();
 
   const handleScrollToSection = (id: string) => {
@@ -140,9 +140,16 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onNavigate }) => 
             © {new Date().getFullYear()} Gold Foods. All rights reserved. Brand: Seed El-balad.
           </div>
           <div className="footer-legal-links">
-            <button type="button" onClick={onOpenPrivacy}>
+            <a 
+              href="/privacy-policy" 
+              onClick={(e) => { 
+                e.preventDefault(); 
+                onNavigate('privacy-policy'); 
+              }}
+              style={{ color: 'inherit', textDecoration: 'none', cursor: 'pointer', fontSize: '0.85rem' }}
+            >
               {t('cookies.privacy')}
-            </button>
+            </a>
           </div>
         </div>
       </div>
