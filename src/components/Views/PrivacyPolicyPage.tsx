@@ -90,7 +90,7 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onNavigate
               <span>{isAr ? '٤. ملفات الكوكيز' : '4. Cookies Policy'}</span>
             </a>
             <a href="#analytics-pixel" className="privacy-toc-link">
-              <span>{isAr ? '٥. التحليلات وMeta Pixel' : '5. Analytics & Pixel'}</span>
+              <span>{isAr ? '٥. التحليلات وبيكسل ميتا' : '5. Analytics & Meta Pixel'}</span>
             </a>
             <a href="#security" className="privacy-toc-link">
               <span>{isAr ? '٦. حماية البيانات' : '6. Data Security'}</span>
