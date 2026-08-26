@@ -217,18 +217,18 @@ export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate, onSearc
           {t('nav.stores')}
         </a>
         <a 
-          href="#contact" 
-          className={currentView === 'contact' ? 'active' : ''}
-          onClick={(e) => { e.preventDefault(); handleNavClick('contact-section'); }}
-        >
-          {t('nav.contact')}
-        </a>
-        <a 
           href="/privacy-policy" 
           className={currentView === 'privacy-policy' ? 'active' : ''}
           onClick={(e) => { e.preventDefault(); setIsMenuOpen(false); onNavigate('privacy-policy'); }}
         >
           {language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}
+        </a>
+        <a 
+          href="#contact" 
+          className={currentView === 'contact' ? 'active' : ''}
+          onClick={(e) => { e.preventDefault(); handleNavClick('contact-section'); }}
+        >
+          {t('nav.contact')}
         </a>
         <button 
           type="button"

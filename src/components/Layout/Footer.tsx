@@ -84,13 +84,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </a>
               </li>
               <li>
-                <a href="#contact" onClick={(e) => { e.preventDefault(); handleScrollToSection('contact-section'); }}>
-                  {t('nav.contact')}
+                <a href="/privacy-policy" onClick={(e) => { e.preventDefault(); onNavigate('privacy-policy'); }}>
+                  {language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}
                 </a>
               </li>
               <li>
-                <a href="/privacy-policy" onClick={(e) => { e.preventDefault(); onNavigate('privacy-policy'); }}>
-                  {language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}
+                <a href="#contact" onClick={(e) => { e.preventDefault(); handleScrollToSection('contact-section'); }}>
+                  {t('nav.contact')}
                 </a>
               </li>
             </ul>
