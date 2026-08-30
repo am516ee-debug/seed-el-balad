@@ -144,14 +144,6 @@ export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate, onSearc
             <span className="n">0</span>
           </button>
 
-          {/* Account Icon */}
-          <button className="item ic desktop-only" id="accountBtn" type="button" aria-label="Your Account">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25">
-              <circle cx="12" cy="8" r="3.4"/>
-              <path d="M5.5 20c0-3.5 3-6.1 6.5-6.1S18.5 16.5 18.5 20"/>
-            </svg>
-          </button>
-
           {/* Cart Icon */}
           <button className="item ic cart" id="cartBtn" type="button" aria-label="Your basket">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25">
