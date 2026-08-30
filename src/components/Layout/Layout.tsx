@@ -128,6 +128,13 @@ export const Layout: React.FC = () => {
     lang: language
   });
 
+  // Track TikTok Pixel pageviews on SPA view changes
+  useEffect(() => {
+    if (typeof window !== 'undefined' && (window as any).ttq?.page) {
+      (window as any).ttq.page();
+    }
+  }, [currentView, selectedProductId]);
+
   const handleSelectProduct = (id: string) => {
     setSelectedProductId(id);
     setIsProductModalOpen(true);
