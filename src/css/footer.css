@@ -77,15 +77,16 @@
   align-items: center;
   justify-content: center;
   background-color: #ffffff;
-  border: 1px solid rgba(185, 150, 83, 0.22);
-  color: var(--color-text-ink);
+  border: 1px solid rgba(32, 95, 166, 0.22);
+  color: var(--color-primary);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   text-decoration: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 2px 6px rgba(32, 95, 166, 0.05);
 }
 
 .social-btn svg {
+  color: var(--color-primary);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease, fill 0.3s ease;
 }
 
@@ -95,6 +96,7 @@
 }
 
 .social-btn:hover svg {
+  color: #ffffff;
   transform: scale(1.1);
 }
 
