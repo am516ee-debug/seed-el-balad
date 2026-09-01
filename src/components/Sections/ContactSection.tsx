@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from '../../hooks/useTranslation';
+import { PixelService } from '../../utils/pixel';
 import '../../css/home.css';
 
 export const ContactSection: React.FC = () => {
@@ -17,6 +18,10 @@ export const ContactSection: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Track Meta & TikTok Lead / Contact events
+    PixelService.trackLead('Contact Form Inquiry');
+    PixelService.trackContact('WhatsApp Form Inquiry');
 
     const formattedText = language === 'ar'
       ? `💬 رسالة جديدة من موقع سيد البلد:\n\n👤 الاسم: ${name}\n📧 البريد: ${email}\n📞 الهاتف: ${phone}\n✉️ الرسالة:\n${message}`

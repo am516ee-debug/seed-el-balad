@@ -16,6 +16,7 @@ import WholesaleCta from '../Sections/WholesaleCta';
 import { useTranslation } from '../../hooks/useTranslation';
 import useSEO from '../../hooks/useSEO';
 import { ProductHelper } from '../../helpers/ProductHelper';
+import { PixelService } from '../../utils/pixel';
 
 export const Layout: React.FC = () => {
   const { language } = useTranslation();
@@ -128,11 +129,9 @@ export const Layout: React.FC = () => {
     lang: language
   });
 
-  // Track TikTok Pixel pageviews on SPA view changes
+  // Track Meta & TikTok Pixel pageviews on SPA view changes
   useEffect(() => {
-    if (typeof window !== 'undefined' && (window as any).ttq?.page) {
-      (window as any).ttq.page();
-    }
+    PixelService.trackPageView();
   }, [currentView, selectedProductId]);
 
   const handleSelectProduct = (id: string) => {

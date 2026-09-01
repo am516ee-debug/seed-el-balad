@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from '../../hooks/useTranslation';
 import { ProductHelper } from '../../helpers/ProductHelper';
 import useSEO from '../../hooks/useSEO';
+import { PixelService } from '../../utils/pixel';
 import '../../css/shared.css';
 
 interface ProductModalProps {
@@ -64,15 +65,19 @@ export const ProductModal: React.FC<ProductModalProps> = ({ productId, isOpen, o
     return null;
   }
 
-  // Prevent scroll when modal is open
+  // Prevent scroll when modal is open and track ViewContent
   React.useEffect(() => {
+    if (isOpen && product) {
+      PixelService.trackViewContent(product, language);
+    }
     document.body.style.overflow = 'hidden';
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, []);
+  }, [isOpen, product, language]);
 
   const handleOrder = () => {
+    PixelService.trackContact(`WhatsApp Product Order: ${product.title.en}`);
     const text = language === 'ar' 
       ? `مرحباً جولد فودز، أريد الاستفسار عن منتج سيد البلد: ${product.title.ar} وطلب كمية توزيع / جملة منه.`
       : `Hello Gold Foods, I would like to inquire about the Seed El-balad product: ${product.title.en} for wholesale/distribution.`;

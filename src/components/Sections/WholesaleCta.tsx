@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../../hooks/useLanguage';
+import { PixelService } from '../../utils/pixel';
 import imgFactory from '../../assets/images/seed-el-balad/img_22.webp';
 
 interface WholesaleCtaProps {
@@ -73,7 +74,10 @@ export const WholesaleCta: React.FC<WholesaleCtaProps> = ({ onExploreClick }) =>
           <button 
             type="button" 
             className="btn-primary" 
-            onClick={() => window.open('https://wa.me/201032033302', '_blank')}
+            onClick={() => {
+              PixelService.trackContact('Home Banner WhatsApp Order');
+              window.open('https://wa.me/201032033302', '_blank');
+            }}
             style={{
               padding: '14px 32px',
               fontSize: '0.88rem',

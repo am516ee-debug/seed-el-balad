@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { StoresSection } from '../Sections/StoresSection';
 import { useTranslation } from '../../hooks/useTranslation';
+import { PixelService } from '../../utils/pixel';
 import imgHero from '../../assets/images/seed-el-balad/herosection.webp';
 
 export const LocationsPage: React.FC = () => {
@@ -12,6 +13,7 @@ export const LocationsPage: React.FC = () => {
   }, []);
 
   const handleWhatsAppClick = () => {
+    PixelService.trackContact('Locations WhatsApp Chat');
     window.open('https://wa.me/201032033302', '_blank');
   };
 

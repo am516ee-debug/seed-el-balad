@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../../hooks/useLanguage';
 import { useTranslation } from '../../hooks/useTranslation';
+import { PixelService } from '../../utils/pixel';
 import logoPng from '../../assets/images/seed-el-balad/logo.webp';
 import '../../css/header.css';
 
@@ -80,6 +81,7 @@ export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate, onSearc
   };
 
   const handleWhatsAppCall = () => {
+    PixelService.trackContact('Header WhatsApp Call');
     window.open('https://wa.me/201032033302', '_blank');
   };
 
