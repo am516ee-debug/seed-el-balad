@@ -61,20 +61,20 @@ export const ProductModal: React.FC<ProductModalProps> = ({ productId, isOpen, o
     lang: language
   });
 
-  if (!isOpen || !product) {
-    return null;
-  }
-
   // Prevent scroll when modal is open and track ViewContent
   React.useEffect(() => {
     if (isOpen && product) {
       PixelService.trackViewContent(product, language);
+      document.body.style.overflow = 'hidden';
     }
-    document.body.style.overflow = 'hidden';
     return () => {
       document.body.style.overflow = 'unset';
     };
   }, [isOpen, product, language]);
+
+  if (!isOpen || !product) {
+    return null;
+  }
 
   const handleOrder = () => {
     PixelService.trackContact(`WhatsApp Product Order: ${product.title.en}`);

@@ -9,17 +9,19 @@ interface PdfModalProps {
 }
 
 export const PdfModal: React.FC<PdfModalProps> = ({ pdfUrl, pdfTitle, isOpen, onClose }) => {
-  if (!isOpen || !pdfUrl) {
-    return null;
-  }
-
   // Prevent background scroll when modal is open
   React.useEffect(() => {
-    document.body.style.overflow = 'hidden';
+    if (isOpen && pdfUrl) {
+      document.body.style.overflow = 'hidden';
+    }
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, []);
+  }, [isOpen, pdfUrl]);
+
+  if (!isOpen || !pdfUrl) {
+    return null;
+  }
 
   const isImage = pdfUrl.endsWith('.png') || pdfUrl.endsWith('.jpg') || pdfUrl.endsWith('.jpeg');
 
